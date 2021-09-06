@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp-project", "CSharp-project\CSharp-project.csproj", "{3998D2E7-B925-49A9-8FC1-B2ACFB36372F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FulBank", "FulBank\FulBank.csproj", "{3998D2E7-B925-49A9-8FC1-B2ACFB36372F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
