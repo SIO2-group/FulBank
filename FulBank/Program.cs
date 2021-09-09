@@ -6,7 +6,7 @@ namespace CSharp_project
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Salut");
         }
     }
 }
