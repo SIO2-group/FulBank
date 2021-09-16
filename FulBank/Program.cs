@@ -1,12 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace CSharp_project
+namespace Fulbank
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Point d'entrée principal de l'application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            Console.WriteLine("Salut");
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
         }
     }
 }
