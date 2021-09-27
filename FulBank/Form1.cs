@@ -16,5 +16,10 @@ namespace Fulbank
         {
             InitializeComponent();
         }
+
+        private void MenuComptes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
