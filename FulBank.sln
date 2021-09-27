@@ -1,9 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31019.35
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fulbank", "Fulbank\Fulbank.csproj", "{EB07B0A4-5388-4E71-8239-E19A0C8E2C79}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FulBank", "FulBank\FulBank.csproj", "{400AE327-1FEB-4464-AA4E-F354E0E22E5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EB07B0A4-5388-4E71-8239-E19A0C8E2C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB07B0A4-5388-4E71-8239-E19A0C8E2C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB07B0A4-5388-4E71-8239-E19A0C8E2C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB07B0A4-5388-4E71-8239-E19A0C8E2C79}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FC139DA9-1B0A-4403-9EE0-C49013818F80}
+		{400AE327-1FEB-4464-AA4E-F354E0E22E5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400AE327-1FEB-4464-AA4E-F354E0E22E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400AE327-1FEB-4464-AA4E-F354E0E22E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400AE327-1FEB-4464-AA4E-F354E0E22E5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
