@@ -26,9 +26,7 @@ namespace Fulbank
 
         private void TextUsername_TextChanged(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
-
-
     }
 }
