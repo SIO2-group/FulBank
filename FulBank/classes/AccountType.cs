@@ -21,16 +21,5 @@ namespace Fulbank.classes
             this.ceil = ceil;
         }
 
-  /*      public AccountType getAccountType(string type)
-        {
-            AccountType ReturnedType = new AccountType(0, "0", 0.00, 0); ;
-            switch (type)
-            {
-                case "A" : ReturnedType = new AccountType(0, "livret A", 0.50, 22950);
-                    break;
-            }
-
-            return ReturnedType;
-        } */
     }
 }

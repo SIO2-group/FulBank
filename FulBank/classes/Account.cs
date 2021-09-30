@@ -20,7 +20,14 @@ namespace Fulbank.classes
             this.balance = balance;
             this.rib = rib;
             this.name = name;
-            this.accountType = new AccountType(0, "0", 0, 0);
+            switch (type)
+            {
+                case "A": this.accountType = new AccountType(1, "Livret A", 0.25, 22950);
+                    break;
+                case "Cheque":
+                    this.accountType = new AccountType(2, "Compte chèque", 0, 1000000000);
+                    break;
+            }
         }
     }
 }
