@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Fulbank.classes
+﻿namespace Fulbank.classes
 {
     class Transfer
     {
-        private int id;
-        private double amount;
-        private Account accountFrom;
-        private Account accountTo;
+        private int _id;
+        private double _amount;
+        private Account _accountFrom;
+        private Account _accountTo;
 
         public Transfer(int id, double amount, Account accountFrom, Account accountTo)
         {
-            this.id = id;
-            this.amount = amount;
-            this.accountFrom = accountFrom;
-            this.accountTo = accountTo;
+            _id = id;
+            _amount = amount;
+            _accountFrom = accountFrom;
+            _accountTo = accountTo;
         }
     }
 }

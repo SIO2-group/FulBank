@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Fulbank.classes
+﻿namespace Fulbank.classes
 {
     class Operation
     {
-        private int id;
-        private double amount;
-        private bool debit;
-        private User user;
-        private Account account;
-        private Terminal terminalUsed;
+        private int _id;
+        private double _amount;
+        private bool _debit;
+        private User _user;
+        private Account _account;
+        private Terminal _terminalUsed;
 
-        public Operation(int id, double amount, bool debit, User user, Account account, Terminal terminalUsed)
+        public Operation(
+            int id, double amount, bool debit, 
+            User user, Account account, Terminal terminalUsed
+            )
         {
-            this.id = id;
-            this.amount = amount;
-            this.debit = debit;
-            this.user = user;
-            this.account = account;
-            this.terminalUsed = terminalUsed;
+            _id = id;
+            _amount = amount;
+            _debit = debit;
+            _user = user;
+            _account = account;
+            _terminalUsed = terminalUsed;
         }
     }
 }
