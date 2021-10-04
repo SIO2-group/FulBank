@@ -30,12 +30,11 @@ namespace Fulbank
             Close();
         }
 
-   
-        }
-
         private void ButtonValider_Click(object sender, EventArgs e)
         {
             Close();
         }
     }
+
+    
 }
