@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
 using Form = System.Windows.Forms.Form;
+using MySql.Data.MySqlClient;
 
 namespace Fulbank
 {
@@ -18,6 +20,9 @@ namespace Fulbank
         {
             InitializeComponent();
         }
+
+        static string dsnConnection = "server=localhost;database=reigns;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
+        static MySqlConnection dbConnection = new MySqlConnection(dsnConnection);
 
         private void FormConnexion_Load(object sender, EventArgs e)
         {
@@ -32,7 +37,16 @@ namespace Fulbank
 
         private void ButtonValider_Click(object sender, EventArgs e)
         {
-            Close();
+            try
+            {
+                dbConnection.Open();
+            }
+            catch
+            {
+                MessageBox.Show("Connexion échouée");
+                Close();
+            }
+            
         }
     }
 
