@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fulbank;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,14 +11,19 @@ using System.Windows.Forms;
 
 namespace FulBank
 {
-    public partial class Form1 : Form
+    public partial class FormMain: System.Windows.Forms.Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
+            FormConnexion form2 = new FormConnexion();
         }
 
         private void MenuComptes_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Form_Load(object sender, EventArgs e)
         {
 
         }
