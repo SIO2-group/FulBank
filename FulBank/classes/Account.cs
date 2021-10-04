@@ -1,31 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Fulbank.classes
+﻿namespace Fulbank.classes
 {
     class Account
     {
-        private int id;
-        private float balance;
-        private string rib;
-        private string name;
-        private AccountType accountType;
+        private int _id;
+        private float _balance;
+        private string _rib;
+        private string _name;
+        private AccountType _accountType;
 
         public Account(int id, float balance, string rib, string name, string type)
         {
-            this.id = id;
-            this.balance = balance;
-            this.rib = rib;
-            this.name = name;
+            _id = id;
+            _balance = balance;
+            _rib = rib;
+            _name = name;
+            
             switch (type)
             {
-                case "A": this.accountType = new AccountType(1, "Livret A", 0.25, 22950);
+                case "A": _accountType = new AccountType(1, "Livret A", 0.25, 22950);
                     break;
                 case "Cheque":
-                    this.accountType = new AccountType(2, "Compte chèque", 0, 1000000000);
+                    _accountType = new AccountType(2, "Compte chèque", 0, 1000000000);
                     break;
             }
         }
