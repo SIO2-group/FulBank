@@ -69,6 +69,7 @@ namespace Fulbank
             this.ButtonValider.TabIndex = 3;
             this.ButtonValider.Text = "Valider";
             this.ButtonValider.UseVisualStyleBackColor = true;
+            this.ButtonValider.Click += new System.EventHandler(this.ButtonValider_Click);
             // 
             // FormConnexion
             // 

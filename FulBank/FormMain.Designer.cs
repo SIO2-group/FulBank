@@ -1,6 +1,6 @@
 ﻿namespace FulBank
 {
-    partial class Form
+    partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -68,7 +68,6 @@
             this.MenuProfil.Text = "Mon Profil";
             this.MenuProfil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MenuProfil.UseVisualStyleBackColor = true;
-            this.MenuProfil.Click += new System.EventHandler(this.MenuProfil_Click);
             // 
             // MenuCrypto
             // 
@@ -84,7 +83,6 @@
             this.MenuCrypto.Text = "Cryptomonnaies";
             this.MenuCrypto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MenuCrypto.UseVisualStyleBackColor = true;
-            this.MenuCrypto.Click += new System.EventHandler(this.MenuCrypto_Click);
             // 
             // MenuOperations
             // 
@@ -100,7 +98,6 @@
             this.MenuOperations.Text = "Retrait / Dépot";
             this.MenuOperations.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MenuOperations.UseVisualStyleBackColor = true;
-            this.MenuOperations.Click += new System.EventHandler(this.MenuOperations_Click);
             // 
             // MenuVirement
             // 
@@ -116,7 +113,6 @@
             this.MenuVirement.Text = "Virements";
             this.MenuVirement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MenuVirement.UseVisualStyleBackColor = true;
-            this.MenuVirement.Click += new System.EventHandler(this.MenuVirement_Click);
             // 
             // MenuComptes
             // 
@@ -145,15 +141,16 @@
             this.panelLogo.Size = new System.Drawing.Size(239, 80);
             this.panelLogo.TabIndex = 0;
             // 
-            // Form
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 492);
             this.Controls.Add(this.panelMenu);
             this.MinimumSize = new System.Drawing.Size(988, 533);
-            this.Name = "Form";
-            this.Text = "Fulbank - Connexion";
+            this.Name = "FormMain";
+            this.Text = "Fulbank - Main";
+            this.Load += new System.EventHandler(this.Form_Load);
             this.panelMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
