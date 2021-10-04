@@ -21,8 +21,8 @@ namespace Fulbank
             InitializeComponent();
         }
 
-        static string dsnConnection = "server=localhost;database=reigns;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
-        static MySqlConnection dbConnection = new MySqlConnection(dsnConnection);
+        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
+        static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
 
         private void FormConnexion_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,10 @@ namespace Fulbank
         {
             try
             {
-                dbConnection.Open();
+                dbConnexion.Open();
+                dbConnexion.Close();
+                FormMain main = new FormMain();
+                main.Show();
             }
             catch
             {
