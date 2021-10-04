@@ -1,6 +1,12 @@
-bin/
-obj/
-/packages/
+# IDE Configuration
+.idea
+.vs
 riderModule.iml
 /_ReSharper.Caches/
-.idea
+
+# Compiled files
+bin/
+obj/
+
+# Others
+/packages/
