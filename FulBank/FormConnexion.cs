@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data;
 using Form = System.Windows.Forms.Form;
 using MySql.Data.MySqlClient;
 
@@ -32,24 +31,48 @@ namespace Fulbank
         private void TextUsername_TextChanged(object sender, EventArgs e)
         {
 
-            Close();
         }
 
         private void ButtonValider_Click(object sender, EventArgs e)
         {
+
             try
             {
                 dbConnexion.Open();
-                dbConnexion.Close();
-                FormMain main = new FormMain();
-                main.Show();
+                try {
+                    string commandtext = "SELECT count(*) FROM user WHERE ID_P='" + TextUsername.Text + "' AND PASSWORD='" + TextPassword.Text + "'";
+                    MySqlCommand cmd = new MySqlCommand(commandtext, dbConnexion);
+                    int result = int.Parse(cmd.ExecuteScalar().ToString());
+                    if (result == 1)
+                    {
+                        Hide();
+                        FormMain form = new FormMain();
+                        form.Show();
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Identifiant ou Mot de passe incorrect");
+
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("géfaim");
+                }
+                    
+
+                
+
             }
             catch
             {
-                MessageBox.Show("Connexion échouée");
-                Close();
+                MessageBox.Show("Echec niktamere");
             }
+
             
+
+
         }
     }
 
