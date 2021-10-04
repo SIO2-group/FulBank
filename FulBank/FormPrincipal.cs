@@ -27,5 +27,25 @@ namespace FulBank
         {
 
         }
+
+        private void MenuVirement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuOperations_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuCrypto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuProfil_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

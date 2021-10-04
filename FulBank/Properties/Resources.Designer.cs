@@ -73,29 +73,9 @@ namespace Fulbank.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FULBANK1 {
-            get {
-                object obj = ResourceManager.GetObject("FULBANK1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap logo_comptes {
             get {
                 object obj = ResourceManager.GetObject("logo_comptes", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logo_comptes1 {
-            get {
-                object obj = ResourceManager.GetObject("logo_comptes1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

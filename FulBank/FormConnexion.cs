@@ -26,7 +26,15 @@ namespace Fulbank
 
         private void TextUsername_TextChanged(object sender, EventArgs e)
         {
+
+            Close();
+        }
+
+        private void ButtonValider_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }
+
+    
 }
