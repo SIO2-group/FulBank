@@ -14,16 +14,20 @@ namespace FulBank
 
     public partial class FormMain: System.Windows.Forms.Form
     {
-        public FormMain()
+        private string _userId;
+        public FormMain(string userId)
         {
             InitializeComponent();
+            _userId = userId;
         }
+        
 
-        private void MenuComptes_Click(object sender, EventArgs e)
+        private void FormMain_Load(object sender, EventArgs e)
         {
+
         }
 
-        private void Form_Load(object sender, EventArgs e)
+        private void MenuAccounts_Click(object sender, EventArgs e)
         {
 
         }
