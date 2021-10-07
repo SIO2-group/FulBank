@@ -39,42 +39,53 @@ namespace Fulbank
             try
             {
                 dbConnexion.Open();
-                try {
-                    string commandtext = "SELECT count(*) FROM user WHERE ID_P='" + TextUsername.Text + "' AND PASSWORD='" + TextPassword.Text + "'";
-                    MySqlCommand cmd = new MySqlCommand(commandtext, dbConnexion);
-                    int result = int.Parse(cmd.ExecuteScalar().ToString());
-                    if (result == 1)
+                string commandTextTestAdmin = "SELECT count(*) FROM admin WHERE ID_P='" + TextUsername.Text + "' AND PASSWORD='" + TextPassword.Text + "'";
+                MySqlCommand cmdAdmin = new MySqlCommand(commandTextTestAdmin, dbConnexion);
+                bool isAdmin = Convert.ToBoolean(int.Parse(cmdAdmin.ExecuteScalar().ToString()));
+                if (isAdmin == true)
+                {
+                    Hide();
+                    FormAdmin admin = new FormAdmin();
+                    admin.Show();
+                }
+                else
+                {
+                    string commandTextTestUser = "SELECT count(*) FROM user WHERE ID_P='" + TextUsername.Text + "' AND PASSWORD='" + TextPassword.Text + "'";
+                    MySqlCommand cmdUser = new MySqlCommand(commandTextTestUser, dbConnexion);
+                    bool isUser = Convert.ToBoolean(int.Parse(cmdUser.ExecuteScalar().ToString()));
+                    if (isUser == true)
                     {
                         Hide();
-                        FormMain form = new FormMain();
-                        form.Show();
+                        FormMain user = new FormMain(TextUsername.Text);
+                        user.Show();
+
                     }
                     else
                     {
-
                         MessageBox.Show("Identifiant ou Mot de passe incorrect");
-
                     }
                 }
-                catch
-                {
-                    MessageBox.Show("géfaim");
-                }
-                    
-
-                
-
+                dbConnexion.Close();
             }
             catch
             {
-                MessageBox.Show("Echec niktamere");
+                MessageBox.Show("Connexion à la base de donnée invalide");
             }
+                    
 
-            
+        }
 
-
+        private void CheckboxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckboxShowPassword.Checked == true)
+            {
+                TextPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                TextPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 
-    
 }

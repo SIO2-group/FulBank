@@ -4,15 +4,13 @@
     {
         private int _id;
         private float _balance;
-        private string _rib;
         private string _name;
         private AccountType _accountType;
 
-        public Account(int id, float balance, string rib, string name, string type)
+        public Account(int id, float balance, string name, string type)
         {
             _id = id;
             _balance = balance;
-            _rib = rib;
             _name = name;
             
             switch (type)
