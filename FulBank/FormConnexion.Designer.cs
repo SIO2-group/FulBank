@@ -33,6 +33,7 @@ namespace Fulbank
             this.TextPassword = new System.Windows.Forms.TextBox();
             this.LabelConnexion = new System.Windows.Forms.Label();
             this.ButtonValider = new System.Windows.Forms.Button();
+            this.CheckboxShowPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // TextUsername
@@ -71,11 +72,23 @@ namespace Fulbank
             this.ButtonValider.UseVisualStyleBackColor = true;
             this.ButtonValider.Click += new System.EventHandler(this.ButtonValider_Click);
             // 
+            // CheckboxShowPassword
+            // 
+            this.CheckboxShowPassword.AutoSize = true;
+            this.CheckboxShowPassword.Location = new System.Drawing.Point(337, 225);
+            this.CheckboxShowPassword.Name = "CheckboxShowPassword";
+            this.CheckboxShowPassword.Size = new System.Drawing.Size(143, 19);
+            this.CheckboxShowPassword.TabIndex = 5;
+            this.CheckboxShowPassword.Text = "Afficher mot de passe";
+            this.CheckboxShowPassword.UseVisualStyleBackColor = true;
+            this.CheckboxShowPassword.CheckedChanged += new System.EventHandler(this.CheckboxShowPassword_CheckedChanged);
+            // 
             // FormConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 492);
+            this.Controls.Add(this.CheckboxShowPassword);
             this.Controls.Add(this.ButtonValider);
             this.Controls.Add(this.LabelConnexion);
             this.Controls.Add(this.TextPassword);
@@ -94,5 +107,6 @@ namespace Fulbank
         private System.Windows.Forms.TextBox TextPassword;
         private System.Windows.Forms.Label LabelConnexion;
         private System.Windows.Forms.Button ButtonValider;
+        private System.Windows.Forms.CheckBox CheckboxShowPassword;
     }
 }
