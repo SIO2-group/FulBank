@@ -45,7 +45,7 @@ namespace Fulbank
                 if (isAdmin == true)
                 {
                     Hide();
-                    FormAdmin admin = new FormAdmin();
+                    FormAdmin admin = new FormAdmin(TextUsername.Text);
                     admin.Show();
                 }
                 else
