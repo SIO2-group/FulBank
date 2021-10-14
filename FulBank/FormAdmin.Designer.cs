@@ -257,7 +257,7 @@ namespace Fulbank
             this.textBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.textBox10.Location = new System.Drawing.Point(38, 292);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(181, 20);
+            this.textBox10.Size = new System.Drawing.Size(181, 19);
             this.textBox10.TabIndex = 7;
             this.textBox10.Text = "Sécurité";
             // 
@@ -412,7 +412,7 @@ namespace Fulbank
             this.ProfileCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.ProfileCategory.Location = new System.Drawing.Point(38, 60);
             this.ProfileCategory.Name = "ProfileCategory";
-            this.ProfileCategory.Size = new System.Drawing.Size(181, 20);
+            this.ProfileCategory.Size = new System.Drawing.Size(181, 19);
             this.ProfileCategory.TabIndex = 1;
             this.ProfileCategory.Text = "Général";
             // 
@@ -424,7 +424,7 @@ namespace Fulbank
             this.OwnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.OwnerName.Location = new System.Drawing.Point(38, 22);
             this.OwnerName.Name = "OwnerName";
-            this.OwnerName.Size = new System.Drawing.Size(181, 20);
+            this.OwnerName.Size = new System.Drawing.Size(181, 19);
             this.OwnerName.TabIndex = 0;
             this.OwnerName.Text = "{{nom du propriétaire}}";
             // 
