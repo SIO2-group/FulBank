@@ -31,6 +31,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.MenuProfil = new System.Windows.Forms.Button();
             this.MenuCrypto = new System.Windows.Forms.Button();
             this.MenuOperations = new System.Windows.Forms.Button();
@@ -38,14 +39,15 @@
             this.MenuAccounts = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
+            this.panelMenu.Controls.Add(this.panel6);
             this.panelMenu.Controls.Add(this.MenuProfil);
             this.panelMenu.Controls.Add(this.MenuCrypto);
             this.panelMenu.Controls.Add(this.MenuOperations);
@@ -55,8 +57,15 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(213, 492);
+            this.panelMenu.Size = new System.Drawing.Size(213, 548);
             this.panelMenu.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(213, 80);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(756, 468);
+            this.panel6.TabIndex = 17;
             // 
             // MenuProfil
             // 
@@ -105,6 +114,7 @@
             this.MenuOperations.Text = "Retrait / Dépot";
             this.MenuOperations.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MenuOperations.UseVisualStyleBackColor = true;
+            this.MenuOperations.Click += new System.EventHandler(this.MenuOperations_Click);
             // 
             // MenuVirement
             // 
@@ -161,27 +171,29 @@
             this.panel1.Size = new System.Drawing.Size(759, 80);
             this.panel1.TabIndex = 1;
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(305, 212);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 13);
-            this.textBox1.TabIndex = 2;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // panelMain
+            // 
+            this.panelMain.BackColor = System.Drawing.Color.Transparent;
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(213, 80);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(759, 468);
+            this.panelMain.TabIndex = 2;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 492);
-            this.Controls.Add(this.textBox1);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(972, 548);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
             this.MinimumSize = new System.Drawing.Size(988, 533);
@@ -190,7 +202,6 @@
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelMenu.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -204,7 +215,8 @@
         private System.Windows.Forms.Button MenuOperations;
         private System.Windows.Forms.Button MenuVirement;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panelMain;
     }
 }

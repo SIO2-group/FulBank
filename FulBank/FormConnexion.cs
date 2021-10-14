@@ -39,18 +39,18 @@ namespace Fulbank
             try
             {
                 dbConnexion.Open();
-                string commandTextTestAdmin = "SELECT count(*) FROM admin WHERE ID_P='" + TextUsername.Text + "' AND PASSWORD='" + TextPassword.Text + "'";
+                string commandTextTestAdmin = "SELECT count(*) FROM admin WHERE P_ID='" + TextUsername.Text + "' AND P_PASSWORD='" + TextPassword.Text + "'";
                 MySqlCommand cmdAdmin = new MySqlCommand(commandTextTestAdmin, dbConnexion);
                 bool isAdmin = Convert.ToBoolean(int.Parse(cmdAdmin.ExecuteScalar().ToString()));
                 if (isAdmin == true)
                 {
                     Hide();
                     FormAdmin admin = new FormAdmin();
-                    admin.Show();
+                        admin.Show();
                 }
                 else
                 {
-                    string commandTextTestUser = "SELECT count(*) FROM user WHERE ID_P='" + TextUsername.Text + "' AND PASSWORD='" + TextPassword.Text + "'";
+                    string commandTextTestUser = "SELECT count(*) FROM user WHERE P_ID='" + TextUsername.Text + "' AND P_PASSWORD='" + TextPassword.Text + "'";
                     MySqlCommand cmdUser = new MySqlCommand(commandTextTestUser, dbConnexion);
                     bool isUser = Convert.ToBoolean(int.Parse(cmdUser.ExecuteScalar().ToString()));
                     if (isUser == true)
