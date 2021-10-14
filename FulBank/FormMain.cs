@@ -39,13 +39,17 @@ namespace FulBank
         {
             ListFormMenu.Add(new FormAccount(_userId) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[0]);
+            ListFormMenu.Add(new FormOperation(_userId) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            panelMain.Controls.Add(ListFormMenu[1]);
+            ListFormMenu[1].Show();
+            ListFormMenu[0].Show();
         }
 
 
 
         private void MenuAccounts_Click(object sender, EventArgs e)
         {
-            ListFormMenu[0].Show();
+            ListFormMenu[0].BringToFront();
         }
 
         private void label1_Click(object sender, EventArgs e)

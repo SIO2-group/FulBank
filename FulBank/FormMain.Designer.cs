@@ -168,7 +168,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(213, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(759, 80);
+            this.panel1.Size = new System.Drawing.Size(775, 80);
             this.panel1.TabIndex = 1;
             // 
             // contextMenuStrip1
@@ -184,7 +184,7 @@
             this.panelMain.Location = new System.Drawing.Point(213, 80);
             this.panelMain.Margin = new System.Windows.Forms.Padding(0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(759, 468);
+            this.panelMain.Size = new System.Drawing.Size(775, 468);
             this.panelMain.TabIndex = 2;
             // 
             // FormMain
@@ -192,10 +192,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(972, 548);
+            this.ClientSize = new System.Drawing.Size(988, 548);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MinimumSize = new System.Drawing.Size(988, 533);
             this.Name = "FormMain";
             this.Text = "Fulbank - Main";

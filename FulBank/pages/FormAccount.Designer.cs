@@ -81,8 +81,7 @@ namespace Fulbank.pages
             this.panelAccounts.Controls.Add(this.panelAccount4);
             this.panelAccounts.Controls.Add(this.panelAccount2);
             this.panelAccounts.Controls.Add(this.panelAccount3);
-            this.panelAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAccounts.Location = new System.Drawing.Point(0, 0);
+            this.panelAccounts.Location = new System.Drawing.Point(9, 44);
             this.panelAccounts.Margin = new System.Windows.Forms.Padding(0);
             this.panelAccounts.Name = "panelAccounts";
             this.panelAccounts.Size = new System.Drawing.Size(800, 450);
@@ -482,7 +481,6 @@ namespace Fulbank.pages
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.ControlBox = false;
             this.Controls.Add(this.panelAccounts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAccount";
