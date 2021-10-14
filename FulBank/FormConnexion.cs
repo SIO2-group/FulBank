@@ -39,14 +39,17 @@ namespace Fulbank
             try
             {
                 dbConnexion.Open();
+
                 MySqlCommand cmdAdminSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + TextUsername.Text + "'", dbConnexion);
                 string AdminSalt = cmdAdminSalt.ExecuteScalar().ToString();
                 string commandTextTestAdmin = "SELECT count(*) FROM admin, person WHERE A_ID = P_ID AND P_ID='" + TextUsername.Text + "' AND P_PASSWORD='" + BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, AdminSalt) + "'";
+
                 MySqlCommand cmdAdmin = new MySqlCommand(commandTextTestAdmin, dbConnexion);
                 bool isAdmin = Convert.ToBoolean(int.Parse(cmdAdmin.ExecuteScalar().ToString()));
                 if (isAdmin == true)
                 {
                     Hide();
+
                     FormAdmin admin = new FormAdmin(TextUsername.Text);
                     new FormAdmin(TextUsername.Text).Show();
                     /*void ThreadProc()
@@ -61,6 +64,7 @@ namespace Fulbank
                     MySqlCommand cmdSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + TextUsername.Text + "'", dbConnexion);
                     string userSalt = cmdSalt.ExecuteScalar().ToString();
                     string commandTextTestUser = "SELECT count(*) FROM user, person WHERE U_ID = P_ID AND P_ID='" + TextUsername.Text + "' AND P_PASSWORD='" + BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, userSalt) + "'";
+
                     MySqlCommand cmdUser = new MySqlCommand(commandTextTestUser, dbConnexion);
                     bool isUser = Convert.ToBoolean(int.Parse(cmdUser.ExecuteScalar().ToString()));
                     if (isUser == true)
