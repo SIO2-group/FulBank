@@ -19,8 +19,7 @@ namespace Fulbank
         {
             InitializeComponent();
         }
-
-        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
+        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //String de connection à la bdd
         static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
 
         private void FormConnexion_Load(object sender, EventArgs e)
@@ -33,31 +32,47 @@ namespace Fulbank
 
         }
 
+
+
         private void ButtonValider_Click(object sender, EventArgs e)
         {
-
             try
             {
                 dbConnexion.Open();
-                string commandTextTestAdmin = "SELECT count(*) FROM admin WHERE ID_P='" + TextUsername.Text + "' AND PASSWORD='" + TextPassword.Text + "'";
+                MySqlCommand cmdAdminSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + TextUsername.Text + "'", dbConnexion);
+                string AdminSalt = cmdAdminSalt.ExecuteScalar().ToString();
+                string commandTextTestAdmin = "SELECT count(*) FROM admin, person WHERE A_ID = P_ID AND P_ID='" + TextUsername.Text + "' AND P_PASSWORD='" + BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, AdminSalt) + "'";
                 MySqlCommand cmdAdmin = new MySqlCommand(commandTextTestAdmin, dbConnexion);
                 bool isAdmin = Convert.ToBoolean(int.Parse(cmdAdmin.ExecuteScalar().ToString()));
                 if (isAdmin == true)
                 {
                     Hide();
                     FormAdmin admin = new FormAdmin(TextUsername.Text);
-                    admin.Show();
+                    new FormAdmin(TextUsername.Text).Show();
+                    /*void ThreadProc()
+                    {
+                        Application.Run(new FormAdmin(TextUsername.Text));
+                    }
+                    System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
+                    t.Start(); */
                 }
                 else
                 {
-                    string commandTextTestUser = "SELECT count(*) FROM user WHERE ID_P='" + TextUsername.Text + "' AND PASSWORD='" + TextPassword.Text + "'";
+                    MySqlCommand cmdSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + TextUsername.Text + "'", dbConnexion);
+                    string userSalt = cmdSalt.ExecuteScalar().ToString();
+                    string commandTextTestUser = "SELECT count(*) FROM user, person WHERE U_ID = P_ID AND P_ID='" + TextUsername.Text + "' AND P_PASSWORD='" + BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, userSalt) + "'";
                     MySqlCommand cmdUser = new MySqlCommand(commandTextTestUser, dbConnexion);
                     bool isUser = Convert.ToBoolean(int.Parse(cmdUser.ExecuteScalar().ToString()));
                     if (isUser == true)
                     {
                         Hide();
-                        FormMain user = new FormMain(TextUsername.Text);
-                        user.Show();
+                        void ThreadProc()
+                        {
+                            Application.Run(new FormMain(TextUsername.Text));
+                        }
+                        System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
+                        t.Start();
+                        Close();
 
                     }
                     else
