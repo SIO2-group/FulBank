@@ -1,15 +1,8 @@
 ﻿using FulBank;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Form = System.Windows.Forms.Form;
-using MySql.Data.MySqlClient;
 
 namespace Fulbank
 {
@@ -38,6 +31,7 @@ namespace Fulbank
         {
             try
             {
+                dbConnexion.Close();
                 dbConnexion.Open();
 
                 MySqlCommand cmdAdminSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + TextUsername.Text + "'", dbConnexion);
@@ -49,15 +43,9 @@ namespace Fulbank
                 if (isAdmin == true)
                 {
                     Hide();
-
-                    FormAdmin admin = new FormAdmin(TextUsername.Text);
                     new FormAdmin(TextUsername.Text).Show();
-                    /*void ThreadProc()
-                    {
-                        Application.Run(new FormAdmin(TextUsername.Text));
-                    }
-                    System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
-                    t.Start(); */
+                    TextUsername.Clear();
+                    TextPassword.Clear();
                 }
                 else
                 {
@@ -69,8 +57,11 @@ namespace Fulbank
                     bool isUser = Convert.ToBoolean(int.Parse(cmdUser.ExecuteScalar().ToString()));
                     if (isUser == true)
                     {
+                        
+                        new FormMain(TextUsername.Text, this).Show();
                         Hide();
-                        new FormMain(TextUsername.Text).Show();
+                        TextUsername.Clear();
+                        TextPassword.Clear();
 
                     }
                     else
@@ -84,7 +75,7 @@ namespace Fulbank
             {
                 MessageBox.Show("Connexion à la base de donnée invalide");
             }
-                    
+
 
         }
 

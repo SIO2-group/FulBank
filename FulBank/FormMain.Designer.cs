@@ -39,9 +39,13 @@
             this.MenuAccounts = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PictureLogout = new System.Windows.Forms.PictureBox();
+            this.LabelSection = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureLogout)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -131,6 +135,7 @@
             this.MenuVirement.Text = "Virements";
             this.MenuVirement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MenuVirement.UseVisualStyleBackColor = true;
+            this.MenuVirement.Click += new System.EventHandler(this.MenuVirement_Click);
             // 
             // MenuAccounts
             // 
@@ -165,11 +170,39 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
+            this.panel1.Controls.Add(this.PictureLogout);
+            this.panel1.Controls.Add(this.LabelSection);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(213, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(775, 80);
             this.panel1.TabIndex = 1;
+            // 
+            // PictureLogout
+            // 
+            this.PictureLogout.BackgroundImage = global::Fulbank.Properties.Resources.Logout;
+            this.PictureLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PictureLogout.Location = new System.Drawing.Point(710, 13);
+            this.PictureLogout.Name = "PictureLogout";
+            this.PictureLogout.Size = new System.Drawing.Size(53, 55);
+            this.PictureLogout.TabIndex = 1;
+            this.PictureLogout.TabStop = false;
+            this.PictureLogout.Click += new System.EventHandler(this.PictureLogout_Click);
+            // 
+            // LabelSection
+            // 
+            this.LabelSection.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelSection.AutoSize = true;
+            this.LabelSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelSection.Location = new System.Drawing.Point(252, 21);
+            this.LabelSection.Name = "LabelSection";
+            this.LabelSection.Size = new System.Drawing.Size(221, 42);
+            this.LabelSection.TabIndex = 0;
+            this.LabelSection.Text = "Titre section";
+            this.LabelSection.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // contextMenuStrip1
             // 
@@ -202,6 +235,9 @@
             this.Text = "Fulbank - Main";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureLogout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,5 +255,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.PictureBox PictureLogout;
+        private System.Windows.Forms.Label LabelSection;
     }
 }
