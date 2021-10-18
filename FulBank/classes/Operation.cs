@@ -10,7 +10,7 @@
         private Terminal _terminalUsed;
 
         public Operation(
-            int id, double amount, bool debit, 
+            int id, double amount, bool debit,
             User user, Account account, Terminal terminalUsed
             )
         {
