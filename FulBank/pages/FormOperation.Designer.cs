@@ -29,24 +29,24 @@ namespace Fulbank.pages
         /// </summary>
         private void InitializeComponent()
         {
-            this.OperationValue = new System.Windows.Forms.TextBox();
+            this.Operation = new System.Windows.Forms.TextBox();
             this.buttonDebit = new System.Windows.Forms.Button();
             this.buttonDeposit = new System.Windows.Forms.Button();
             this.buttonHistorical = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // OperationValue
+            // Operation
             // 
-            this.OperationValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OperationValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OperationValue.Location = new System.Drawing.Point(88, 81);
-            this.OperationValue.Name = "OperationValue";
-            this.OperationValue.Size = new System.Drawing.Size(331, 50);
-            this.OperationValue.TabIndex = 0;
-            this.OperationValue.Text = "0,00";
-            this.OperationValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.OperationValue.TextChanged += new System.EventHandler(this.OperationValue_TextChanged);
+            this.Operation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Operation.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Operation.Location = new System.Drawing.Point(88, 81);
+            this.Operation.Name = "Operation";
+            this.Operation.Size = new System.Drawing.Size(331, 46);
+            this.Operation.TabIndex = 0;
+            this.Operation.Text = "0,00";
+            this.Operation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Operation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // buttonDebit
             // 
@@ -90,7 +90,7 @@ namespace Fulbank.pages
             this.label1.Location = new System.Drawing.Point(422, 81);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 52);
+            this.label1.Size = new System.Drawing.Size(42, 46);
             this.label1.TabIndex = 4;
             this.label1.Text = "€";
             // 
@@ -104,7 +104,7 @@ namespace Fulbank.pages
             this.Controls.Add(this.buttonHistorical);
             this.Controls.Add(this.buttonDeposit);
             this.Controls.Add(this.buttonDebit);
-            this.Controls.Add(this.OperationValue);
+            this.Controls.Add(this.Operation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormOperation";
             this.Text = "FormOperation";
@@ -116,7 +116,7 @@ namespace Fulbank.pages
 
         #endregion
 
-        private System.Windows.Forms.TextBox OperationValue;
+        private System.Windows.Forms.TextBox Operation;
         private System.Windows.Forms.Button buttonDebit;
         private System.Windows.Forms.Button buttonDeposit;
         private System.Windows.Forms.Button buttonHistorical;
