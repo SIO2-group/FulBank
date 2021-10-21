@@ -1,10 +1,14 @@
-﻿namespace Fulbank.classes
+﻿using System;
+
+namespace Fulbank.classes
+    
 {
     class Operation
     {
         private int _id;
         private double _amount;
         private bool _debit;
+        private DateTime _date;
         private User _user;
         private Account _account;
         private Terminal _terminalUsed;
@@ -20,6 +24,7 @@
             _user = user;
             _account = account;
             _terminalUsed = terminalUsed;
+            _date = new DateTime();
         }
     }
 }
