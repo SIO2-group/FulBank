@@ -12,8 +12,8 @@ namespace FulBank
     public partial class FormMain : System.Windows.Forms.Form
     {
         private string _userId;
-        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
-        static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
+        public static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
+        public static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
         public static List<Form> ListFormMenu = new List<Form>();
         Form Connexion;
         User user;
@@ -42,6 +42,9 @@ namespace FulBank
             panelMain.Controls.Add(ListFormMenu[1]);
             ListFormMenu.Add(new FormTransfer(user) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[2]);
+            ListFormMenu.Add(new FormOperationHistory(user) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            panelMain.Controls.Add(ListFormMenu[3]);
+            ListFormMenu[3].Show();
             ListFormMenu[2].Show();
             ListFormMenu[1].Show();
             ListFormMenu[0].Show();

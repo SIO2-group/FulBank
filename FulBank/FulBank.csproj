@@ -248,6 +248,12 @@
     <Compile Include="pages\FormOperation.Designer.cs">
       <DependentUpon>FormOperation.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\FormOperationHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\FormOperationHistory.Designer.cs">
+      <DependentUpon>FormOperationHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\FormTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormOperation.resx">
       <DependentUpon>FormOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\FormOperationHistory.resx">
+      <DependentUpon>FormOperationHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormTransfer.resx">
       <DependentUpon>FormTransfer.cs</DependentUpon>

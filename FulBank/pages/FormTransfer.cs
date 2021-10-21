@@ -83,14 +83,14 @@ namespace Fulbank.pages
                                 anAccountFrom = account;
                             }
                         }
-                        if ((anAccountFrom.Get_Balance - ))
+                  /*      if ((anAccountFrom.Get_Balance - ))
                         {
 
                         }
                         else
                         {
                             MessageBox.Show("Votre limite de découvert sera dépassée");
-                        }
+                        } */
                     }
                     else
                     {

@@ -34,6 +34,11 @@ namespace Fulbank.classes
             _operations = new List<Operation>();
         }
 
+        public Account()
+        {
+
+        }
+
         public int Get_Id()
         {
             return _id;
@@ -51,6 +56,14 @@ namespace Fulbank.classes
             return _overdraftLimit;
         }
 
+        public void Debit(double value)
+        {
+            _balance -= value;
+        }
 
+        public void Deposit(double value)
+        {
+            _balance += value;
+        }
     }
 }
