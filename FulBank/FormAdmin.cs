@@ -1,4 +1,6 @@
-﻿using Fulbank.pages;
+﻿using Fulbank.classes;
+using Fulbank.pages;
+using FulBank.classes;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,7 @@ namespace Fulbank
         private string _userId;
         static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
         static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
+
 
         List<Form> listFormAdmin = new List<Form>();
 
@@ -26,6 +29,9 @@ namespace Fulbank
             panelAdmin.Controls.Add(listFormAdmin[0]);
             listFormAdmin.Add(new FormAdminProfile(_userId) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelAdmin.Controls.Add(listFormAdmin[1]);
+            listFormAdmin.Add(new FormTerminalConf() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            panelAdmin.Controls.Add(listFormAdmin[2]);
+            listFormAdmin[2].Show();
             listFormAdmin[1].Show();
             listFormAdmin[0].Show();
         }
@@ -61,6 +67,17 @@ namespace Fulbank
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void panelAdmin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MenuTerminalConfig_Click(object sender, EventArgs e)
+        {
+            listFormAdmin[2].BringToFront();
 
         }
     }

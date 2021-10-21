@@ -191,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Beneficiary.cs" />
+    <Compile Include="classes\IniFile.cs" />
     <Compile Include="classes\Person.cs" />
     <Compile Include="classes\Account.cs" />
     <Compile Include="classes\AccountType.cs" />
@@ -253,6 +254,12 @@
     <Compile Include="pages\FormTransfer.Designer.cs">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\FormTerminalConf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\FormTerminalConf.Designer.cs">
+      <DependentUpon>FormTerminalConf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdmin.resx">
@@ -281,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormTransfer.resx">
       <DependentUpon>FormTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\FormTerminalConf.resx">
+      <DependentUpon>FormTerminalConf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
