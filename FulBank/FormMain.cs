@@ -14,9 +14,10 @@ namespace FulBank
         private string _userId;
         static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
         static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
-        List<Form> ListFormMenu = new List<Form>();
+        public static List<Form> ListFormMenu = new List<Form>();
         Form Connexion;
         User user;
+        
 
         public MySqlConnection getConnexion()
         {
@@ -96,7 +97,9 @@ namespace FulBank
             ListFormMenu[2].BringToFront();
         }
 
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
 
-
+        }
     }
 }

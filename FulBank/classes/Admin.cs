@@ -5,5 +5,6 @@
         public Admin(int id, string name, string password) : base(id, name, password)
         {
         }
+        
     }
 }

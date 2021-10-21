@@ -32,12 +32,10 @@ namespace Fulbank.pages
             this.label1 = new System.Windows.Forms.Label();
             this.ComboAccountsFrom = new System.Windows.Forms.ComboBox();
             this.ComboAccountsTo = new System.Windows.Forms.ComboBox();
-            this.placeholderTextBoxTransferValue = new PlaceholderTextBox.PlaceholderTextBox();
+            this.TransferValue = new PlaceholderTextBox.PlaceholderTextBox();
             this.ButtonTransferHistory = new System.Windows.Forms.Button();
             this.ButtonAddBeneficiary = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.buttonTransfer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,7 +53,6 @@ namespace Fulbank.pages
             // ComboAccountsFrom
             // 
             this.ComboAccountsFrom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
-            this.ComboAccountsFrom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComboAccountsFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboAccountsFrom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ComboAccountsFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -65,7 +62,7 @@ namespace Fulbank.pages
             "salade ",
             "tomate ",
             "oignons"});
-            this.ComboAccountsFrom.Location = new System.Drawing.Point(0, 0);
+            this.ComboAccountsFrom.Location = new System.Drawing.Point(99, 218);
             this.ComboAccountsFrom.Name = "ComboAccountsFrom";
             this.ComboAccountsFrom.Size = new System.Drawing.Size(263, 30);
             this.ComboAccountsFrom.TabIndex = 7;
@@ -89,16 +86,16 @@ namespace Fulbank.pages
             this.ComboAccountsTo.TabIndex = 8;
             this.ComboAccountsTo.SelectedIndexChanged += new System.EventHandler(this.ComboAccountsTo_SelectedIndexChanged);
             // 
-            // placeholderTextBoxTransferValue
+            // TransferValue
             // 
-            this.placeholderTextBoxTransferValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.placeholderTextBoxTransferValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBoxTransferValue.Location = new System.Drawing.Point(99, 121);
-            this.placeholderTextBoxTransferValue.Name = "placeholderTextBoxTransferValue";
-            this.placeholderTextBoxTransferValue.PlaceholderText = "0.00";
-            this.placeholderTextBoxTransferValue.Size = new System.Drawing.Size(331, 57);
-            this.placeholderTextBoxTransferValue.TabIndex = 9;
-            this.placeholderTextBoxTransferValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TransferValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TransferValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransferValue.Location = new System.Drawing.Point(99, 119);
+            this.TransferValue.Name = "TransferValue";
+            this.TransferValue.PlaceholderText = "0.00";
+            this.TransferValue.Size = new System.Drawing.Size(331, 57);
+            this.TransferValue.TabIndex = 9;
+            this.TransferValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ButtonTransferHistory
             // 
@@ -130,28 +127,20 @@ namespace Fulbank.pages
             this.ButtonAddBeneficiary.UseVisualStyleBackColor = false;
             this.ButtonAddBeneficiary.Click += new System.EventHandler(this.ButtonAddBeneficiary_Click);
             // 
-            // button1
+            // buttonTransfer
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.button1.Location = new System.Drawing.Point(322, 323);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 60);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Effectuer le \r\nvirement";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
-            this.panel1.Controls.Add(this.ComboAccountsFrom);
-            this.panel1.Location = new System.Drawing.Point(99, 218);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(263, 30);
-            this.panel1.TabIndex = 13;
+            this.buttonTransfer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
+            this.buttonTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTransfer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.buttonTransfer.Location = new System.Drawing.Point(322, 323);
+            this.buttonTransfer.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonTransfer.Name = "buttonTransfer";
+            this.buttonTransfer.Size = new System.Drawing.Size(159, 60);
+            this.buttonTransfer.TabIndex = 12;
+            this.buttonTransfer.Text = "Effectuer le \r\nvirement";
+            this.buttonTransfer.UseVisualStyleBackColor = false;
+            this.buttonTransfer.Click += new System.EventHandler(this.buttonTransfer_Click);
             // 
             // FormTransfer
             // 
@@ -159,18 +148,17 @@ namespace Fulbank.pages
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ComboAccountsFrom);
+            this.Controls.Add(this.buttonTransfer);
             this.Controls.Add(this.ButtonAddBeneficiary);
             this.Controls.Add(this.ButtonTransferHistory);
-            this.Controls.Add(this.placeholderTextBoxTransferValue);
+            this.Controls.Add(this.TransferValue);
             this.Controls.Add(this.ComboAccountsTo);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTransfer";
             this.Text = "FormTransfer";
             this.Load += new System.EventHandler(this.FormTransfer_Load);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,10 +169,9 @@ namespace Fulbank.pages
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ComboAccountsFrom;
         private System.Windows.Forms.ComboBox ComboAccountsTo;
-        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBoxTransferValue;
+        private PlaceholderTextBox.PlaceholderTextBox TransferValue;
         private System.Windows.Forms.Button ButtonTransferHistory;
         private System.Windows.Forms.Button ButtonAddBeneficiary;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonTransfer;
     }
 }

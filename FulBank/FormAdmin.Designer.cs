@@ -84,6 +84,7 @@ namespace Fulbank
             this.MenuTerminalConfig.Text = "Configuration Borne";
             this.MenuTerminalConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MenuTerminalConfig.UseVisualStyleBackColor = true;
+            this.MenuTerminalConfig.Click += new System.EventHandler(this.MenuTerminalConfig_Click);
             // 
             // MenuCreateAccount
             // 
@@ -148,6 +149,7 @@ namespace Fulbank
             this.panelAdmin.Name = "panelAdmin";
             this.panelAdmin.Size = new System.Drawing.Size(587, 370);
             this.panelAdmin.TabIndex = 3;
+            this.panelAdmin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAdmin_Paint);
             // 
             // FormAdmin
             // 
