@@ -10,6 +10,7 @@ namespace Fulbank.classes
         private AccountType _accountType;
         private List<Transfer> _transfer;
         private List<Operation> _operations;
+        
 
 
         private int _overdraftLimit;
