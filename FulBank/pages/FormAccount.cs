@@ -46,27 +46,29 @@ namespace Fulbank.pages
                             AccountBalance.Text = account.Get_Balance().ToString();
                             break;
                         case 1:
-                            UserAccountName.Text = account.Get_AccountType().Get_Label();
-                            AccountOwner.Text = user.Get_Name() + "  " + user.Get_Firstname();
-                            AccountNumber.Text = account.Get_Id().ToString();
-                            AccountBalance.Text = account.Get_Balance().ToString();
+                            UserAccountName2.Text = account.Get_AccountType().Get_Label();
+                            AccountOwner2.Text = user.Get_Name() + "  " + user.Get_Firstname();
+                            AccountNumber2.Text = account.Get_Id().ToString();
+                            AccountBalance2.Text = account.Get_Balance().ToString();
+                            panelAccount2.Show();
                         break;
                         case 2:
-                            UserAccountName.Text = account.Get_AccountType().Get_Label();
-                            AccountOwner.Text = user.Get_Name() + "  " + user.Get_Firstname();
-                            AccountNumber.Text = account.Get_Id().ToString();
-                            AccountBalance.Text = account.Get_Balance().ToString();
+                            UserAccountName3.Text = account.Get_AccountType().Get_Label();
+                            AccountOwner3.Text = user.Get_Name() + "  " + user.Get_Firstname();
+                            AccountNumber3.Text = account.Get_Id().ToString();
+                            AccountBalance3.Text = account.Get_Balance().ToString();
+                            panelAccount3.Show();
                         break;
                         case 3:
-                            UserAccountName.Text = account.Get_AccountType().Get_Label();
-                            AccountOwner.Text = user.Get_Name() + "  " + user.Get_Firstname();
-                            AccountNumber.Text = account.Get_Id().ToString();
-                            AccountBalance.Text = account.Get_Balance().ToString();
+                            UserAccountName4.Text = account.Get_AccountType().Get_Label();
+                            AccountOwner4.Text = user.Get_Name() + "  " + user.Get_Firstname();
+                            AccountNumber4.Text = account.Get_Id().ToString();
+                            AccountBalance4.Text = account.Get_Balance().ToString();
+                            panelAccount4.Show();
                         break;
                         default: MessageBox.Show("aucun compte assigné à l'utilisateur");
                             break;
                     }
-
                 i++;
             }
         }
