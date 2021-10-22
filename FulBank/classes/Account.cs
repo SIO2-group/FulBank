@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
+using FulBank;
 using MySql.Data.MySqlClient;
 
 namespace Fulbank.classes
@@ -36,7 +38,7 @@ namespace Fulbank.classes
 
         public Account()
         {
-
+               _id = -1;
         }
 
         public int Get_Id()
@@ -58,12 +60,39 @@ namespace Fulbank.classes
 
         public void Debit(double value)
         {
-            _balance -= value;
+            FormMain.dbConnexion.Open();
+            string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE - " + value + " WHERE A_ID = " + this.Get_Id() + "";
+            MySqlCommand cmdCredit = new MySqlCommand(commandTextCredit, FormMain.dbConnexion);
+            cmdCredit.ExecuteNonQuery();
+            FormMain.dbConnexion.Close();
         }
 
         public void Deposit(double value)
         {
             _balance += value;
+        }
+
+        public void Credit(double creditAmount)
+        {
+            FormMain.dbConnexion.Open();
+            string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE + " + creditAmount + " WHERE A_ID = " + this.Get_Id() +"";
+            MySqlCommand cmdCredit = new MySqlCommand(commandTextCredit, FormMain.dbConnexion);
+            cmdCredit.ExecuteNonQuery();
+            FormMain.dbConnexion.Close();
+            MessageBox.Show("Crédit vers le bénéficiaire effectué");
+        }
+        public bool isCreditable(double creditAmount)
+        {
+            bool result = false;
+                if ((this.Get_Balance() + creditAmount) < this.Get_AccountType().Get_Limit())
+                {
+                    result = true;
+                }
+                else
+                {
+                    MessageBox.Show("Plafond du compte cible");
+                }
+            return result;
         }
     }
 }

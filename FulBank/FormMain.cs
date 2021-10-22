@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-
+using System.Data;
 
 namespace FulBank
 {
@@ -72,6 +72,20 @@ namespace FulBank
             }
 
             dbConnexion.Close();
+
+            dbConnexion.Open();
+            string commandTextSelectBeneficiary = "SELECT * FROM beneficiary WHERE B_USER_ID = " + _userId + "";
+            MySqlCommand cmdSelectBeneficiary = new MySqlCommand(commandTextSelectBeneficiary, dbConnexion);
+            MySqlDataReader userBeneficiaries = cmdSelectBeneficiary.ExecuteReader();
+
+
+            while(userBeneficiaries.Read())
+            {
+                aUser.Add_Beneficiary(int.Parse(userBeneficiaries["B_ACCOUNT_ID"].ToString()), userBeneficiaries["B_NAME"].ToString(), int.Parse(_userId));
+            }
+
+            dbConnexion.Close();
+
             return aUser;
         }
 
