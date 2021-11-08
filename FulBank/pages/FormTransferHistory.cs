@@ -25,7 +25,7 @@ namespace Fulbank.pages
         private void FormTransferHistory_Load(object sender, EventArgs e)
         {
             FormMain.dbConnexion.Open();
-            string commandTextSelectTransfer = @"SELECT T_ID_ACCOUNT_FROM, T_ID_ACCOUNT_TO, T_AMOUNT, DATE_FORMAT(T_DATE,'%d-%m-%Y %H:%i:%s') as T_DATE
+            string commandTextSelectTransfer = @"SELECT T_ID_ACCOUNT_FROM, T_ID_ACCOUNT_TO, T_AMOUNT, DATE_FORMAT(T_DATE,'%d-%m-%Y') as T_DATE
                                                 FROM transaction
                                                 WHERE T_ID_ACCOUNT_FROM IN(SELECT A_ID
                                                                             FROM account
