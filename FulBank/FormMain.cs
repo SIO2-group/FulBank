@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Data;
+using FulBank.classes;
 
 namespace FulBank
 {
@@ -15,8 +16,9 @@ namespace FulBank
         public static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
         public static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
         public static List<Form> ListFormMenu = new List<Form>();
-        Form Connexion;
-        User user;
+        public static Form Connexion;
+        public static User user;
+        public static Terminal thisTerminal;
         
 
         public MySqlConnection getConnexion()
@@ -36,18 +38,23 @@ namespace FulBank
         private void FormMain_Load(object sender, EventArgs e)
         {
             user = UserDataLoad();
-            ListFormMenu.Add(new FormAccount(user) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            thisTerminal = TerminalLoad();
+            ListFormMenu.Add(new FormAccount() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[0]);
-            ListFormMenu.Add(new FormOperation(user) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            ListFormMenu.Add(new FormOperation() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[1]);
-            ListFormMenu.Add(new FormTransfer(user) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            ListFormMenu.Add(new FormTransfer() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[2]);
-            ListFormMenu.Add(new FormOperationHistory(user) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            ListFormMenu.Add(new FormOperationHistory() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[3]);
+            ListFormMenu.Add(new FormTransferHistory() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            panelMain.Controls.Add(ListFormMenu[4]);
+            ListFormMenu[4].Show();
             ListFormMenu[3].Show();
             ListFormMenu[2].Show();
             ListFormMenu[1].Show();
             ListFormMenu[0].Show();
+            ListFormMenu[0].BringToFront();
 
         }
 
@@ -87,6 +94,13 @@ namespace FulBank
             dbConnexion.Close();
 
             return aUser;
+        }
+
+        private Terminal TerminalLoad()
+        {
+            IniFile MyIni = new IniFile("Fulbank.ini");
+            Terminal thisTerminal = new Terminal(MyIni.Read("City"), MyIni.Read("Building"), MyIni.Read("Ipv4"));
+            return thisTerminal;
         }
 
         private void MenuAccounts_Click(object sender, EventArgs e)

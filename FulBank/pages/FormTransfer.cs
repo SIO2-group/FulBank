@@ -19,15 +19,12 @@ namespace Fulbank.pages
         private const int CB_SETCUEBANNER = 0x1703;
         [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
         private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string lParam);
-        private User user;
-
         List<Panel> panelsAccounts = new List<Panel>();
 
 
-        public FormTransfer(User AUser)
+        public FormTransfer()
         {
             InitializeComponent();
-           user = AUser;
             this.Text = String.Empty;
             this.ControlBox = false;
         }
@@ -38,15 +35,15 @@ namespace Fulbank.pages
             SendMessage(this.ComboAccountsTo.Handle, CB_SETCUEBANNER, 0, "Vers le compte");
             ComboAccountsFrom.Items.Clear();
             ComboAccountsTo.Items.Clear();
-            foreach(Account account in user.GetAccounts())
+            foreach(Account account in FormMain.user.GetAccounts())
             {
                 ComboAccountsFrom.Items.Add(account.Get_AccountType().Get_Label());
             }
-            foreach (Account account in user.GetAccounts())
+            foreach (Account account in FormMain.user.GetAccounts())
             {
                 ComboAccountsTo.Items.Add(account.Get_AccountType().Get_Label());
             }
-            foreach (Beneficiary beneficiary in user.GetBeneficiary())
+            foreach (Beneficiary beneficiary in FormMain.user.GetBeneficiary())
             {
                 ComboAccountsTo.Items.Add(beneficiary.getBeneficiaryName());
             }
@@ -64,7 +61,7 @@ namespace Fulbank.pages
 
         private void ButtonAddBeneficiary_Click(object sender, EventArgs e)
         {
-            new FormAddBeneficiary(user).Show();
+            new FormAddBeneficiary(FormMain.user).Show();
         }
 
         private void buttonTransfer_Click(object sender, EventArgs e)
@@ -78,7 +75,7 @@ namespace Fulbank.pages
                     Beneficiary aBeneficiary = new Beneficiary();
                     if (!(ComboAccountsTo.Text == ComboAccountsFrom.Text))
                     {
-                        foreach(Account account in user.GetAccounts())
+                        foreach(Account account in FormMain.user.GetAccounts())
                         {
                             if (account.Get_AccountType().Get_Label() == ComboAccountsFrom.SelectedItem.ToString())
                             {
@@ -93,7 +90,7 @@ namespace Fulbank.pages
                         {
                             if(anAccountTo.Get_Id() == -1)
                             {
-                                foreach (Beneficiary benef in user.GetBeneficiary())
+                                foreach (Beneficiary benef in FormMain.user.GetBeneficiary())
                                 {
                                     if (benef.getBeneficiaryName() == ComboAccountsTo.SelectedItem.ToString())
                                     {
@@ -102,8 +99,10 @@ namespace Fulbank.pages
                                 }
                                 if (aBeneficiary.isCreditable(int.Parse(TransferValue.Text)) == true)
                                 {
-                                    anAccountFrom.Debit(double.Parse(TransferValue.Text));
+                                    anAccountFrom.Debit(double.Parse(TransferValue.Text.ToString()));
                                     aBeneficiary.Credit(double.Parse(TransferValue.Text.ToString()));
+                                    Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), anAccountFrom, null ,aBeneficiary);
+                                    aTransfer.sendToBeneficiary();
                                 }
                                 else
                                 {
@@ -116,6 +115,8 @@ namespace Fulbank.pages
                                 {
                                     anAccountFrom.Debit(double.Parse(TransferValue.Text));
                                     anAccountTo.Credit(double.Parse(TransferValue.Text));
+                                    Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), anAccountFrom, anAccountTo);
+                                    aTransfer.sendToAccount();
                                 }
                             }
                         }
@@ -150,6 +151,11 @@ namespace Fulbank.pages
                 }
                 
             }
+        }
+
+        private void ButtonTransferHistory_Click(object sender, EventArgs e)
+        {
+            FormMain.ListFormMenu[4].BringToFront();
         }
     }
 }

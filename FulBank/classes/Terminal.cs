@@ -3,21 +3,31 @@ namespace Fulbank.classes
 {
     public class Terminal
     {
-        private int _id;
-        private string _name;
+        private string _building;
         private string _city;
         private string _ip;
-        public static Terminal name;
 
-        public Terminal(int id, string name, string city, string ip)
+        public Terminal(string city, string building,  string ip)
         {
-            _id = id;
-            _name = name;
+            _building = building;
             _city = city;
             _ip = ip;
-            
         }
-        
+
+        public string getBuilding()
+        {
+            return _building;
+        }
+        public string getCity()
+        {
+            return _city;
+        }
+        public string getIp()
+        {
+            return _ip;
+        }
+
+
     }
 
 }

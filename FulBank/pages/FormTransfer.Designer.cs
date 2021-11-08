@@ -110,6 +110,7 @@ namespace Fulbank.pages
             this.ButtonTransferHistory.TabIndex = 10;
             this.ButtonTransferHistory.Text = "Historique de virement";
             this.ButtonTransferHistory.UseVisualStyleBackColor = false;
+            this.ButtonTransferHistory.Click += new System.EventHandler(this.ButtonTransferHistory_Click);
             // 
             // ButtonAddBeneficiary
             // 

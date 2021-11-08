@@ -266,6 +266,12 @@
     <Compile Include="pages\FormTerminalConf.Designer.cs">
       <DependentUpon>FormTerminalConf.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\FormTransferHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\FormTransferHistory.Designer.cs">
+      <DependentUpon>FormTransferHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdmin.resx">
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormTerminalConf.resx">
       <DependentUpon>FormTerminalConf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\FormTransferHistory.resx">
+      <DependentUpon>FormTransferHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
