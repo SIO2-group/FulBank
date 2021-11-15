@@ -203,6 +203,7 @@
             this.LabelSection.TabIndex = 0;
             this.LabelSection.Text = "Titre section";
             this.LabelSection.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelSection.Click += new System.EventHandler(this.LabelSection_Click);
             // 
             // contextMenuStrip1
             // 

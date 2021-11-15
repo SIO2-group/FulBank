@@ -19,16 +19,12 @@ namespace Fulbank.pages
         private const int CB_SETCUEBANNER = 0x1703;
         [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
         private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, [System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string lParam);
-        private User user;
-        Account anAccountFrom;
-        Account anAccountTo;
         List<Panel> panelsAccounts = new List<Panel>();
 
 
-        public FormTransfer(User AUser)
+        public FormTransfer()
         {
             InitializeComponent();
-           user = AUser;
             this.Text = String.Empty;
             this.ControlBox = false;
         }
@@ -39,15 +35,15 @@ namespace Fulbank.pages
             SendMessage(this.ComboAccountsTo.Handle, CB_SETCUEBANNER, 0, "Vers le compte");
             ComboAccountsFrom.Items.Clear();
             ComboAccountsTo.Items.Clear();
-            foreach(Account account in user.GetAccounts())
+            foreach(Account account in FormMain.user.GetAccounts())
             {
                 ComboAccountsFrom.Items.Add(account.Get_AccountType().Get_Label());
             }
-            foreach (Account account in user.GetAccounts())
+            foreach (Account account in FormMain.user.GetAccounts())
             {
                 ComboAccountsTo.Items.Add(account.Get_AccountType().Get_Label());
             }
-            foreach (Beneficiary beneficiary in user.GetBeneficiary())
+            foreach (Beneficiary beneficiary in FormMain.user.GetBeneficiary())
             {
                 ComboAccountsTo.Items.Add(beneficiary.getBeneficiaryName());
             }
@@ -65,32 +61,69 @@ namespace Fulbank.pages
 
         private void ButtonAddBeneficiary_Click(object sender, EventArgs e)
         {
-            new FormAddBeneficiary(user).Show();
+            new FormAddBeneficiary(FormMain.user).Show();
         }
 
         private void buttonTransfer_Click(object sender, EventArgs e)
         {
             if(!String.IsNullOrEmpty(TransferValue.Text) && !String.IsNullOrEmpty(ComboAccountsFrom.SelectedItem.ToString()) && !String.IsNullOrEmpty(ComboAccountsTo.SelectedItem.ToString()))
             {
-                if(double.Parse(TransferValue.Text) > 0)
+                if(double.Parse(TransferValue.Text) > 0.00)
                 {
-                    if(!(ComboAccountsTo.Text == ComboAccountsFrom.Text))
+                    Account anAccountFrom = new Account();
+                    Account anAccountTo = new Account();
+                    Beneficiary aBeneficiary = new Beneficiary();
+                    if (!(ComboAccountsTo.Text == ComboAccountsFrom.Text))
                     {
-                        foreach(Account account in user.GetAccounts())
+                        foreach(Account account in FormMain.user.GetAccounts())
                         {
                             if (account.Get_AccountType().Get_Label() == ComboAccountsFrom.SelectedItem.ToString())
                             {
                                 anAccountFrom = account;
                             }
+                            else if (account.Get_AccountType().Get_Label() == ComboAccountsTo.SelectedItem.ToString())
+                            {
+                                anAccountTo = account;
+                            }
                         }
-                  /*      if ((anAccountFrom.Get_Balance - ))
+                        if ((anAccountFrom.Get_Balance() - int.Parse(TransferValue.Text)) >= anAccountFrom.Get_Limit())
                         {
-
+                            if(anAccountTo.Get_Id() == -1)
+                            {
+                                foreach (Beneficiary benef in FormMain.user.GetBeneficiary())
+                                {
+                                    if (benef.getBeneficiaryName() == ComboAccountsTo.SelectedItem.ToString())
+                                    {
+                                        aBeneficiary = benef;
+                                    }
+                                }
+                                if (aBeneficiary.isCreditable(int.Parse(TransferValue.Text)) == true)
+                                {
+                                    anAccountFrom.Debit(double.Parse(TransferValue.Text.ToString()));
+                                    aBeneficiary.Credit(double.Parse(TransferValue.Text.ToString()));
+                                    Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), DateTime.Now, anAccountFrom, null ,aBeneficiary);
+                                    aTransfer.sendToBeneficiary();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Votre bénéficiaire a atteind son plafond");
+                                }
+                            }
+                            else
+                            {
+                                if (anAccountTo.isCreditable(double.Parse(TransferValue.Text)))
+                                {
+                                    anAccountFrom.Debit(double.Parse(TransferValue.Text));
+                                    anAccountTo.Credit(double.Parse(TransferValue.Text));
+                                    Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), DateTime.Now, anAccountFrom, anAccountTo);
+                                    aTransfer.sendToAccount();
+                                }
+                            }
                         }
                         else
                         {
                             MessageBox.Show("Votre limite de découvert sera dépassée");
-                        } */
+                        }
                     }
                     else
                     {
@@ -99,18 +132,18 @@ namespace Fulbank.pages
                 }
                 else
                 {
-                    MessageBox.Show("Veuillez enter une valeur positive");
+                    MessageBox.Show("Veuillez enter une valeur positive et non nulle");
                 }
                 
             }
             else
             {
-                if (!String.IsNullOrEmpty(TransferValue.Text)){
+                if (String.IsNullOrEmpty(TransferValue.Text)){
                     MessageBox.Show("Veuillez entrer une valeur de virement");
-                    if (!String.IsNullOrEmpty(ComboAccountsFrom.Text))
+                    if (String.IsNullOrEmpty(ComboAccountsFrom.Text))
                     {
                         MessageBox.Show("Veuillez sélectionner un compte d'envoi");
-                        if (!String.IsNullOrEmpty(ComboAccountsTo.Text))
+                        if (String.IsNullOrEmpty(ComboAccountsTo.Text))
                         {
                             MessageBox.Show("Veuillez sélectionner un compte de réception");
                         }
@@ -118,6 +151,11 @@ namespace Fulbank.pages
                 }
                 
             }
+        }
+
+        private void ButtonTransferHistory_Click(object sender, EventArgs e)
+        {
+            FormMain.ListFormMenu[4].BringToFront();
         }
     }
 }

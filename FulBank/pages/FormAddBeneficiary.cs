@@ -1,4 +1,6 @@
 ﻿using Fulbank.classes;
+using FulBank;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,13 +31,25 @@ namespace Fulbank.pages
         {
             if (!String.IsNullOrWhiteSpace(textBoxBeneficiaryName.Text))
             {
-                int AccountId;
+                int AccountId = 0;
                 bool result = int.TryParse(textBoxBeneficiaryId.Text, out AccountId);
 
                 if (result)
                 {
-                    user.Add_Beneficiary(int.Parse(textBoxBeneficiaryId.Text), textBoxBeneficiaryName.Text, user.Get_Id());
-                    MessageBox.Show(user.GetBeneficiary()[0].getBeneficiaryName());
+                    FormMain.dbConnexion.Open();
+                    string commandGetAccount = "SELECT count(*) FROM account WHERE A_ID = '" + textBoxBeneficiaryId.Text + "' AND A_ID NOT IN(SELECT A_ID FROM account WHERE A_ID_USER ='" + user.Get_Id() + "' )";
+                    MySqlCommand cmdGetAccount = new MySqlCommand(commandGetAccount, FormMain.dbConnexion);
+                    bool accountExist = Convert.ToBoolean(int.Parse(cmdGetAccount.ExecuteScalar().ToString()));
+                    FormMain.dbConnexion.Close();
+                    if (accountExist == true)
+                    {
+                        user.Add_Beneficiary(int.Parse(textBoxBeneficiaryId.Text), textBoxBeneficiaryName.Text, user.Get_Id());
+                        MessageBox.Show("Bénéficiaire " + user.GetBeneficiary()[0].getBeneficiaryName() + " ajouté avec succès");   
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ce compte vous appartient ou n'existe pas");
+                    }
                     this.Close();
                 }
                 else
