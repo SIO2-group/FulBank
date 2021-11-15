@@ -93,8 +93,53 @@ namespace FulBank
 
             dbConnexion.Close();
 
+            #region add transfers
+            dbConnexion.Open();
+            string commandTextSelectTransfer = @"SELECT T_ID_ACCOUNT_FROM, T_ID_ACCOUNT_TO, T_AMOUNT, DATE_FORMAT(T_DATE,'%d-%m-%Y %H:%i:%s') as T_DATE
+                                            FROM transaction
+                                            WHERE T_ID_ACCOUNT_FROM IN(SELECT A_ID
+                                                                        FROM account
+                                                                        WHERE A_ID_USER = '" + aUser.Get_Id() + "')";
+            MySqlCommand cmdSelectTransfer = new MySqlCommand(commandTextSelectTransfer, FormMain.dbConnexion);
+            MySqlDataReader transfers = cmdSelectTransfer.ExecuteReader();
+            while (transfers.Read())
+            {
+                Account AccountFrom = new Account();
+                Account AccountTo = new Account();
+                Beneficiary BeneficiaryTo = new Beneficiary();
+                foreach (Account account in aUser.GetAccounts())
+                {
+                    if (account.Get_Id() == int.Parse(transfers["T_ID_ACCOUNT_FROM"].ToString()))
+                    {
+                        AccountFrom = account;
+                    }
+                }
+                foreach (Account account in aUser.GetAccounts())
+                {
+                    if (account.Get_Id() == int.Parse(transfers["T_ID_ACCOUNT_TO"].ToString()))
+                    {
+                        AccountTo = account;
+                        DateTime dt = DateTime.Parse(transfers["T_DATE"].ToString());
+                        aUser.add_Transfer(double.Parse(transfers["T_AMOUNT"].ToString()), dt, AccountFrom, AccountTo);
+                    }
+                }
+                foreach (Beneficiary beneficiary in aUser.GetBeneficiary())
+                {
+                    if (beneficiary.getBeneficiaryId() == int.Parse(transfers["T_ID_ACCOUNT_TO"].ToString()))
+                    {
+                        BeneficiaryTo = beneficiary;
+                        DateTime dt = DateTime.Parse(transfers["T_DATE"].ToString());
+                        aUser.add_TransferToBeneficiary(double.Parse(transfers["T_AMOUNT"].ToString()), dt, AccountFrom, AccountTo, BeneficiaryTo);
+                    }
+                }
+            }
+            dbConnexion.Close();
             return aUser;
+            #endregion
         }
+           
+            
+        
 
         private Terminal TerminalLoad()
         {
@@ -129,6 +174,11 @@ namespace FulBank
         }
 
         private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LabelSection_Click(object sender, EventArgs e)
         {
 
         }

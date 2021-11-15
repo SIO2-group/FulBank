@@ -19,7 +19,7 @@ namespace Fulbank.classes
 
         public Beneficiary()
         {
-
+            _accountId = -1;
         }
 
         public string getBeneficiaryName()

@@ -24,41 +24,34 @@ namespace Fulbank.pages
 
         private void FormTransferHistory_Load(object sender, EventArgs e)
         {
-            FormMain.dbConnexion.Open();
-            string commandTextSelectTransfer = @"SELECT T_ID_ACCOUNT_FROM, T_ID_ACCOUNT_TO, T_AMOUNT, DATE_FORMAT(T_DATE,'%d-%m-%Y') as T_DATE
-                                                FROM transaction
-                                                WHERE T_ID_ACCOUNT_FROM IN(SELECT A_ID
-                                                                            FROM account
-                                                                            WHERE A_ID_USER = '" + FormMain.user.Get_Id() + "')";
-            MySqlCommand cmdSelectTransfer = new MySqlCommand(commandTextSelectTransfer, FormMain.dbConnexion);
-            MySqlDataReader transfers = cmdSelectTransfer.ExecuteReader();
 
-            while (transfers.Read())
+            List<Transfer> transfers = FormMain.user.getTransfers();
+            foreach(Transfer transfer in transfers)
             {
                 string aFromName = "Erreur";
                 string aToName = "Erreur";
                 foreach(Account account in FormMain.user.GetAccounts())
                 {
-                    if (account.Get_Id() == int.Parse(transfers["T_ID_ACCOUNT_FROM"].ToString()))
+                    if (account.Get_Id() == transfer.getAccountFrom().Get_Id())
                     {
                         aFromName = account.Get_AccountType().Get_Label();
                     }
                 }
                 foreach (Account account in FormMain.user.GetAccounts())
                 {
-                    if (account.Get_Id() == int.Parse(transfers["T_ID_ACCOUNT_TO"].ToString()))
-                    {
-                        aToName = account.Get_AccountType().Get_Label();
-                    }
+                     if (account.Get_Id() == transfer.getAccountTo().Get_Id())
+                     {
+                         aToName = account.Get_AccountType().Get_Label();
+                     }                    
                 }
                 foreach (Beneficiary beneficiary in FormMain.user.GetBeneficiary())
                 {
-                    if (beneficiary.getBeneficiaryId() == int.Parse(transfers["T_ID_ACCOUNT_TO"].ToString()))
+                    if (beneficiary.getBeneficiaryId() == transfer.getBeneficiaryTo().getBeneficiaryId())
                     {
                         aToName = beneficiary.getBeneficiaryName();
                     }
                 }
-                dgvTransferHistory.Rows.Add(aFromName, aToName, transfers["T_AMOUNT"].ToString() , transfers["T_DATE"].ToString());
+                dgvTransferHistory.Rows.Add(aFromName, aToName, transfer.getAmount() , transfer.getDate());
 
                 
 

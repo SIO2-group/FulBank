@@ -15,6 +15,7 @@ namespace Fulbank.classes
         private string _address;
         private List<Account> _accounts;
         private List<Beneficiary> _beneficiaries;
+        private List<Transfer> _transfers;
 
         public User(int id, string name, string firstname, string email, string phone, string homePhone, string address) : base(id, name, firstname)
         {
@@ -24,6 +25,7 @@ namespace Fulbank.classes
             Set_address(address);
             _accounts = _accounts = new List<Account>();
             _beneficiaries = new List<Beneficiary>();
+            _transfers = new List<Transfer>();
         }
 
         public string Get_phone()
@@ -87,5 +89,18 @@ namespace Fulbank.classes
             _beneficiaries.Add(new Beneficiary(accountId, name));
         }
 
+        public void add_Transfer(double amount, DateTime date, Account AccountFrom, Account AccountTo)
+        {
+            _transfers.Add(new Transfer(amount, date, AccountFrom, AccountTo));
+        }
+
+        public void add_TransferToBeneficiary(double amount, DateTime date, Account AccountFrom, Account AccountTo, Beneficiary BeneficiaryTo)
+        {
+            _transfers.Add(new Transfer(amount, date, AccountFrom, AccountTo, BeneficiaryTo));
+        }
+        public List<Transfer> getTransfers()
+        {
+            return _transfers;
+        }
     }
 }

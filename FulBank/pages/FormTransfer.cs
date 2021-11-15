@@ -101,7 +101,7 @@ namespace Fulbank.pages
                                 {
                                     anAccountFrom.Debit(double.Parse(TransferValue.Text.ToString()));
                                     aBeneficiary.Credit(double.Parse(TransferValue.Text.ToString()));
-                                    Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), anAccountFrom, null ,aBeneficiary);
+                                    Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), DateTime.Now, anAccountFrom, null ,aBeneficiary);
                                     aTransfer.sendToBeneficiary();
                                 }
                                 else
@@ -115,7 +115,7 @@ namespace Fulbank.pages
                                 {
                                     anAccountFrom.Debit(double.Parse(TransferValue.Text));
                                     anAccountTo.Credit(double.Parse(TransferValue.Text));
-                                    Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), anAccountFrom, anAccountTo);
+                                    Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), DateTime.Now, anAccountFrom, anAccountTo);
                                     aTransfer.sendToAccount();
                                 }
                             }
