@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using FulBank;
+
 using MySql.Data.MySqlClient;
 
 namespace Fulbank.classes
@@ -71,7 +73,7 @@ namespace Fulbank.classes
         {
             _balance += value;
         }
-
+      
         public void Credit(double creditAmount)
         {
             FormMain.dbConnexion.Open();
@@ -81,6 +83,7 @@ namespace Fulbank.classes
             FormMain.dbConnexion.Close();
             MessageBox.Show("Crédit vers le bénéficiaire effectué");
         }
+      
         public bool isCreditable(double creditAmount)
         {
             bool result = false;
@@ -94,5 +97,16 @@ namespace Fulbank.classes
                 }
             return result;
         }
+
+        public void Add_Operation(int id, double amount, bool debit, DateTime date)
+        {
+            _operations.Add(new Operation(id, amount, debit, date));
+        }
+
+        public List<Operation> getOperation()
+        {
+            return _operations;
+        }
+        
     }
 }

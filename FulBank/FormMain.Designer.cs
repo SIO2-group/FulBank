@@ -86,6 +86,7 @@
             this.MenuProfil.Text = "Mon Profil";
             this.MenuProfil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MenuProfil.UseVisualStyleBackColor = true;
+            this.MenuProfil.Click += new System.EventHandler(this.MenuProfil_Click);
             // 
             // MenuCrypto
             // 
@@ -199,7 +200,7 @@
             this.LabelSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSection.Location = new System.Drawing.Point(252, 21);
             this.LabelSection.Name = "LabelSection";
-            this.LabelSection.Size = new System.Drawing.Size(221, 42);
+            this.LabelSection.Size = new System.Drawing.Size(202, 39);
             this.LabelSection.TabIndex = 0;
             this.LabelSection.Text = "Titre section";
             this.LabelSection.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

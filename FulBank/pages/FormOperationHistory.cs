@@ -26,7 +26,13 @@ namespace Fulbank.pages
 
         private void FormOperationHistory_Load(object sender, EventArgs e)
         {
-
+            foreach(Account account in user.GetAccounts())
+            {
+                foreach(Operation op in account.getOperation())
+                {
+                    dgvOperation.Rows.Add(op.Get_debit(),op.Get_amount(), op.Get_date());
+                }
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,10 +40,14 @@ namespace Fulbank.pages
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvOperation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dbConnexion.Open();
-            
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
     }
 }

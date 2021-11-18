@@ -89,5 +89,35 @@ namespace Fulbank.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_reload_icon__line_style_vector_illustration_png_image_314770 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-reload-icon--line-style-vector-illustration-png-image_314770", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap téléchargement {
+            get {
+                object obj = ResourceManager.GetObject("téléchargement", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap téléchargement1 {
+            get {
+                object obj = ResourceManager.GetObject("téléchargement1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
