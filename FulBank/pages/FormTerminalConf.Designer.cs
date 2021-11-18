@@ -45,7 +45,7 @@ namespace Fulbank.pages
             this.textBoxIp.Location = new System.Drawing.Point(249, 73);
             this.textBoxIp.MaxLength = 15;
             this.textBoxIp.Name = "textBoxIp";
-            this.textBoxIp.Size = new System.Drawing.Size(147, 24);
+            this.textBoxIp.Size = new System.Drawing.Size(147, 23);
             this.textBoxIp.TabIndex = 0;
             this.textBoxIp.TextChanged += new System.EventHandler(this.textBoxIp_TextChanged);
             // 
@@ -54,7 +54,7 @@ namespace Fulbank.pages
             this.labelIP.AutoSize = true;
             this.labelIP.Location = new System.Drawing.Point(249, 52);
             this.labelIP.Name = "labelIP";
-            this.labelIP.Size = new System.Drawing.Size(76, 15);
+            this.labelIP.Size = new System.Drawing.Size(69, 13);
             this.labelIP.TabIndex = 1;
             this.labelIP.Text = "Adresse Ipv4";
             // 
@@ -63,7 +63,7 @@ namespace Fulbank.pages
             this.labelBuilding.AutoSize = true;
             this.labelBuilding.Location = new System.Drawing.Point(71, 132);
             this.labelBuilding.Name = "labelBuilding";
-            this.labelBuilding.Size = new System.Drawing.Size(56, 15);
+            this.labelBuilding.Size = new System.Drawing.Size(48, 13);
             this.labelBuilding.TabIndex = 3;
             this.labelBuilding.Text = "Bâtiment";
             // 
@@ -73,7 +73,7 @@ namespace Fulbank.pages
             this.textBoxBuilding.Location = new System.Drawing.Point(71, 153);
             this.textBoxBuilding.MaxLength = 15;
             this.textBoxBuilding.Name = "textBoxBuilding";
-            this.textBoxBuilding.Size = new System.Drawing.Size(147, 24);
+            this.textBoxBuilding.Size = new System.Drawing.Size(147, 23);
             this.textBoxBuilding.TabIndex = 2;
             // 
             // labelCity
@@ -81,7 +81,7 @@ namespace Fulbank.pages
             this.labelCity.AutoSize = true;
             this.labelCity.Location = new System.Drawing.Point(71, 52);
             this.labelCity.Name = "labelCity";
-            this.labelCity.Size = new System.Drawing.Size(30, 15);
+            this.labelCity.Size = new System.Drawing.Size(26, 13);
             this.labelCity.TabIndex = 5;
             this.labelCity.Text = "Ville";
             // 
@@ -91,7 +91,7 @@ namespace Fulbank.pages
             this.textBoxCity.Location = new System.Drawing.Point(71, 73);
             this.textBoxCity.MaxLength = 15;
             this.textBoxCity.Name = "textBoxCity";
-            this.textBoxCity.Size = new System.Drawing.Size(147, 24);
+            this.textBoxCity.Size = new System.Drawing.Size(147, 23);
             this.textBoxCity.TabIndex = 4;
             // 
             // buttonSetIni

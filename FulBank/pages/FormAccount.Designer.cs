@@ -66,6 +66,7 @@ namespace Fulbank.pages
             this.Owner3 = new System.Windows.Forms.Label();
             this.AccountBalance3 = new System.Windows.Forms.TextBox();
             this.Balance3 = new System.Windows.Forms.Label();
+            this.btnReload = new System.Windows.Forms.Button();
             this.panelAccounts.SuspendLayout();
             this.panelAccount1.SuspendLayout();
             this.panelAccount4.SuspendLayout();
@@ -77,6 +78,7 @@ namespace Fulbank.pages
             // 
             this.panelAccounts.AutoScroll = true;
             this.panelAccounts.BackColor = System.Drawing.SystemColors.Window;
+            this.panelAccounts.Controls.Add(this.btnReload);
             this.panelAccounts.Controls.Add(this.panelAccount1);
             this.panelAccounts.Controls.Add(this.panelAccount4);
             this.panelAccounts.Controls.Add(this.panelAccount2);
@@ -103,6 +105,7 @@ namespace Fulbank.pages
             this.panelAccount1.Name = "panelAccount1";
             this.panelAccount1.Size = new System.Drawing.Size(614, 85);
             this.panelAccount1.TabIndex = 14;
+            this.panelAccount1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAccount1_Paint);
             // 
             // NumberAccount
             // 
@@ -110,7 +113,7 @@ namespace Fulbank.pages
             this.NumberAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumberAccount.Location = new System.Drawing.Point(422, 2);
             this.NumberAccount.Name = "NumberAccount";
-            this.NumberAccount.Size = new System.Drawing.Size(119, 18);
+            this.NumberAccount.Size = new System.Drawing.Size(110, 17);
             this.NumberAccount.TabIndex = 8;
             this.NumberAccount.Text = "Numero Compte";
             // 
@@ -140,7 +143,7 @@ namespace Fulbank.pages
             this.Account.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Account.Location = new System.Drawing.Point(20, 6);
             this.Account.Name = "Account";
-            this.Account.Size = new System.Drawing.Size(118, 18);
+            this.Account.Size = new System.Drawing.Size(109, 17);
             this.Account.TabIndex = 7;
             this.Account.Text = "Nom du Compte";
             // 
@@ -160,7 +163,7 @@ namespace Fulbank.pages
             this.Owner.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Owner.Location = new System.Drawing.Point(20, 45);
             this.Owner.Name = "Owner";
-            this.Owner.Size = new System.Drawing.Size(84, 18);
+            this.Owner.Size = new System.Drawing.Size(82, 17);
             this.Owner.TabIndex = 9;
             this.Owner.Text = "Propriétaire";
             // 
@@ -180,7 +183,7 @@ namespace Fulbank.pages
             this.Balance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Balance.Location = new System.Drawing.Point(422, 45);
             this.Balance.Name = "Balance";
-            this.Balance.Size = new System.Drawing.Size(46, 18);
+            this.Balance.Size = new System.Drawing.Size(44, 17);
             this.Balance.TabIndex = 10;
             this.Balance.Text = "Solde";
             // 
@@ -207,7 +210,7 @@ namespace Fulbank.pages
             this.NumberAccount4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumberAccount4.Location = new System.Drawing.Point(422, 2);
             this.NumberAccount4.Name = "NumberAccount4";
-            this.NumberAccount4.Size = new System.Drawing.Size(119, 18);
+            this.NumberAccount4.Size = new System.Drawing.Size(110, 17);
             this.NumberAccount4.TabIndex = 8;
             this.NumberAccount4.Text = "Numero Compte";
             // 
@@ -237,7 +240,7 @@ namespace Fulbank.pages
             this.Account4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Account4.Location = new System.Drawing.Point(20, 6);
             this.Account4.Name = "Account4";
-            this.Account4.Size = new System.Drawing.Size(118, 18);
+            this.Account4.Size = new System.Drawing.Size(109, 17);
             this.Account4.TabIndex = 7;
             this.Account4.Text = "Nom du Compte";
             // 
@@ -257,7 +260,7 @@ namespace Fulbank.pages
             this.Owner4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Owner4.Location = new System.Drawing.Point(20, 45);
             this.Owner4.Name = "Owner4";
-            this.Owner4.Size = new System.Drawing.Size(84, 18);
+            this.Owner4.Size = new System.Drawing.Size(82, 17);
             this.Owner4.TabIndex = 9;
             this.Owner4.Text = "Propriétaire";
             // 
@@ -277,7 +280,7 @@ namespace Fulbank.pages
             this.Balance4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Balance4.Location = new System.Drawing.Point(422, 45);
             this.Balance4.Name = "Balance4";
-            this.Balance4.Size = new System.Drawing.Size(46, 18);
+            this.Balance4.Size = new System.Drawing.Size(44, 17);
             this.Balance4.TabIndex = 10;
             this.Balance4.Text = "Solde";
             // 
@@ -304,7 +307,7 @@ namespace Fulbank.pages
             this.NumberAccount2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumberAccount2.Location = new System.Drawing.Point(422, 2);
             this.NumberAccount2.Name = "NumberAccount2";
-            this.NumberAccount2.Size = new System.Drawing.Size(119, 18);
+            this.NumberAccount2.Size = new System.Drawing.Size(110, 17);
             this.NumberAccount2.TabIndex = 8;
             this.NumberAccount2.Text = "Numero Compte";
             // 
@@ -334,7 +337,7 @@ namespace Fulbank.pages
             this.Account2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Account2.Location = new System.Drawing.Point(20, 6);
             this.Account2.Name = "Account2";
-            this.Account2.Size = new System.Drawing.Size(118, 18);
+            this.Account2.Size = new System.Drawing.Size(109, 17);
             this.Account2.TabIndex = 7;
             this.Account2.Text = "Nom du Compte";
             // 
@@ -354,7 +357,7 @@ namespace Fulbank.pages
             this.Owner2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Owner2.Location = new System.Drawing.Point(20, 45);
             this.Owner2.Name = "Owner2";
-            this.Owner2.Size = new System.Drawing.Size(84, 18);
+            this.Owner2.Size = new System.Drawing.Size(82, 17);
             this.Owner2.TabIndex = 9;
             this.Owner2.Text = "Propriétaire";
             // 
@@ -374,7 +377,7 @@ namespace Fulbank.pages
             this.Balance2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Balance2.Location = new System.Drawing.Point(422, 45);
             this.Balance2.Name = "Balance2";
-            this.Balance2.Size = new System.Drawing.Size(46, 18);
+            this.Balance2.Size = new System.Drawing.Size(44, 17);
             this.Balance2.TabIndex = 10;
             this.Balance2.Text = "Solde";
             // 
@@ -401,7 +404,7 @@ namespace Fulbank.pages
             this.NumberAccount3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumberAccount3.Location = new System.Drawing.Point(422, 2);
             this.NumberAccount3.Name = "NumberAccount3";
-            this.NumberAccount3.Size = new System.Drawing.Size(119, 18);
+            this.NumberAccount3.Size = new System.Drawing.Size(110, 17);
             this.NumberAccount3.TabIndex = 8;
             this.NumberAccount3.Text = "Numero Compte";
             // 
@@ -431,7 +434,7 @@ namespace Fulbank.pages
             this.Account3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Account3.Location = new System.Drawing.Point(20, 6);
             this.Account3.Name = "Account3";
-            this.Account3.Size = new System.Drawing.Size(118, 18);
+            this.Account3.Size = new System.Drawing.Size(109, 17);
             this.Account3.TabIndex = 7;
             this.Account3.Text = "Nom du Compte";
             // 
@@ -451,7 +454,7 @@ namespace Fulbank.pages
             this.Owner3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Owner3.Location = new System.Drawing.Point(20, 45);
             this.Owner3.Name = "Owner3";
-            this.Owner3.Size = new System.Drawing.Size(84, 18);
+            this.Owner3.Size = new System.Drawing.Size(82, 17);
             this.Owner3.TabIndex = 9;
             this.Owner3.Text = "Propriétaire";
             // 
@@ -471,9 +474,21 @@ namespace Fulbank.pages
             this.Balance3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Balance3.Location = new System.Drawing.Point(422, 45);
             this.Balance3.Name = "Balance3";
-            this.Balance3.Size = new System.Drawing.Size(46, 18);
+            this.Balance3.Size = new System.Drawing.Size(44, 17);
             this.Balance3.TabIndex = 10;
             this.Balance3.Text = "Solde";
+            // 
+            // btnReload
+            // 
+            this.btnReload.BackColor = System.Drawing.SystemColors.Window;
+            this.btnReload.BackgroundImage = global::Fulbank.Properties.Resources.pngtree_reload_icon__line_style_vector_illustration_png_image_314770;
+            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReload.Location = new System.Drawing.Point(723, 20);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(40, 40);
+            this.btnReload.TabIndex = 17;
+            this.btnReload.UseVisualStyleBackColor = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // FormAccount
             // 
@@ -537,5 +552,6 @@ namespace Fulbank.pages
         private System.Windows.Forms.Label Owner3;
         private System.Windows.Forms.TextBox AccountBalance3;
         private System.Windows.Forms.Label Balance3;
+        private System.Windows.Forms.Button btnReload;
     }
 }

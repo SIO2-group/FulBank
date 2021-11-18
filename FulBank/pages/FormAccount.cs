@@ -72,5 +72,15 @@ namespace Fulbank.pages
                 i++;
             }
         }
+
+        private void panelAccount1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            AccountsLoad();
+        }
     }
 }
