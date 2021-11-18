@@ -17,11 +17,9 @@ namespace Fulbank.pages
     {
         static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
         static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
-        private User user;
-        public FormOperationHistory(User aUser)
+        public FormOperationHistory()
         {
             InitializeComponent();
-            user = aUser;
             this.Text = String.Empty;
             this.ControlBox = false;
         }

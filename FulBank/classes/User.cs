@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using FulBank;
 using MySql.Data.MySqlClient;
 
 
@@ -14,6 +15,7 @@ namespace Fulbank.classes
         private string _address;
         private List<Account> _accounts;
         private List<Beneficiary> _beneficiaries;
+        private List<Transfer> _transfers;
 
         public User(int id, string name, string firstname, string email, string phone, string homePhone, string address) : base(id, name, firstname)
         {
@@ -23,6 +25,7 @@ namespace Fulbank.classes
             Set_address(address);
             _accounts = _accounts = new List<Account>();
             _beneficiaries = new List<Beneficiary>();
+            _transfers = new List<Transfer>();
         }
 
         public string Get_phone()
@@ -81,27 +84,23 @@ namespace Fulbank.classes
             return _beneficiaries;
         }
 
-        public void Add_Beneficiary(int accountId, string name, int Id)
+        public void Add_Beneficiary(int accountId, string name, int userId)
         {
-            try
-            {
-                string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
-                MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
-                dbConnexion.Open();
-                string commandGetAccount = "SELECT count(*) FROM account WHERE A_ID = '" + accountId + "' AND A_ID NOT IN(SELECT * FROM account WHERE A_ID_USER ='" + Id + "' )";
-                MySqlCommand cmdGetAccount = new MySqlCommand(commandGetAccount, dbConnexion);
-                if(Convert.ToBoolean(int.Parse(cmdGetAccount.ExecuteScalar().ToString())) == true)
-                {
-                    _beneficiaries.Add(new Beneficiary(accountId, name));
-                    MessageBox.Show("Bénéficiaire enregistré avec succès");
-
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Ce compte n'existe pas ou est à vous");
-            }
+            _beneficiaries.Add(new Beneficiary(accountId, name));
         }
 
+        public void add_Transfer(double amount, DateTime date, Account AccountFrom, Account AccountTo)
+        {
+            _transfers.Add(new Transfer(amount, date, AccountFrom, AccountTo));
+        }
+
+        public void add_TransferToBeneficiary(double amount, DateTime date, Account AccountFrom, Account AccountTo, Beneficiary BeneficiaryTo)
+        {
+            _transfers.Add(new Transfer(amount, date, AccountFrom, AccountTo, BeneficiaryTo));
+        }
+        public List<Transfer> getTransfers()
+        {
+            return _transfers;
+        }
     }
 }

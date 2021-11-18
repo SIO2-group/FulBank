@@ -20,10 +20,9 @@ namespace Fulbank.pages
         static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
         //MySqlConnection dbConnexion = FormMain.getConnexion();
 
-        public FormOperation(User aUser)
+        public FormOperation()
         {
             InitializeComponent();
-            user = aUser;
             this.Text = String.Empty;
             this.ControlBox = false;
         }
@@ -38,7 +37,7 @@ namespace Fulbank.pages
         private void buttonDebit_Click(object sender, EventArgs e)
         {
             Account cheque = new Account();
-            foreach (Account compte in user.GetAccounts())
+            foreach (Account compte in FormMain.user.GetAccounts())
             {
                 if (compte.Get_AccountType().Get_Label() == "COMPTE CHEQUE")
                 {
@@ -98,7 +97,7 @@ namespace Fulbank.pages
         private void buttonDeposit_Click(object sender, EventArgs e)
         {
             Account cheque = new Account();
-            foreach(Account compte in user.GetAccounts())
+            foreach(Account compte in FormMain.user.GetAccounts())
             {
                 if(compte.Get_AccountType().Get_Label() == "COMPTE CHEQUE")
                 {
@@ -118,7 +117,7 @@ namespace Fulbank.pages
             {
 
                 dbConnexion.Open();
-                string commandTexttestDeposit = "UPDATE account SET A_BALANCE = '" + result + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + user.Get_Id() + "'";
+                string commandTexttestDeposit = "UPDATE account SET A_BALANCE = '" + result + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
                 MySqlCommand cmdtestDeposit = new MySqlCommand(commandTexttestDeposit, dbConnexion);
                 MySqlDataReader drDeposit = cmdtestDeposit.ExecuteReader();
                 cheque.Deposit(amount);
