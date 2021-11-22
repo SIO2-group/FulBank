@@ -155,7 +155,7 @@ namespace Fulbank.pages
 
         private void ButtonTransferHistory_Click(object sender, EventArgs e)
         {
-            FormMain.ListFormMenu[4].BringToFront();
+            FormMain.ListFormMenu[5].BringToFront();
         }
     }
 }

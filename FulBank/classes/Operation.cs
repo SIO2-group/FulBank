@@ -3,28 +3,41 @@
 namespace Fulbank.classes
     
 {
-    class Operation
+    public class Operation
     {
         private int _id;
         private double _amount;
         private bool _debit;
         private DateTime _date;
-        private User _user;
-        private Account _account;
         private Terminal _terminalUsed;
 
-        public Operation(
-            int id, double amount, bool debit,
-            User user, Account account, Terminal terminalUsed
-            )
+        public Operation( int id, double amount, bool debit, DateTime date )
         {
             _id = id;
             _amount = amount;
             _debit = debit;
-            _user = user;
-            _account = account;
-            _terminalUsed = terminalUsed;
+            _date = date;
+        }
+
+        public Operation(int id, double amount, bool debit)
+        {
+            _id = id;
+            _amount = amount;
+            _debit = debit;
             _date = new DateTime();
+        }
+
+        public double Get_amount()
+        {
+            return _amount;
+        }
+        public bool Get_debit()
+        {
+            return _debit;
+        }
+        public DateTime Get_date()
+        {
+            return _date;
         }
     }
 }

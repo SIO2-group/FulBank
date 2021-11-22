@@ -15,9 +15,8 @@ namespace Fulbank.pages
 {
     public partial class FormOperation : Form
     {
-        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
-        static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
-        //MySqlConnection dbConnexion = FormMain.getConnexion();
+       
+        //MySqlConnection FormMain.dbConnexion = FormMain.getConnexion();
 
         public FormOperation()
         {
@@ -44,35 +43,49 @@ namespace Fulbank.pages
                 }
             }
 
+
             double balance = cheque.Get_Balance();
+            
 
-            double amount = double.Parse(OperationValue.Text);
-
-            double result = balance - amount ;
-
-
-            if (result > cheque.Get_Limit())
+            if (!String.IsNullOrWhiteSpace(OperationValue.Text) && double.Parse(OperationValue.Text) > 0)
             {
-                dbConnexion.Open();
-                string commandTexttestDebit = "UPDATE account SET A_BALANCE = '" + result + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
-                MySqlCommand cmdtestDebit = new MySqlCommand(commandTexttestDebit, dbConnexion);
-                MySqlDataReader drDebit = cmdtestDebit.ExecuteReader();
-                cheque.Debit(amount);
-                MessageBox.Show("Retrait de " + amount + " € effectué");
 
-                dbConnexion.Close();
-                dbConnexion.Open();
-                string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",1, 1,'" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
-                MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, dbConnexion);
-                cmdtestInsert.ExecuteNonQuery();
-                dbConnexion.Close();
+                double amount = double.Parse(OperationValue.Text);
+                double result = balance - amount;
+
+
+                if (result > cheque.Get_Limit())
+                {
+                    FormMain.dbConnexion.Open();
+                    string commandTexttestDebit = "UPDATE account SET A_BALANCE = '" + result + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
+                    MySqlCommand cmdtestDebit = new MySqlCommand(commandTexttestDebit, FormMain.dbConnexion);
+                    MySqlDataReader drDebit = cmdtestDebit.ExecuteReader();
+                    FormMain.dbConnexion.Close();
+                    cheque.Debit(amount);
+                    MessageBox.Show("Retrait de " + amount + " € effectué");
+
+                    FormMain.dbConnexion.Close();
+                    FormMain.dbConnexion.Open();
+                    string commandtermid = "SELECT TL_ID FROM terminal WHERE TL_CITY = '" + FormMain.thisTerminal.getCity() + "' AND TL_BUILDING = '" + FormMain.thisTerminal.getBuilding() + "' AND TL_IP = '" + FormMain.thisTerminal.getIp() + "'";
+                    MySqlCommand cmdtermid = new MySqlCommand(commandtermid, FormMain.dbConnexion);
+                    string terminalId = cmdtermid.ExecuteScalar().ToString();
+                    FormMain.dbConnexion.Close();
+                    FormMain.dbConnexion.Open();
+                    string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",1, '"+terminalId+"','" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
+                    MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
+                    cmdtestInsert.ExecuteNonQuery();
+                    FormMain.dbConnexion.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Vous dépassez votre limite de découvert");
+                }
+
             }
             else
             {
-                MessageBox.Show("Vous dépassez votre limite de découvert");
+                MessageBox.Show("Saisissez un montant positif");
             }
-
-
            
 
         }
@@ -97,6 +110,8 @@ namespace Fulbank.pages
             }
 
                 double balance = cheque.Get_Balance();
+           if (!String.IsNullOrWhiteSpace(OperationValue.Text) && double.Parse(OperationValue.Text) > 0)
+            {
 
                 double amount = double.Parse(OperationValue.Text);
 
@@ -105,23 +120,34 @@ namespace Fulbank.pages
             if (result < cheque.Get_AccountType().Get_Limit())
             {
 
-                dbConnexion.Open();
+                FormMain.dbConnexion.Open();
                 string commandTexttestDeposit = "UPDATE account SET A_BALANCE = '" + result + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
-                MySqlCommand cmdtestDeposit = new MySqlCommand(commandTexttestDeposit, dbConnexion);
+                MySqlCommand cmdtestDeposit = new MySqlCommand(commandTexttestDeposit, FormMain.dbConnexion);
                 MySqlDataReader drDeposit = cmdtestDeposit.ExecuteReader();
                 cheque.Deposit(amount);
                 MessageBox.Show("Dépôt de " + amount + " € effectué");
-                dbConnexion.Close();
-
-                dbConnexion.Open();
-                string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",0, 1,'" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
-                MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, dbConnexion);
+                FormMain.dbConnexion.Close();
+                    FormMain.dbConnexion.Open();
+                    string commandtermid = "SELECT TL_ID FROM terminal WHERE TL_CITY = '"+ FormMain.thisTerminal.getCity()+ "' AND TL_BUILDING = '" + FormMain.thisTerminal.getBuilding() + "' AND TL_IP = '" + FormMain.thisTerminal.getIp() + "'";
+                    MySqlCommand cmdtermid = new MySqlCommand(commandtermid, FormMain.dbConnexion);
+                    string terminalId = cmdtermid.ExecuteScalar().ToString();
+                    FormMain.dbConnexion.Close();
+                    FormMain.dbConnexion.Open();
+                string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",0,'" + terminalId + "' ,'" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
+                MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
                 cmdtestInsert.ExecuteNonQuery();
-                dbConnexion.Close();
+                FormMain.dbConnexion.Close();
+
+                
             }
             else
             {
                 MessageBox.Show("Vous dépassez le plafond de votre compte");
+            }
+           }
+           else
+            {
+                MessageBox.Show("Saisissez un montant positif");
             }
         }
 
