@@ -53,10 +53,9 @@ namespace FulBank
             panelMain.Controls.Add(ListFormMenu[3]);
             ListFormMenu.Add(new FormProfile() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[4]);
-
             ListFormMenu.Add(new FormTransferHistory() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
-
             panelMain.Controls.Add(ListFormMenu[5]);
+            
             ListFormMenu[5].Show();
             ListFormMenu[4].Show();
             ListFormMenu[3].Show();
