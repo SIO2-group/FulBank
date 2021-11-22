@@ -51,10 +51,13 @@ namespace FulBank
             panelMain.Controls.Add(ListFormMenu[2]);
             ListFormMenu.Add(new FormOperationHistory() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[3]);
+            ListFormMenu.Add(new FormProfile() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            panelMain.Controls.Add(ListFormMenu[4]);
 
             ListFormMenu.Add(new FormTransferHistory() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
 
-            panelMain.Controls.Add(ListFormMenu[4]);
+            panelMain.Controls.Add(ListFormMenu[5]);
+            ListFormMenu[5].Show();
             ListFormMenu[4].Show();
             ListFormMenu[3].Show();
             ListFormMenu[2].Show();
@@ -86,15 +89,15 @@ namespace FulBank
             }
 
             dbConnexion.Close();
-            Account account = aUser.GetAccounts()[0];
+                Account accounts = aUser.GetAccounts()[0];
                 dbConnexion.Open();
-                string commandTextoperation = "SELECT OP_ID, OP_AMOUNT, OP_ISDEBIT, DATE_FORMAT(OP_DATE,'%d-%m-%Y %H:%i:%s') as OP_DATE FROM account INNER JOIN operation ON account.A_ID = operation.OP_ID_ACCOUNT WHERE OP_ID_ACCOUNT = '" + account.Get_Id() + "' ORDER BY OP_DATE ASC";
+                string commandTextoperation = "SELECT OP_ID, OP_AMOUNT, OP_ISDEBIT, DATE_FORMAT(OP_DATE,'%d-%m-%Y %H:%i:%s') as OP_DATE FROM account INNER JOIN operation ON account.A_ID = operation.OP_ID_ACCOUNT WHERE OP_ID_ACCOUNT = '" + accounts.Get_Id() + "' ORDER BY OP_DATE ASC";
                 MySqlCommand cmdGetoperation = new MySqlCommand(commandTextoperation, dbConnexion);
                 MySqlDataReader operation = cmdGetoperation.ExecuteReader();
                 while (operation.Read())
                 {
                     DateTime dt = DateTime.Parse(operation["OP_DATE"].ToString());
-                    account.Add_Operation(int.Parse(operation["OP_ID"].ToString()), double.Parse(operation["OP_AMOUNT"].ToString()), Convert.ToBoolean(operation["OP_ISDEBIT"].ToString()), dt );
+                    accounts.Add_Operation(int.Parse(operation["OP_ID"].ToString()), double.Parse(operation["OP_AMOUNT"].ToString()), Convert.ToBoolean(operation["OP_ISDEBIT"].ToString()), dt );
                 } 
                 dbConnexion.Close();
 
@@ -165,12 +168,6 @@ namespace FulBank
             IniFile MyIni = new IniFile("Fulbank.ini");
             Terminal thisTerminal = new Terminal(MyIni.Read("City"), MyIni.Read("Building"), MyIni.Read("Ipv4"));
             return thisTerminal;
-
-        
-            
-
-            return aUser;
-
 
         }
 

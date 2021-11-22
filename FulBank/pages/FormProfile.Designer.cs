@@ -30,6 +30,7 @@ namespace Fulbank.pages
         private void InitializeComponent()
         {
             this.PanelUserProfile = new System.Windows.Forms.Panel();
+            this.btnReload = new System.Windows.Forms.Button();
             this.ProfilePanelPassword = new System.Windows.Forms.Panel();
             this.BtnChangePassWord = new System.Windows.Forms.Button();
             this.ProfilePasswordTitle = new System.Windows.Forms.TextBox();
@@ -52,7 +53,6 @@ namespace Fulbank.pages
             this.ProfilePhoneTitle = new System.Windows.Forms.TextBox();
             this.ProfileCategory = new System.Windows.Forms.TextBox();
             this.OwnerName = new System.Windows.Forms.TextBox();
-            this.btnReload = new System.Windows.Forms.Button();
             this.PanelUserProfile.SuspendLayout();
             this.ProfilePanelPassword.SuspendLayout();
             this.ProfilePanelMail.SuspendLayout();
@@ -82,6 +82,18 @@ namespace Fulbank.pages
             this.PanelUserProfile.TabIndex = 5;
             this.PanelUserProfile.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelUserProfile_Paint);
             // 
+            // btnReload
+            // 
+            this.btnReload.BackColor = System.Drawing.SystemColors.Window;
+            this.btnReload.BackgroundImage = global::Fulbank.Properties.Resources.pngtree_reload_icon__line_style_vector_illustration_png_image_314770;
+            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReload.Location = new System.Drawing.Point(659, 42);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(40, 40);
+            this.btnReload.TabIndex = 18;
+            this.btnReload.UseVisualStyleBackColor = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
             // ProfilePanelPassword
             // 
             this.ProfilePanelPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
@@ -107,6 +119,7 @@ namespace Fulbank.pages
             this.BtnChangePassWord.TabIndex = 8;
             this.BtnChangePassWord.Text = ">";
             this.BtnChangePassWord.UseVisualStyleBackColor = true;
+            this.BtnChangePassWord.Click += new System.EventHandler(this.BtnChangePassWord_Click);
             // 
             // ProfilePasswordTitle
             // 
@@ -376,18 +389,6 @@ namespace Fulbank.pages
             this.OwnerName.TabIndex = 0;
             this.OwnerName.Text = "{{nom du propriétaire}}";
             this.OwnerName.TextChanged += new System.EventHandler(this.OwnerName_TextChanged);
-            // 
-            // btnReload
-            // 
-            this.btnReload.BackColor = System.Drawing.SystemColors.Window;
-            this.btnReload.BackgroundImage = global::Fulbank.Properties.Resources.pngtree_reload_icon__line_style_vector_illustration_png_image_314770;
-            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReload.Location = new System.Drawing.Point(659, 42);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(40, 40);
-            this.btnReload.TabIndex = 18;
-            this.btnReload.UseVisualStyleBackColor = false;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // FormProfile
             // 

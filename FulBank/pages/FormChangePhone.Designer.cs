@@ -35,6 +35,7 @@ namespace Fulbank.pages
             this.textNewPhone = new System.Windows.Forms.TextBox();
             this.btnNewPhone = new System.Windows.Forms.Button();
             this.buttonReturn = new System.Windows.Forms.Button();
+            this.InvalidPhone = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -90,11 +91,24 @@ namespace Fulbank.pages
             this.buttonReturn.UseVisualStyleBackColor = true;
             this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
             // 
+            // InvalidPhone
+            // 
+            this.InvalidPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InvalidPhone.AutoSize = true;
+            this.InvalidPhone.ForeColor = System.Drawing.Color.Red;
+            this.InvalidPhone.Location = new System.Drawing.Point(228, 117);
+            this.InvalidPhone.Name = "InvalidPhone";
+            this.InvalidPhone.Size = new System.Drawing.Size(129, 13);
+            this.InvalidPhone.TabIndex = 23;
+            this.InvalidPhone.Text = "Téléphone non conforme!";
+            this.InvalidPhone.Visible = false;
+            // 
             // FormChangePhone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 240);
+            this.Controls.Add(this.InvalidPhone);
             this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.btnNewPhone);
             this.Controls.Add(this.textNewPhone);
@@ -117,5 +131,6 @@ namespace Fulbank.pages
         private System.Windows.Forms.TextBox textNewPhone;
         private System.Windows.Forms.Button btnNewPhone;
         private System.Windows.Forms.Button buttonReturn;
+        private System.Windows.Forms.Label InvalidPhone;
     }
 }

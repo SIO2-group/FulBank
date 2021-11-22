@@ -26,11 +26,12 @@ namespace Fulbank.pages
 
         private void FormOperationHistory_Load(object sender, EventArgs e)
         {
-            foreach(Account account in user.GetAccounts())
+            foreach(Account account in FormMain.user.GetAccounts())
             {
                 foreach(Operation op in account.getOperation())
                 {
                     dgvOperation.Rows.Add(op.Get_debit(),op.Get_amount(), op.Get_date());
+                
                 }
             }
         }

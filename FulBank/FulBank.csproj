@@ -250,6 +250,12 @@
     <Compile Include="pages\FormChangeMail.Designer.cs">
       <DependentUpon>FormChangeMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\FormCreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,7 @@
     </Compile>
     <Compile Include="pages\FormTransferHistory.Designer.cs">
       <DependentUpon>FormTransferHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\FormProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +336,9 @@
     <EmbeddedResource Include="pages\FormChangeMail.resx">
       <DependentUpon>FormChangeMail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="pages\FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pages\FormChangePhone.resx">
       <DependentUpon>FormChangePhone.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +362,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormTransferHistory.resx">
       <DependentUpon>FormTransferHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pages\FormProfile.resx">
       <DependentUpon>FormProfile.cs</DependentUpon>
     </EmbeddedResource>

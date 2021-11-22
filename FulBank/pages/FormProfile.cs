@@ -16,16 +16,13 @@ namespace Fulbank.pages
 {
     public partial class FormProfile : Form
     {
-        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
-        static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
-        // MySqlConnection dbConnexion = FormMain.getConnexion();
-        private User user;
+       
         List<Panel> panelsAccounts = new List<Panel>();
         
-        public FormProfile(User AUser)
+        public FormProfile()
         {
             InitializeComponent();
-            user = AUser;
+           
             this.Text = String.Empty;
             this.ControlBox = false;
             
@@ -45,32 +42,32 @@ namespace Fulbank.pages
 
         private void Profile_Load(object sender, EventArgs e)
         {
-            OwnerName.Text = user.Get_Name() + "  " + user.Get_Firstname();
-            ProfilePhoneNumber.Text = user.Get_phone();
-            ProfileAdress.Text = user.Get_address();
-            ProfileLandlineNumber.Text = user.Get_homePhone();
-            ProfileMail.Text = user.Get_email();
+            OwnerName.Text =FormMain.user.Get_Name() + "  " +FormMain.user.Get_Firstname();
+            ProfilePhoneNumber.Text =FormMain.user.Get_phone();
+            ProfileAdress.Text =FormMain.user.Get_address();
+            ProfileLandlineNumber.Text =FormMain.user.Get_homePhone();
+            ProfileMail.Text =FormMain.user.Get_email();
 
         }
 
         private void BtnChangePhone_Click(object sender, EventArgs e)
         {
-            new FormChangePhone(user).Show();
+            new FormChangePhone().Show();
         }
 
         private void BtnChangeAdress_Click(object sender, EventArgs e)
         {
-            new FormChangeAdress(user).Show();
+            new FormChangeAdress().Show();
         }
 
         private void BtnChangeLandLine_Click(object sender, EventArgs e)
         {
-            new FormChangeLandLine(user).Show();
+            new FormChangeLandLine().Show();
         }
 
         private void BtnChangeMail_Click(object sender, EventArgs e)
         {
-            new FormChangeMail(user).Show();
+            new FormChangeMail().Show();
         }
 
         private void PanelUserProfile_Paint(object sender, PaintEventArgs e)
@@ -80,7 +77,17 @@ namespace Fulbank.pages
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            
+            OwnerName.Text = FormMain.user.Get_Name() + "  " + FormMain.user.Get_Firstname();
+            ProfilePhoneNumber.Text = FormMain.user.Get_phone();
+            ProfileAdress.Text = FormMain.user.Get_address();
+            ProfileLandlineNumber.Text = FormMain.user.Get_homePhone();
+            ProfileMail.Text = FormMain.user.Get_email();
+
+        }
+
+        private void BtnChangePassWord_Click(object sender, EventArgs e)
+        {
+            new FormChangePassword().Show();
         }
     }
 }
