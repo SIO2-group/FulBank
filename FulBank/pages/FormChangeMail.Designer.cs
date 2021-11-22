@@ -35,6 +35,7 @@ namespace Fulbank.pages
             this.textOldMail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.InvalidMail = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonReturn
@@ -90,11 +91,24 @@ namespace Fulbank.pages
             this.label1.TabIndex = 12;
             this.label1.Text = "Adresse Mail Actuelle";
             // 
+            // InvalidMail
+            // 
+            this.InvalidMail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InvalidMail.AutoSize = true;
+            this.InvalidMail.ForeColor = System.Drawing.Color.Red;
+            this.InvalidMail.Location = new System.Drawing.Point(259, 141);
+            this.InvalidMail.Name = "InvalidMail";
+            this.InvalidMail.Size = new System.Drawing.Size(108, 13);
+            this.InvalidMail.TabIndex = 25;
+            this.InvalidMail.Text = "Adresse mail invalide!";
+            this.InvalidMail.Visible = false;
+            // 
             // FormChangeMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 251);
+            this.Controls.Add(this.InvalidMail);
             this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.btnNewMail);
             this.Controls.Add(this.textNewMail);
@@ -117,5 +131,6 @@ namespace Fulbank.pages
         private System.Windows.Forms.TextBox textOldMail;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label InvalidMail;
     }
 }

@@ -35,6 +35,7 @@ namespace Fulbank.pages
             this.textOldLandLine = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.InvalidLandline = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonReturn
@@ -92,11 +93,24 @@ namespace Fulbank.pages
             this.label1.TabIndex = 12;
             this.label1.Text = "Téléphone Fixe Actuel";
             // 
+            // InvalidLandline
+            // 
+            this.InvalidLandline.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InvalidLandline.AutoSize = true;
+            this.InvalidLandline.ForeColor = System.Drawing.Color.Red;
+            this.InvalidLandline.Location = new System.Drawing.Point(255, 137);
+            this.InvalidLandline.Name = "InvalidLandline";
+            this.InvalidLandline.Size = new System.Drawing.Size(129, 13);
+            this.InvalidLandline.TabIndex = 24;
+            this.InvalidLandline.Text = "Téléphone non conforme!";
+            this.InvalidLandline.Visible = false;
+            // 
             // FormChangeLandLine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 259);
+            this.Controls.Add(this.InvalidLandline);
             this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.btnNewLandLine);
             this.Controls.Add(this.textNewLandLine);
@@ -119,5 +133,6 @@ namespace Fulbank.pages
         private System.Windows.Forms.TextBox textOldLandLine;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label InvalidLandline;
     }
 }

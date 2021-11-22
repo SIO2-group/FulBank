@@ -9,23 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Fulbank.classes;
+using FulBank;
+using System.Text.RegularExpressions;
 
 namespace Fulbank.pages
 {
     public partial class FormChangeMail : Form
     {
-        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
-        static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
-        private User user;
-        public FormChangeMail(User AUser)
+        
+        public FormChangeMail()
         {
             InitializeComponent();
-            user = AUser;
+            
         }
 
         private void FormChangeMail_Load(object sender, EventArgs e)
         {
-            textOldMail.Text = user.Get_email();
+            textOldMail.Text = FormMain.user.Get_email();
         }
 
         private void buttonReturn_Click(object sender, EventArgs e)
@@ -35,19 +35,30 @@ namespace Fulbank.pages
 
         private void btnNewMail_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(textNewMail.Text))
+            InvalidMail.Hide();
+            Regex ruleMail = new Regex(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9]*[a-z0-9])?)\Z");
+            if (ruleMail.IsMatch(textNewMail.Text))
             {
-            dbConnexion.Open();
-            string commandTextMail = "UPDATE user SET U_MAIL = '" + textNewMail.Text + "' WHERE U_ID = '" + user.Get_Id() + "'";
-            MySqlCommand cmdMail = new MySqlCommand(commandTextMail, dbConnexion);
-            cmdMail.ExecuteNonQuery();
-            dbConnexion.Close();
-            this.Close();
+                if (!String.IsNullOrWhiteSpace(textNewMail.Text))
+                {
+                    FormMain.dbConnexion.Open();
+                    string commandTextMail = "UPDATE user SET U_MAIL = '" + textNewMail.Text + "' WHERE U_ID = '" + FormMain.user.Get_Id() + "'";
+                    MySqlCommand cmdMail = new MySqlCommand(commandTextMail, FormMain.dbConnexion);
+                    cmdMail.ExecuteNonQuery();
+                    FormMain.dbConnexion.Close();
+                    FormMain.user.Set_email(textNewMail.Text);
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Entrer votre nouvelle adresse mail");
+                }
             }
             else
             {
-                MessageBox.Show("Entrer votre nouvelle adresse mail");
+                InvalidMail.Show();
             }
-        }
+            }
     }
 }
