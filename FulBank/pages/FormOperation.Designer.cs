@@ -81,7 +81,7 @@ namespace Fulbank.pages
             this.label1.Location = new System.Drawing.Point(422, 81);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 46);
+            this.label1.Size = new System.Drawing.Size(48, 52);
             this.label1.TabIndex = 4;
             this.label1.Text = "€";
             // 
@@ -91,7 +91,7 @@ namespace Fulbank.pages
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(263, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(282, 34);
+            this.label2.Size = new System.Drawing.Size(291, 36);
             this.label2.TabIndex = 5;
             this.label2.Text = "Rentrez le montant de votre opération,puis \r\n        cliquez sur l\'opération a ef" +
     "fectuer";
@@ -103,9 +103,10 @@ namespace Fulbank.pages
             this.OperationValue.Location = new System.Drawing.Point(162, 78);
             this.OperationValue.Name = "OperationValue";
             this.OperationValue.PlaceholderText = "0.00";
-            this.OperationValue.Size = new System.Drawing.Size(257, 46);
+            this.OperationValue.Size = new System.Drawing.Size(257, 50);
             this.OperationValue.TabIndex = 6;
             this.OperationValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.OperationValue.TextChanged += new System.EventHandler(this.OperationValue_TextChanged);
             // 
             // FormOperation
             // 

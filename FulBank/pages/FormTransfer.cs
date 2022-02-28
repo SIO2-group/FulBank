@@ -68,7 +68,7 @@ namespace Fulbank.pages
         {
             if(!String.IsNullOrEmpty(TransferValue.Text) && !String.IsNullOrEmpty(ComboAccountsFrom.SelectedItem.ToString()) && !String.IsNullOrEmpty(ComboAccountsTo.SelectedItem.ToString()))
             {
-                if(double.Parse(TransferValue.Text) > 0.00)
+                if(double.Parse(TransferValue.Text) > 0)
                 {
                     Account anAccountFrom = new Account();
                     Account anAccountTo = new Account();

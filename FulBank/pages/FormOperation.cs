@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fulbank.classes;
 using MySql.Data.MySqlClient;
@@ -34,47 +27,40 @@ namespace Fulbank.pages
 
         private void buttonDebit_Click(object sender, EventArgs e)
         {
-            Account cheque = new Account();
-            foreach (Account compte in FormMain.user.GetAccounts())
-            {
-                if (compte.Get_AccountType().Get_Label() == "COMPTE CHEQUE")
-                {
-                    cheque = compte;
-                }
-            }
-
+            FormMain.user.getAccountsDico().TryGetValue("COMPTE CHEQUE", out Account cheque);
 
             double balance = cheque.Get_Balance();
-            
 
-            if (!String.IsNullOrWhiteSpace(OperationValue.Text) && double.Parse(OperationValue.Text) > 0)
+            if (!String.IsNullOrWhiteSpace(OperationValue.Text.Replace(".",",")) && double.Parse(OperationValue.Text.Replace(".",",")) > 0)
             {
 
-                double amount = double.Parse(OperationValue.Text);
+                double amount = double.Parse(OperationValue.Text.Replace(".", ","));
                 double result = balance - amount;
 
 
                 if (result > cheque.Get_Limit())
                 {
                     FormMain.dbConnexion.Open();
-                    string commandTexttestDebit = "UPDATE account SET A_BALANCE = '" + result + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
+                    string commandTexttestDebit = "UPDATE account SET A_BALANCE = '" + result.ToString().Replace(",",".") + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
                     MySqlCommand cmdtestDebit = new MySqlCommand(commandTexttestDebit, FormMain.dbConnexion);
                     MySqlDataReader drDebit = cmdtestDebit.ExecuteReader();
                     FormMain.dbConnexion.Close();
                     cheque.Debit(amount);
-                    MessageBox.Show("Retrait de " + amount + " € effectué");
 
-                    FormMain.dbConnexion.Close();
-                    FormMain.dbConnexion.Open();
-                    string commandtermid = "SELECT TL_ID FROM terminal WHERE TL_CITY = '" + FormMain.thisTerminal.getCity() + "' AND TL_BUILDING = '" + FormMain.thisTerminal.getBuilding() + "' AND TL_IP = '" + FormMain.thisTerminal.getIp() + "'";
-                    MySqlCommand cmdtermid = new MySqlCommand(commandtermid, FormMain.dbConnexion);
-                    string terminalId = cmdtermid.ExecuteScalar().ToString();
-                    FormMain.dbConnexion.Close();
+
+                    string terminalId = FormMain.thisTerminal.getId();
                     FormMain.dbConnexion.Open();
                     string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",1, '"+terminalId+"','" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
                     MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
                     cmdtestInsert.ExecuteNonQuery();
                     FormMain.dbConnexion.Close();
+
+
+                    OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy' 'HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.thisTerminal.getCP(), FormMain.thisTerminal.getCity(), FormMain.thisTerminal.getBuilding(), "DÉBIT", amount.ToString());
+                    receipt.buildReceipt();
+
+                    MessageBox.Show("Retrait de " + amount + " € effectué");
+
                 }
                 else
                 {
@@ -100,16 +86,8 @@ namespace Fulbank.pages
 
         private void buttonDeposit_Click(object sender, EventArgs e)
         {
-            Account cheque = new Account();
-            foreach(Account compte in FormMain.user.GetAccounts())
-            {
-                if(compte.Get_AccountType().Get_Label() == "COMPTE CHEQUE")
-                {
-                    cheque = compte;
-                }
-            }
-
-                double balance = cheque.Get_Balance();
+            FormMain.user.getAccountsDico().TryGetValue("COMPTE CHEQUE", out Account cheque);
+            double balance = cheque.Get_Balance();
            if (!String.IsNullOrWhiteSpace(OperationValue.Text) && double.Parse(OperationValue.Text) > 0)
             {
 
@@ -121,24 +99,23 @@ namespace Fulbank.pages
             {
 
                 FormMain.dbConnexion.Open();
-                string commandTexttestDeposit = "UPDATE account SET A_BALANCE = '" + result + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
+                string commandTexttestDeposit = "UPDATE account SET A_BALANCE = '" + result.ToString().Replace(",",".") + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
                 MySqlCommand cmdtestDeposit = new MySqlCommand(commandTexttestDeposit, FormMain.dbConnexion);
                 MySqlDataReader drDeposit = cmdtestDeposit.ExecuteReader();
                 cheque.Deposit(amount);
-                MessageBox.Show("Dépôt de " + amount + " € effectué");
+
                 FormMain.dbConnexion.Close();
-                    FormMain.dbConnexion.Open();
-                    string commandtermid = "SELECT TL_ID FROM terminal WHERE TL_CITY = '"+ FormMain.thisTerminal.getCity()+ "' AND TL_BUILDING = '" + FormMain.thisTerminal.getBuilding() + "' AND TL_IP = '" + FormMain.thisTerminal.getIp() + "'";
-                    MySqlCommand cmdtermid = new MySqlCommand(commandtermid, FormMain.dbConnexion);
-                    string terminalId = cmdtermid.ExecuteScalar().ToString();
-                    FormMain.dbConnexion.Close();
-                    FormMain.dbConnexion.Open();
+                string terminalId = FormMain.thisTerminal.getId();
+                FormMain.dbConnexion.Open();
                 string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",0,'" + terminalId + "' ,'" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
                 MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
                 cmdtestInsert.ExecuteNonQuery();
                 FormMain.dbConnexion.Close();
 
-                
+                OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy' 'HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.thisTerminal.getCP(), FormMain.thisTerminal.getCity(), FormMain.thisTerminal.getBuilding(), "DÉPOT", amount.ToString());
+                receipt.buildReceipt();
+
+                MessageBox.Show("Dépôt de " + amount + " € effectué");
             }
             else
             {
@@ -154,6 +131,11 @@ namespace Fulbank.pages
         private void buttonOperationHistory_Click(object sender, EventArgs e)
         {
             FormMain.ListFormMenu[3].BringToFront();
+        }
+
+        private void OperationValue_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

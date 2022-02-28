@@ -63,9 +63,49 @@ namespace Fulbank.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dsqdqshodiqshio {
+            get {
+                object obj = ResourceManager.GetObject("dsqdqshodiqshio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dsqdqshodiqshio1 {
+            get {
+                object obj = ResourceManager.GetObject("dsqdqshodiqshio1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fdsiofjisdojfiosdj {
+            get {
+                object obj = ResourceManager.GetObject("fdsiofjisdojfiosdj", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FULBANK {
             get {
                 object obj = ResourceManager.GetObject("FULBANK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FULBANK_ROTATED {
+            get {
+                object obj = ResourceManager.GetObject("FULBANK_ROTATED", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +136,26 @@ namespace Fulbank.Properties {
         internal static System.Drawing.Bitmap pngtree_reload_icon__line_style_vector_illustration_png_image_314770 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-reload-icon--line-style-vector-illustration-png-image_314770", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sandsfsfsdfsdf {
+            get {
+                object obj = ResourceManager.GetObject("Sandsfsfsdfsdf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sandsfsfsdfsdf1 {
+            get {
+                object obj = ResourceManager.GetObject("Sandsfsfsdfsdf1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
