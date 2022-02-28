@@ -48,7 +48,9 @@ namespace Fulbank.pages
                     cmdPhone.ExecuteNonQuery();
                     FormMain.dbConnexion.Close();
                     FormMain.user.Set_phone(textNewPhone.Text);
+                   
                     this.Close();
+                    
 
                 }
                 else

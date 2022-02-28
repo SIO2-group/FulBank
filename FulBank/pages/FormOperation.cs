@@ -57,11 +57,11 @@ namespace Fulbank.pages
                 if (result > cheque.Get_Limit())
                 {
                     FormMain.dbConnexion.Open();
-                    string commandTexttestDebit = "UPDATE account SET A_BALANCE = '" + result + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
+                    string commandTexttestDebit = "UPDATE account SET A_BALANCE = '" + result + "' WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
                     MySqlCommand cmdtestDebit = new MySqlCommand(commandTexttestDebit, FormMain.dbConnexion);
                     MySqlDataReader drDebit = cmdtestDebit.ExecuteReader();
                     FormMain.dbConnexion.Close();
-                    cheque.Debit(amount);
+                    cheque.OperationDebit(amount);
                     MessageBox.Show("Retrait de " + amount + " € effectué");
 
                     FormMain.dbConnexion.Close();
@@ -121,10 +121,10 @@ namespace Fulbank.pages
             {
 
                 FormMain.dbConnexion.Open();
-                string commandTexttestDeposit = "UPDATE account SET A_BALANCE = '" + result + "'WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
+                string commandTexttestDeposit = "UPDATE account SET A_BALANCE = '" + result + "' WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
                 MySqlCommand cmdtestDeposit = new MySqlCommand(commandTexttestDeposit, FormMain.dbConnexion);
                 MySqlDataReader drDeposit = cmdtestDeposit.ExecuteReader();
-                cheque.Deposit(amount);
+                cheque.OperationDeposit(amount);
                 MessageBox.Show("Dépôt de " + amount + " € effectué");
                 FormMain.dbConnexion.Close();
                     FormMain.dbConnexion.Open();

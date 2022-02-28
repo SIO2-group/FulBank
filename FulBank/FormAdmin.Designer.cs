@@ -37,6 +37,7 @@ namespace Fulbank
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelAdmin = new System.Windows.Forms.Panel();
+            this.MenuAccount = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.SuspendLayout();
@@ -44,6 +45,7 @@ namespace Fulbank
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
+            this.panelMenu.Controls.Add(this.MenuAccount);
             this.panelMenu.Controls.Add(this.MenuProfil);
             this.panelMenu.Controls.Add(this.MenuTerminalConfig);
             this.panelMenu.Controls.Add(this.MenuCreateAccount);
@@ -51,7 +53,7 @@ namespace Fulbank
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(213, 450);
+            this.panelMenu.Size = new System.Drawing.Size(213, 452);
             this.panelMenu.TabIndex = 1;
             // 
             // MenuProfil
@@ -97,7 +99,7 @@ namespace Fulbank
             this.MenuCreateAccount.Name = "MenuCreateAccount";
             this.MenuCreateAccount.Size = new System.Drawing.Size(213, 60);
             this.MenuCreateAccount.TabIndex = 1;
-            this.MenuCreateAccount.Text = "Crée un compte";
+            this.MenuCreateAccount.Text = "Créer un compte client";
             this.MenuCreateAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MenuCreateAccount.UseVisualStyleBackColor = true;
             this.MenuCreateAccount.Click += new System.EventHandler(this.MenuCreateAccount_Click);
@@ -147,15 +149,31 @@ namespace Fulbank
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAdmin.Location = new System.Drawing.Point(213, 80);
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(587, 370);
+            this.panelAdmin.Size = new System.Drawing.Size(587, 372);
             this.panelAdmin.TabIndex = 3;
             this.panelAdmin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAdmin_Paint);
+            // 
+            // MenuAccount
+            // 
+            this.MenuAccount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MenuAccount.FlatAppearance.BorderSize = 0;
+            this.MenuAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MenuAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuAccount.ForeColor = System.Drawing.Color.White;
+            this.MenuAccount.Location = new System.Drawing.Point(0, 260);
+            this.MenuAccount.Name = "MenuAccount";
+            this.MenuAccount.Size = new System.Drawing.Size(213, 60);
+            this.MenuAccount.TabIndex = 8;
+            this.MenuAccount.Text = "Créer un compte bancaire";
+            this.MenuAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.MenuAccount.UseVisualStyleBackColor = true;
+            this.MenuAccount.Click += new System.EventHandler(this.MenuAccount_Click);
             // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 452);
             this.Controls.Add(this.panelAdmin);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
@@ -180,5 +198,6 @@ namespace Fulbank
         private System.Windows.Forms.Button MenuProfil;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelAdmin;
+        private System.Windows.Forms.Button MenuAccount;
     }
 }

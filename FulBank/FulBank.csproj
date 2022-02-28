@@ -256,6 +256,12 @@
     <Compile Include="pages\FormChangePassword.Designer.cs">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\FormCreateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\FormCreateAccount.Designer.cs">
+      <DependentUpon>FormCreateAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\FormCreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormChangePhone.resx">
       <DependentUpon>FormChangePhone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\FormCreateAccount.resx">
+      <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormCreateUser.resx">
       <DependentUpon>FormCreateUser.cs</DependentUpon>
@@ -452,6 +461,10 @@
     <Content Include="fonts\OpenSans\Regular\OpenSans-Regular.svg" />
     <Content Include="fonts\OpenSans\SemiboldItalic\OpenSans-SemiboldItalic.svg" />
     <Content Include="fonts\OpenSans\Semibold\OpenSans-Semibold.svg" />
+    <None Include="Resources\logofulbank.png" />
+    <None Include="Resources\fulbanklogo.png" />
+    <None Include="Resources\FULBANK2.png" />
+    <None Include="Resources\FULBANK1.png" />
     <None Include="Resources\téléchargement1.png" />
     <None Include="Resources\téléchargement.png" />
     <None Include="Resources\pngtree-reload-icon--line-style-vector-illustration-png-image_314770.png" />

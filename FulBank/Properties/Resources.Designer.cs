@@ -73,9 +73,49 @@ namespace Fulbank.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FULBANK1 {
+            get {
+                object obj = ResourceManager.GetObject("FULBANK1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FULBANK2 {
+            get {
+                object obj = ResourceManager.GetObject("FULBANK2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fulbanklogo {
+            get {
+                object obj = ResourceManager.GetObject("fulbanklogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_comptes {
             get {
                 object obj = ResourceManager.GetObject("logo_comptes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logofulbank {
+            get {
+                object obj = ResourceManager.GetObject("logofulbank", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

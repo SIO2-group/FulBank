@@ -89,9 +89,9 @@ namespace Fulbank.pages
             // 
             // ProfilePassword
             // 
-            this.ProfilePassword.BackColor = System.Drawing.Color.White;
+            this.ProfilePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ProfilePassword.Location = new System.Drawing.Point(161, 4);
+            this.ProfilePassword.Location = new System.Drawing.Point(118, 3);
             this.ProfilePassword.Multiline = true;
             this.ProfilePassword.Name = "ProfilePassword";
             this.ProfilePassword.Size = new System.Drawing.Size(142, 24);
@@ -118,7 +118,7 @@ namespace Fulbank.pages
             this.textBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.textBox10.Location = new System.Drawing.Point(38, 292);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(181, 20);
+            this.textBox10.Size = new System.Drawing.Size(181, 19);
             this.textBox10.TabIndex = 7;
             this.textBox10.Text = "Sécurité";
             // 
@@ -136,9 +136,9 @@ namespace Fulbank.pages
             // 
             // ProfileMail
             // 
-            this.ProfileMail.BackColor = System.Drawing.Color.White;
+            this.ProfileMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfileMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ProfileMail.Location = new System.Drawing.Point(161, 3);
+            this.ProfileMail.Location = new System.Drawing.Point(109, 3);
             this.ProfileMail.Multiline = true;
             this.ProfileMail.Name = "ProfileMail";
             this.ProfileMail.Size = new System.Drawing.Size(207, 24);
@@ -171,9 +171,9 @@ namespace Fulbank.pages
             // 
             // ProfileLandlineNumber
             // 
-            this.ProfileLandlineNumber.BackColor = System.Drawing.Color.White;
+            this.ProfileLandlineNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfileLandlineNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ProfileLandlineNumber.Location = new System.Drawing.Point(161, 4);
+            this.ProfileLandlineNumber.Location = new System.Drawing.Point(125, 4);
             this.ProfileLandlineNumber.Multiline = true;
             this.ProfileLandlineNumber.Name = "ProfileLandlineNumber";
             this.ProfileLandlineNumber.Size = new System.Drawing.Size(142, 24);
@@ -206,10 +206,10 @@ namespace Fulbank.pages
             // 
             // ProfileAdress
             // 
-            this.ProfileAdress.BackColor = System.Drawing.Color.White;
+            this.ProfileAdress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfileAdress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfileAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProfileAdress.Location = new System.Drawing.Point(161, 3);
+            this.ProfileAdress.Location = new System.Drawing.Point(78, 4);
             this.ProfileAdress.Multiline = true;
             this.ProfileAdress.Name = "ProfileAdress";
             this.ProfileAdress.Size = new System.Drawing.Size(247, 24);
@@ -242,10 +242,10 @@ namespace Fulbank.pages
             // 
             // ProfilePhoneNumber
             // 
-            this.ProfilePhoneNumber.BackColor = System.Drawing.Color.White;
+            this.ProfilePhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfilePhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProfilePhoneNumber.Location = new System.Drawing.Point(161, 3);
+            this.ProfilePhoneNumber.Location = new System.Drawing.Point(99, 3);
             this.ProfilePhoneNumber.MaxLength = 10;
             this.ProfilePhoneNumber.Multiline = true;
             this.ProfilePhoneNumber.Name = "ProfilePhoneNumber";
@@ -273,7 +273,7 @@ namespace Fulbank.pages
             this.ProfileCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.ProfileCategory.Location = new System.Drawing.Point(38, 60);
             this.ProfileCategory.Name = "ProfileCategory";
-            this.ProfileCategory.Size = new System.Drawing.Size(181, 20);
+            this.ProfileCategory.Size = new System.Drawing.Size(181, 19);
             this.ProfileCategory.TabIndex = 1;
             this.ProfileCategory.Text = "Général";
             // 
@@ -285,7 +285,7 @@ namespace Fulbank.pages
             this.OwnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.OwnerName.Location = new System.Drawing.Point(38, 22);
             this.OwnerName.Name = "OwnerName";
-            this.OwnerName.Size = new System.Drawing.Size(181, 20);
+            this.OwnerName.Size = new System.Drawing.Size(181, 19);
             this.OwnerName.TabIndex = 0;
             this.OwnerName.Text = "{{nom du propriétaire}}";
             // 

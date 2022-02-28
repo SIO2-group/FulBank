@@ -69,11 +69,15 @@ namespace Fulbank.classes
             FormMain.dbConnexion.Close();
         }
 
-        public void Deposit(double value)
+        public void OperationDeposit(double value)
         {
             _balance += value;
         }
-      
+        public void OperationDebit(double value)
+        {
+            _balance += value;
+        }
+
         public void Credit(double creditAmount)
         {
             FormMain.dbConnexion.Open();

@@ -90,6 +90,11 @@ namespace Fulbank
                 TextPassword.UseSystemPasswordChar = true;
             }
         }
+
+        private void TextPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

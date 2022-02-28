@@ -84,9 +84,19 @@ namespace Fulbank.classes
             return _beneficiaries;
         }
 
+
         public void Add_Beneficiary(int accountId, string name, int userId)
         {
             _beneficiaries.Add(new Beneficiary(accountId, name));
+        }
+
+        public void Insert_Beneficiary(int accountId, string name, int userId)
+        {
+            FormMain.dbConnexion.Open();
+            string commandAddBeneficiary = "INSERT INTO beneficiary(B_USER_ID, B_ACCOUNT_ID, B_NAME) VALUES('" + userId + "','" + accountId + "','" + name + "' )";
+            MySqlCommand cmdAddBeneficiary = new MySqlCommand(commandAddBeneficiary, FormMain.dbConnexion);
+            cmdAddBeneficiary.ExecuteNonQuery();
+            FormMain.dbConnexion.Close();
         }
 
         public void add_Transfer(double amount, DateTime date, Account AccountFrom, Account AccountTo)

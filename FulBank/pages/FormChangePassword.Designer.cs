@@ -43,27 +43,34 @@ namespace Fulbank.pages
             // 
             // buttonReturn
             // 
-            this.buttonReturn.Location = new System.Drawing.Point(21, 12);
+            this.buttonReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
+            this.buttonReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReturn.Location = new System.Drawing.Point(15, 221);
             this.buttonReturn.Name = "buttonReturn";
-            this.buttonReturn.Size = new System.Drawing.Size(67, 22);
+            this.buttonReturn.Size = new System.Drawing.Size(94, 32);
             this.buttonReturn.TabIndex = 23;
-            this.buttonReturn.Text = "Retour";
-            this.buttonReturn.UseVisualStyleBackColor = true;
+            this.buttonReturn.Text = "Annuler";
+            this.buttonReturn.UseVisualStyleBackColor = false;
             this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
             // 
             // btnNewPassword
             // 
-            this.btnNewPassword.Location = new System.Drawing.Point(366, 221);
+            this.btnNewPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
+            this.btnNewPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewPassword.Location = new System.Drawing.Point(138, 221);
             this.btnNewPassword.Name = "btnNewPassword";
             this.btnNewPassword.Size = new System.Drawing.Size(94, 32);
             this.btnNewPassword.TabIndex = 22;
             this.btnNewPassword.Text = "Modifier";
-            this.btnNewPassword.UseVisualStyleBackColor = true;
+            this.btnNewPassword.UseVisualStyleBackColor = false;
             this.btnNewPassword.Click += new System.EventHandler(this.btnNewPassword_Click);
             // 
             // textNewPassword
             // 
-            this.textNewPassword.Location = new System.Drawing.Point(176, 113);
+            this.textNewPassword.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textNewPassword.Location = new System.Drawing.Point(40, 113);
             this.textNewPassword.Name = "textNewPassword";
             this.textNewPassword.PasswordChar = '*';
             this.textNewPassword.Size = new System.Drawing.Size(136, 20);
@@ -71,33 +78,40 @@ namespace Fulbank.pages
             // 
             // textOldPassword
             // 
-            this.textOldPassword.Location = new System.Drawing.Point(176, 47);
+            this.textOldPassword.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textOldPassword.Location = new System.Drawing.Point(40, 48);
             this.textOldPassword.Name = "textOldPassword";
             this.textOldPassword.PasswordChar = '*';
-            this.textOldPassword.Size = new System.Drawing.Size(124, 20);
+            this.textOldPassword.Size = new System.Drawing.Size(136, 20);
             this.textOldPassword.TabIndex = 20;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(163, 84);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label2.Location = new System.Drawing.Point(37, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 13);
+            this.label2.Size = new System.Drawing.Size(233, 17);
             this.label2.TabIndex = 19;
             this.label2.Text = "Entrez votre nouveau mot de passe";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(163, 21);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label1.Location = new System.Drawing.Point(37, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 13);
+            this.label1.Size = new System.Drawing.Size(220, 17);
             this.label1.TabIndex = 18;
             this.label1.Text = "Entrez votre ancien mot de passe";
             // 
             // textConfirmPassword
             // 
-            this.textConfirmPassword.Location = new System.Drawing.Point(176, 182);
+            this.textConfirmPassword.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textConfirmPassword.ForeColor = System.Drawing.Color.Black;
+            this.textConfirmPassword.Location = new System.Drawing.Point(40, 185);
             this.textConfirmPassword.Name = "textConfirmPassword";
             this.textConfirmPassword.PasswordChar = '*';
             this.textConfirmPassword.Size = new System.Drawing.Size(136, 20);
@@ -106,9 +120,11 @@ namespace Fulbank.pages
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(163, 152);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label3.Location = new System.Drawing.Point(37, 152);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(191, 13);
+            this.label3.Size = new System.Drawing.Size(255, 17);
             this.label3.TabIndex = 24;
             this.label3.Text = "Confirmez votre nouveau mot de passe";
             // 
@@ -117,7 +133,7 @@ namespace Fulbank.pages
             this.InvalidPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InvalidPassword.AutoSize = true;
             this.InvalidPassword.ForeColor = System.Drawing.Color.Red;
-            this.InvalidPassword.Location = new System.Drawing.Point(318, 116);
+            this.InvalidPassword.Location = new System.Drawing.Point(182, 116);
             this.InvalidPassword.Name = "InvalidPassword";
             this.InvalidPassword.Size = new System.Drawing.Size(142, 13);
             this.InvalidPassword.TabIndex = 27;
@@ -129,18 +145,18 @@ namespace Fulbank.pages
             this.InvalidPasswordConfirmation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InvalidPasswordConfirmation.AutoSize = true;
             this.InvalidPasswordConfirmation.ForeColor = System.Drawing.Color.Red;
-            this.InvalidPasswordConfirmation.Location = new System.Drawing.Point(318, 185);
+            this.InvalidPasswordConfirmation.Location = new System.Drawing.Point(189, 185);
             this.InvalidPasswordConfirmation.Name = "InvalidPasswordConfirmation";
-            this.InvalidPasswordConfirmation.Size = new System.Drawing.Size(132, 13);
+            this.InvalidPasswordConfirmation.Size = new System.Drawing.Size(135, 13);
             this.InvalidPasswordConfirmation.TabIndex = 28;
-            this.InvalidPasswordConfirmation.Text = "Confirmation non identique";
+            this.InvalidPasswordConfirmation.Text = "Confirmation non identique!";
             this.InvalidPasswordConfirmation.Visible = false;
             // 
             // FormChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 265);
+            this.ClientSize = new System.Drawing.Size(322, 265);
             this.Controls.Add(this.InvalidPasswordConfirmation);
             this.Controls.Add(this.InvalidPassword);
             this.Controls.Add(this.textConfirmPassword);

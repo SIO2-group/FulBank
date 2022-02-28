@@ -91,7 +91,7 @@ namespace FulBank
             dbConnexion.Close();
                 Account accounts = aUser.GetAccounts()[0];
                 dbConnexion.Open();
-                string commandTextoperation = "SELECT OP_ID, OP_AMOUNT, OP_ISDEBIT, DATE_FORMAT(OP_DATE,'%d-%m-%Y %H:%i:%s') as OP_DATE FROM account INNER JOIN operation ON account.A_ID = operation.OP_ID_ACCOUNT WHERE OP_ID_ACCOUNT = '" + accounts.Get_Id() + "' ORDER BY OP_DATE ASC";
+                string commandTextoperation = "SELECT OP_ID, OP_AMOUNT, OP_ISDEBIT, DATE_FORMAT(OP_DATE,'%d-%m-%Y %H:%i:%s') as OP_DATE FROM account INNER JOIN operation ON account.A_ID = operation.OP_ID_ACCOUNT WHERE OP_ID_ACCOUNT = '" + accounts.Get_Id() + "' ORDER BY OP_DATE DESC";
                 MySqlCommand cmdGetoperation = new MySqlCommand(commandTextoperation, dbConnexion);
                 MySqlDataReader operation = cmdGetoperation.ExecuteReader();
                 while (operation.Read())
@@ -187,7 +187,7 @@ namespace FulBank
         private void PictureLogout_Click(object sender, EventArgs e)
         {
             Close();
-            Connexion.Show();
+            Connexion.Close();
         }
 
         private void MenuVirement_Click(object sender, EventArgs e)
@@ -198,7 +198,7 @@ namespace FulBank
 
         private void panelMain_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
 

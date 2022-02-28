@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using FulBank;
 
 namespace Fulbank
 {
@@ -27,13 +28,16 @@ namespace Fulbank
         {
             listFormAdmin.Add(new FormCreateUser(_userId) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelAdmin.Controls.Add(listFormAdmin[0]);
-            listFormAdmin.Add(new FormAdminProfile(_userId) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            listFormAdmin.Add(new FormAdminProfile() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelAdmin.Controls.Add(listFormAdmin[1]);
             listFormAdmin.Add(new FormTerminalConf() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelAdmin.Controls.Add(listFormAdmin[2]);
-            listFormAdmin[2].Show();
-            listFormAdmin[1].Show();
+            listFormAdmin.Add(new FormCreateAccount() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            panelAdmin.Controls.Add(listFormAdmin[3]);
             listFormAdmin[0].Show();
+            listFormAdmin[1].Show();
+            listFormAdmin[2].Show();
+            listFormAdmin[3].Show();
         }
 
         private void LoadAdminData()
@@ -43,13 +47,13 @@ namespace Fulbank
 
         private void MenuProfil_Click(object sender, EventArgs e)
         {
-            listFormAdmin[0].BringToFront();
+            listFormAdmin[1].BringToFront();
 
         }
 
         private void MenuCreateAccount_Click(object sender, EventArgs e)
         {
-            listFormAdmin[1].BringToFront();
+            listFormAdmin[0].BringToFront();
 
         }
 
@@ -79,6 +83,11 @@ namespace Fulbank
         {
             listFormAdmin[2].BringToFront();
 
+        }
+
+        private void MenuAccount_Click(object sender, EventArgs e)
+        {
+            listFormAdmin[3].BringToFront();
         }
     }
 }

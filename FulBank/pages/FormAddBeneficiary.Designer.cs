@@ -39,27 +39,33 @@ namespace Fulbank.pages
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(120, 148);
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.Location = new System.Drawing.Point(65, 138);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(92, 32);
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Ajouter";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(248, 148);
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(280, 138);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(94, 32);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Annuler";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // textBoxBeneficiaryId
             // 
-            this.textBoxBeneficiaryId.Location = new System.Drawing.Point(44, 81);
+            this.textBoxBeneficiaryId.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBoxBeneficiaryId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBeneficiaryId.Location = new System.Drawing.Point(49, 80);
             this.textBoxBeneficiaryId.Name = "textBoxBeneficiaryId";
             this.textBoxBeneficiaryId.Size = new System.Drawing.Size(125, 20);
             this.textBoxBeneficiaryId.TabIndex = 2;
@@ -68,24 +74,29 @@ namespace Fulbank.pages
             // labelAccountId
             // 
             this.labelAccountId.AutoSize = true;
-            this.labelAccountId.Location = new System.Drawing.Point(41, 60);
+            this.labelAccountId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAccountId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.labelAccountId.Location = new System.Drawing.Point(46, 60);
             this.labelAccountId.Name = "labelAccountId";
-            this.labelAccountId.Size = new System.Drawing.Size(188, 15);
+            this.labelAccountId.Size = new System.Drawing.Size(166, 17);
             this.labelAccountId.TabIndex = 3;
-            this.labelAccountId.Text = "Identifiant du compte bénéficiaire";
+            this.labelAccountId.Text = "Identifiant du bénéficiaire";
             // 
             // labelBeneficiaryName
             // 
             this.labelBeneficiaryName.AutoSize = true;
-            this.labelBeneficiaryName.Location = new System.Drawing.Point(248, 60);
+            this.labelBeneficiaryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBeneficiaryName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.labelBeneficiaryName.Location = new System.Drawing.Point(263, 60);
             this.labelBeneficiaryName.Name = "labelBeneficiaryName";
-            this.labelBeneficiaryName.Size = new System.Drawing.Size(108, 15);
+            this.labelBeneficiaryName.Size = new System.Drawing.Size(122, 17);
             this.labelBeneficiaryName.TabIndex = 5;
             this.labelBeneficiaryName.Text = "Nom personnalisé";
             // 
             // textBoxBeneficiaryName
             // 
-            this.textBoxBeneficiaryName.Location = new System.Drawing.Point(248, 81);
+            this.textBoxBeneficiaryName.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBoxBeneficiaryName.Location = new System.Drawing.Point(266, 80);
             this.textBoxBeneficiaryName.Name = "textBoxBeneficiaryName";
             this.textBoxBeneficiaryName.Size = new System.Drawing.Size(125, 20);
             this.textBoxBeneficiaryName.TabIndex = 4;
@@ -103,6 +114,7 @@ namespace Fulbank.pages
             this.Controls.Add(this.buttonAdd);
             this.Name = "FormAddBeneficiary";
             this.Text = "FormAddBeneficiary";
+            this.Load += new System.EventHandler(this.FormAddBeneficiary_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

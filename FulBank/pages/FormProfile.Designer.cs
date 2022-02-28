@@ -30,7 +30,6 @@ namespace Fulbank.pages
         private void InitializeComponent()
         {
             this.PanelUserProfile = new System.Windows.Forms.Panel();
-            this.btnReload = new System.Windows.Forms.Button();
             this.ProfilePanelPassword = new System.Windows.Forms.Panel();
             this.BtnChangePassWord = new System.Windows.Forms.Button();
             this.ProfilePasswordTitle = new System.Windows.Forms.TextBox();
@@ -53,6 +52,7 @@ namespace Fulbank.pages
             this.ProfilePhoneTitle = new System.Windows.Forms.TextBox();
             this.ProfileCategory = new System.Windows.Forms.TextBox();
             this.OwnerName = new System.Windows.Forms.TextBox();
+            this.btnReload = new System.Windows.Forms.Button();
             this.PanelUserProfile.SuspendLayout();
             this.ProfilePanelPassword.SuspendLayout();
             this.ProfilePanelMail.SuspendLayout();
@@ -81,18 +81,6 @@ namespace Fulbank.pages
             this.PanelUserProfile.Size = new System.Drawing.Size(800, 450);
             this.PanelUserProfile.TabIndex = 5;
             this.PanelUserProfile.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelUserProfile_Paint);
-            // 
-            // btnReload
-            // 
-            this.btnReload.BackColor = System.Drawing.SystemColors.Window;
-            this.btnReload.BackgroundImage = global::Fulbank.Properties.Resources.pngtree_reload_icon__line_style_vector_illustration_png_image_314770;
-            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReload.Location = new System.Drawing.Point(659, 42);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(40, 40);
-            this.btnReload.TabIndex = 18;
-            this.btnReload.UseVisualStyleBackColor = false;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // ProfilePanelPassword
             // 
@@ -130,6 +118,7 @@ namespace Fulbank.pages
             this.ProfilePasswordTitle.Location = new System.Drawing.Point(3, 6);
             this.ProfilePasswordTitle.Multiline = true;
             this.ProfilePasswordTitle.Name = "ProfilePasswordTitle";
+            this.ProfilePasswordTitle.ReadOnly = true;
             this.ProfilePasswordTitle.Size = new System.Drawing.Size(217, 27);
             this.ProfilePasswordTitle.TabIndex = 3;
             this.ProfilePasswordTitle.Text = "Changer votre mot de passe :";
@@ -142,6 +131,7 @@ namespace Fulbank.pages
             this.textBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.textBox10.Location = new System.Drawing.Point(38, 292);
             this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(181, 19);
             this.textBox10.TabIndex = 7;
             this.textBox10.Text = "Sécurité";
@@ -182,7 +172,7 @@ namespace Fulbank.pages
             this.ProfileMail.Enabled = false;
             this.ProfileMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.ProfileMail.Location = new System.Drawing.Point(107, 6);
+            this.ProfileMail.Location = new System.Drawing.Point(112, 6);
             this.ProfileMail.Multiline = true;
             this.ProfileMail.Name = "ProfileMail";
             this.ProfileMail.Size = new System.Drawing.Size(207, 21);
@@ -197,6 +187,7 @@ namespace Fulbank.pages
             this.ProfileMailTitle.Location = new System.Drawing.Point(3, 6);
             this.ProfileMailTitle.Multiline = true;
             this.ProfileMailTitle.Name = "ProfileMailTitle";
+            this.ProfileMailTitle.ReadOnly = true;
             this.ProfileMailTitle.Size = new System.Drawing.Size(121, 27);
             this.ProfileMailTitle.TabIndex = 3;
             this.ProfileMailTitle.Text = "Adresse mail :";
@@ -236,7 +227,7 @@ namespace Fulbank.pages
             this.ProfileLandlineNumber.Enabled = false;
             this.ProfileLandlineNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileLandlineNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.ProfileLandlineNumber.Location = new System.Drawing.Point(123, 6);
+            this.ProfileLandlineNumber.Location = new System.Drawing.Point(125, 6);
             this.ProfileLandlineNumber.Multiline = true;
             this.ProfileLandlineNumber.Name = "ProfileLandlineNumber";
             this.ProfileLandlineNumber.Size = new System.Drawing.Size(142, 22);
@@ -251,6 +242,7 @@ namespace Fulbank.pages
             this.ProfileLandlineTitle.Location = new System.Drawing.Point(3, 6);
             this.ProfileLandlineTitle.Multiline = true;
             this.ProfileLandlineTitle.Name = "ProfileLandlineTitle";
+            this.ProfileLandlineTitle.ReadOnly = true;
             this.ProfileLandlineTitle.Size = new System.Drawing.Size(142, 27);
             this.ProfileLandlineTitle.TabIndex = 3;
             this.ProfileLandlineTitle.Text = "Téléphone fixe :";
@@ -290,7 +282,7 @@ namespace Fulbank.pages
             this.ProfileAdress.Enabled = false;
             this.ProfileAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileAdress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.ProfileAdress.Location = new System.Drawing.Point(77, 7);
+            this.ProfileAdress.Location = new System.Drawing.Point(81, 7);
             this.ProfileAdress.Multiline = true;
             this.ProfileAdress.Name = "ProfileAdress";
             this.ProfileAdress.Size = new System.Drawing.Size(247, 21);
@@ -305,6 +297,7 @@ namespace Fulbank.pages
             this.ProfileAdressTitle.Location = new System.Drawing.Point(3, 6);
             this.ProfileAdressTitle.Multiline = true;
             this.ProfileAdressTitle.Name = "ProfileAdressTitle";
+            this.ProfileAdressTitle.ReadOnly = true;
             this.ProfileAdressTitle.Size = new System.Drawing.Size(142, 27);
             this.ProfileAdressTitle.TabIndex = 3;
             this.ProfileAdressTitle.Text = "Adresse :";
@@ -344,7 +337,7 @@ namespace Fulbank.pages
             this.ProfilePhoneNumber.Enabled = false;
             this.ProfilePhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfilePhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.ProfilePhoneNumber.Location = new System.Drawing.Point(89, 6);
+            this.ProfilePhoneNumber.Location = new System.Drawing.Point(98, 6);
             this.ProfilePhoneNumber.MaxLength = 10;
             this.ProfilePhoneNumber.Multiline = true;
             this.ProfilePhoneNumber.Name = "ProfilePhoneNumber";
@@ -361,6 +354,7 @@ namespace Fulbank.pages
             this.ProfilePhoneTitle.Location = new System.Drawing.Point(3, 6);
             this.ProfilePhoneTitle.Multiline = true;
             this.ProfilePhoneTitle.Name = "ProfilePhoneTitle";
+            this.ProfilePhoneTitle.ReadOnly = true;
             this.ProfilePhoneTitle.Size = new System.Drawing.Size(142, 27);
             this.ProfilePhoneTitle.TabIndex = 3;
             this.ProfilePhoneTitle.Text = "Téléphone :";
@@ -373,6 +367,7 @@ namespace Fulbank.pages
             this.ProfileCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.ProfileCategory.Location = new System.Drawing.Point(38, 60);
             this.ProfileCategory.Name = "ProfileCategory";
+            this.ProfileCategory.ReadOnly = true;
             this.ProfileCategory.Size = new System.Drawing.Size(171, 22);
             this.ProfileCategory.TabIndex = 1;
             this.ProfileCategory.Text = "Général";
@@ -385,10 +380,26 @@ namespace Fulbank.pages
             this.OwnerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.OwnerName.Location = new System.Drawing.Point(38, 22);
             this.OwnerName.Name = "OwnerName";
+            this.OwnerName.ReadOnly = true;
             this.OwnerName.Size = new System.Drawing.Size(232, 22);
             this.OwnerName.TabIndex = 0;
             this.OwnerName.Text = "{{nom du propriétaire}}";
             this.OwnerName.TextChanged += new System.EventHandler(this.OwnerName_TextChanged);
+            // 
+            // btnReload
+            // 
+            this.btnReload.BackColor = System.Drawing.SystemColors.Window;
+            this.btnReload.BackgroundImage = global::Fulbank.Properties.Resources.pngtree_reload_icon__line_style_vector_illustration_png_image_314770;
+            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReload.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReload.Location = new System.Drawing.Point(618, 87);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(35, 33);
+            this.btnReload.TabIndex = 18;
+            this.btnReload.UseVisualStyleBackColor = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // FormProfile
             // 
@@ -396,6 +407,7 @@ namespace Fulbank.pages
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.PanelUserProfile);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormProfile";
             this.Text = "Profile";
             this.Load += new System.EventHandler(this.Profile_Load);

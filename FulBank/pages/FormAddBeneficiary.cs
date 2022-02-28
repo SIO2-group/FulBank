@@ -16,10 +16,10 @@ namespace Fulbank.pages
     public partial class FormAddBeneficiary : Form
     {
         User user;
-        public FormAddBeneficiary(User aUser)
+        public FormAddBeneficiary()
         {
             InitializeComponent();
-            user = aUser;
+           
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -37,14 +37,15 @@ namespace Fulbank.pages
                 if (result)
                 {
                     FormMain.dbConnexion.Open();
-                    string commandGetAccount = "SELECT count(*) FROM account WHERE A_ID = '" + textBoxBeneficiaryId.Text + "' AND A_ID NOT IN(SELECT A_ID FROM account WHERE A_ID_USER ='" + user.Get_Id() + "' )";
+                    string commandGetAccount = "SELECT count(*) FROM account WHERE A_ID = '" + textBoxBeneficiaryId.Text + "' AND A_ID NOT IN(SELECT A_ID FROM account WHERE A_ID_USER ='" + FormMain.user.Get_Id() + "' )";
                     MySqlCommand cmdGetAccount = new MySqlCommand(commandGetAccount, FormMain.dbConnexion);
-                    bool accountExist = Convert.ToBoolean(int.Parse(cmdGetAccount.ExecuteScalar().ToString()));
+                    int accountExist = int.Parse(cmdGetAccount.ExecuteScalar().ToString());
                     FormMain.dbConnexion.Close();
-                    if (accountExist == true)
+                    if (accountExist == 1)
                     {
-                        user.Add_Beneficiary(int.Parse(textBoxBeneficiaryId.Text), textBoxBeneficiaryName.Text, user.Get_Id());
-                        MessageBox.Show("Bénéficiaire " + user.GetBeneficiary()[0].getBeneficiaryName() + " ajouté avec succès");   
+                        FormMain.user.Add_Beneficiary(int.Parse(textBoxBeneficiaryId.Text), textBoxBeneficiaryName.Text, FormMain.user.Get_Id());
+                        FormMain.user.Insert_Beneficiary(int.Parse(textBoxBeneficiaryId.Text), textBoxBeneficiaryName.Text, FormMain.user.Get_Id());
+                        MessageBox.Show("Bénéficiaire " + textBoxBeneficiaryName.Text + " ajouté avec succès");   
                     }
                     else
                     {
@@ -68,6 +69,11 @@ namespace Fulbank.pages
         }
 
         private void textBoxBeneficiaryId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormAddBeneficiary_Load(object sender, EventArgs e)
         {
 
         }

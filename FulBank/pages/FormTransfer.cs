@@ -61,7 +61,7 @@ namespace Fulbank.pages
 
         private void ButtonAddBeneficiary_Click(object sender, EventArgs e)
         {
-            new FormAddBeneficiary(FormMain.user).Show();
+            new FormAddBeneficiary().Show();
         }
 
         private void buttonTransfer_Click(object sender, EventArgs e)

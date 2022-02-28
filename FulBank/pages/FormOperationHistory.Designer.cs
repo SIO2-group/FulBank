@@ -29,6 +29,8 @@ namespace Fulbank.pages
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvOperation = new System.Windows.Forms.DataGridView();
             this.TypeOperation = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,32 +53,46 @@ namespace Fulbank.pages
             // 
             // dgvOperation
             // 
+            this.dgvOperation.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvOperation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOperation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOperation.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvOperation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOperation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TypeOperation,
             this.AccountOperation,
             this.DtaOperation});
+            this.dgvOperation.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvOperation.Location = new System.Drawing.Point(172, 110);
             this.dgvOperation.Name = "dgvOperation";
+            this.dgvOperation.ReadOnly = true;
+            this.dgvOperation.RowHeadersVisible = false;
+            this.dgvOperation.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dgvOperation.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvOperation.Size = new System.Drawing.Size(437, 300);
             this.dgvOperation.TabIndex = 1;
             this.dgvOperation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperation_CellContentClick);
             // 
             // TypeOperation
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.TypeOperation.DefaultCellStyle = dataGridViewCellStyle2;
             this.TypeOperation.HeaderText = "Type";
             this.TypeOperation.Name = "TypeOperation";
+            this.TypeOperation.ReadOnly = true;
             // 
             // AccountOperation
             // 
             this.AccountOperation.HeaderText = "Montant";
             this.AccountOperation.Name = "AccountOperation";
+            this.AccountOperation.ReadOnly = true;
             // 
             // DtaOperation
             // 
             this.DtaOperation.HeaderText = "Date";
             this.DtaOperation.Name = "DtaOperation";
+            this.DtaOperation.ReadOnly = true;
             // 
             // backgroundWorker1
             // 
@@ -104,9 +120,9 @@ namespace Fulbank.pages
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvOperation;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeOperation;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountOperation;
         private System.Windows.Forms.DataGridViewTextBoxColumn DtaOperation;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

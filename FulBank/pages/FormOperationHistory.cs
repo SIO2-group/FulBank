@@ -26,12 +26,35 @@ namespace Fulbank.pages
 
         private void FormOperationHistory_Load(object sender, EventArgs e)
         {
-            foreach(Account account in FormMain.user.GetAccounts())
+            
+            foreach (Account account in FormMain.user.GetAccounts())
             {
-                foreach(Operation op in account.getOperation())
+                foreach (Operation op in account.getOperation())
                 {
-                    dgvOperation.Rows.Add(op.Get_debit(),op.Get_amount(), op.Get_date());
+                    string result = "";
+                    if (op.Get_debit() == true)
+                    {
+                        result = "Débit";
+
+                    }
+                    else
+                    {
+                        result = "Crédit";
+                       
+                    }
+                    dgvOperation.Rows.Add(result,op.Get_amount(), op.Get_date());
                 
+                }
+            }
+            foreach(DataGridViewRow row in dgvOperation.Rows)
+            {
+                if(row.Cells[0].Value.ToString() == "Débit")
+                {
+                    row.Cells[1].Style.ForeColor = Color.Red;
+                }
+                else
+                {
+                    row.Cells[1].Style.ForeColor = Color.ForestGreen;
                 }
             }
         }
@@ -43,6 +66,7 @@ namespace Fulbank.pages
 
         private void dgvOperation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
 
         }
 
@@ -50,5 +74,7 @@ namespace Fulbank.pages
         {
 
         }
+
+        
     }
 }
