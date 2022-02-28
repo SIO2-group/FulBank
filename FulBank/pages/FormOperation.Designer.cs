@@ -35,9 +35,9 @@ namespace Fulbank.pages
             this.label1 = new System.Windows.Forms.Label();
             this.OperationValue = new PlaceholderTextBox.PlaceholderTextBox();
             this.SuspendLayout();
-            // 
+            //
             // buttonDebit
-            // 
+            //
             this.buttonDebit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.buttonDebit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDebit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -49,9 +49,9 @@ namespace Fulbank.pages
             this.buttonDebit.Text = "Effectuer un Retrait";
             this.buttonDebit.UseVisualStyleBackColor = false;
             this.buttonDebit.Click += new System.EventHandler(this.buttonDebit_Click);
-            // 
+            //
             // buttonDeposit
-            // 
+            //
             this.buttonDeposit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.buttonDeposit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -63,9 +63,9 @@ namespace Fulbank.pages
             this.buttonDeposit.Text = "Effectuer un Dépôt";
             this.buttonDeposit.UseVisualStyleBackColor = false;
             this.buttonDeposit.Click += new System.EventHandler(this.buttonDeposit_Click);
-            // 
+            //
             // buttonOperationHistory
-            // 
+            //
             this.buttonOperationHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.buttonOperationHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOperationHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,32 +77,44 @@ namespace Fulbank.pages
             this.buttonOperationHistory.Text = "Historique des Opérations";
             this.buttonOperationHistory.UseVisualStyleBackColor = false;
             this.buttonOperationHistory.Click += new System.EventHandler(this.buttonOperationHistory_Click);
-            // 
+            //
             // label1
-            // 
+            //
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(428, 92);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 46);
+            this.label1.Size = new System.Drawing.Size(48, 52);
             this.label1.TabIndex = 4;
             this.label1.Text = "€";
+            //
+            // label2
+            //
+            /*this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(263, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(291, 36);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Rentrez le montant de votre opération,puis \r\n        cliquez sur l\'opération a ef" +
+    "fectuer";*/
             // 
             // OperationValue
-            // 
+            //
             this.OperationValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OperationValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OperationValue.Location = new System.Drawing.Point(168, 92);
             this.OperationValue.Name = "OperationValue";
             this.OperationValue.PlaceholderText = "0.00";
-            this.OperationValue.Size = new System.Drawing.Size(257, 46);
+            this.OperationValue.Size = new System.Drawing.Size(257, 50);
             this.OperationValue.TabIndex = 6;
             this.OperationValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
+            this.OperationValue.TextChanged += new System.EventHandler(this.OperationValue_TextChanged);
+            //
             // FormOperation
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;

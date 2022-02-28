@@ -4,12 +4,13 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-
 using System.Data;
 using FulBank.classes;
-
 using System.Globalization;
-
+using Fulbank.pages.Crypto;
+using Newtonsoft.Json;
+using System.IO;
+using System.Net;
 
 namespace FulBank
 {
@@ -23,7 +24,7 @@ namespace FulBank
         public static Form Connexion;
         public static User user;
         public static Terminal thisTerminal;
-        
+        public static RootRates ConversionRates = new RootRates();
 
         public MySqlConnection getConnexion()
         {
@@ -36,6 +37,22 @@ namespace FulBank
             InitializeComponent();
             _userId = userId;
             Connexion = FormCo;
+
+            try
+            {
+                WebRequest request = HttpWebRequest.Create("https://api.frankfurter.app/latest?from=USD");
+                WebResponse response = request.GetResponse();
+
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+
+                string rates_json = reader.ReadToEnd();
+                ConversionRates = JsonConvert.DeserializeObject<RootRates>(rates_json);
+            }
+            catch 
+            { 
+                MessageBox.Show("Initialisation des taux de conversion invalide"); 
+            }
+
         }
 
 
@@ -53,10 +70,11 @@ namespace FulBank
             panelMain.Controls.Add(ListFormMenu[3]);
             ListFormMenu.Add(new FormProfile() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[4]);
-
             ListFormMenu.Add(new FormTransferHistory() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
-
-            panelMain.Controls.Add(ListFormMenu[5]);
+            panelMain.Controls.Add(ListFormMenu[5]);            
+            ListFormMenu.Add(new FormCryptocurrency() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            panelMain.Controls.Add(ListFormMenu[6]);
+            ListFormMenu[6].Show();
             ListFormMenu[5].Show();
             ListFormMenu[4].Show();
             ListFormMenu[3].Show();
@@ -64,11 +82,11 @@ namespace FulBank
             ListFormMenu[1].Show();
             ListFormMenu[0].Show();
             ListFormMenu[0].BringToFront();
-
         }
 
         private User UserDataLoad()
         {
+            #region user initialisation
             dbConnexion.Open();
             string commandTextGetUser = "SELECT P_ID, P_NAME, P_FIRSTNAME, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS FROM person INNER JOIN user ON person.P_ID = user.U_ID WHERE P_ID = '" + _userId + "' ";
             MySqlCommand cmdGetUser = new MySqlCommand(commandTextGetUser, dbConnexion);
@@ -76,20 +94,24 @@ namespace FulBank
             userInfo.Read();
             User aUser = new User(int.Parse(userInfo["P_ID"].ToString()), userInfo["P_NAME"].ToString(), userInfo["P_FIRSTNAME"].ToString(), userInfo["U_MAIL"].ToString(), userInfo["U_PHONE"].ToString(), userInfo["U_LANDLINE"].ToString(), userInfo["U_ADRESS"].ToString());
             dbConnexion.Close();
+            #endregion
+            #region user accounts load
             dbConnexion.Open();
             string commandTextTestUser = "SELECT A_ID, A_ID_ACCOUNTTYPE, A_BALANCE, A_OVERDRAFT_LIMIT FROM account WHERE A_ID_USER = '" + _userId + "' ";
             MySqlCommand cmdGetUserAccounts = new MySqlCommand(commandTextTestUser, dbConnexion);
             MySqlDataReader userAccounts = cmdGetUserAccounts.ExecuteReader();
             
 
-
             while (userAccounts.Read())
             {
-                aUser.Add_Account(int.Parse(userAccounts["A_ID"].ToString()), int.Parse(userAccounts["A_ID_ACCOUNTTYPE"].ToString()), double.Parse(userAccounts["A_BALANCE"].ToString()), int.Parse(userAccounts["A_OVERDRAFT_LIMIT"].ToString()));
+                aUser.Add_Account(int.Parse(userAccounts["A_ID"].ToString()), int.Parse(userAccounts["A_ID_ACCOUNTTYPE"].ToString()), double.Parse(userAccounts["A_BALANCE"].ToString().Replace(".",",")), int.Parse(userAccounts["A_OVERDRAFT_LIMIT"].ToString()));
             }
 
             dbConnexion.Close();
-                Account accounts = aUser.GetAccounts()[0];
+
+            #endregion
+            #region user accounts operation load
+            Account accounts = aUser.GetAccounts()[0];
                 dbConnexion.Open();
                 string commandTextoperation = "SELECT OP_ID, OP_AMOUNT, OP_ISDEBIT, DATE_FORMAT(OP_DATE,'%d-%m-%Y %H:%i:%s') as OP_DATE FROM account INNER JOIN operation ON account.A_ID = operation.OP_ID_ACCOUNT WHERE OP_ID_ACCOUNT = '" + accounts.Get_Id() + "' ORDER BY OP_DATE DESC";
                 MySqlCommand cmdGetoperation = new MySqlCommand(commandTextoperation, dbConnexion);
@@ -101,7 +123,8 @@ namespace FulBank
                 } 
                 dbConnexion.Close();
 
-
+            #endregion
+            #region user transation beneficiaries load
             dbConnexion.Open();
             string commandTextSelectBeneficiary = "SELECT * FROM beneficiary WHERE B_USER_ID = " + _userId + "";
             MySqlCommand cmdSelectBeneficiary = new MySqlCommand(commandTextSelectBeneficiary, dbConnexion);
@@ -114,7 +137,21 @@ namespace FulBank
             }
 
             dbConnexion.Close();
+            #endregion
+            #region user cryptowallets load
+            dbConnexion.Open();
 
+            string commandTextSelectWallets = "SELECT * FROM cryptowallet WHERE CW_UID = " + _userId + "";
+            MySqlCommand cmdSelectWallets = new MySqlCommand(commandTextSelectWallets, dbConnexion);
+            MySqlDataReader Wallets = cmdSelectWallets.ExecuteReader();
+
+            while (Wallets.Read())
+            {
+                aUser.AddWallet(Wallets["CW_C_SYMBOL"].ToString(), float.Parse(Wallets["CW_AMOUNT"].ToString()));
+            }
+
+            dbConnexion.Close();
+            #endregion
             #region add transfers
             dbConnexion.Open();
             string commandTextSelectTransfer = @"SELECT T_ID_ACCOUNT_FROM, T_ID_ACCOUNT_TO, T_AMOUNT, DATE_FORMAT(T_DATE,'%d-%m-%Y %H:%i:%s') as T_DATE
@@ -158,15 +195,14 @@ namespace FulBank
             dbConnexion.Close();
             return aUser;
             #endregion
+ 
+            
         }
            
-            
-        
-
         private Terminal TerminalLoad()
         {
             IniFile MyIni = new IniFile("Fulbank.ini");
-            Terminal thisTerminal = new Terminal(MyIni.Read("City"), MyIni.Read("Building"), MyIni.Read("Ipv4"));
+            Terminal thisTerminal = new Terminal(MyIni.Read("Id"), MyIni.Read("City"), MyIni.Read("Building"), MyIni.Read("Ipv4"), MyIni.Read("CP"));
             return thisTerminal;
 
         }
@@ -176,7 +212,6 @@ namespace FulBank
             LabelSection.Text = "Mes comptes";
             ListFormMenu[0].BringToFront();
         }
-
 
         private void MenuOperations_Click(object sender, EventArgs e)
         {
@@ -213,6 +248,11 @@ namespace FulBank
             LabelSection.Text = "Mon Profil";
             ListFormMenu[4].BringToFront();
 
+        }
+
+        private void MenuCrypto_Click(object sender, EventArgs e)
+        {
+            ListFormMenu[6].BringToFront();
         }
     }
 }

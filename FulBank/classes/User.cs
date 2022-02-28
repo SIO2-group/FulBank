@@ -16,6 +16,7 @@ namespace Fulbank.classes
         private List<Account> _accounts;
         private List<Beneficiary> _beneficiaries;
         private List<Transfer> _transfers;
+        private List<Cryptowallet> _wallets;
 
         public User(int id, string name, string firstname, string email, string phone, string homePhone, string address) : base(id, name, firstname)
         {
@@ -26,6 +27,7 @@ namespace Fulbank.classes
             _accounts = _accounts = new List<Account>();
             _beneficiaries = new List<Beneficiary>();
             _transfers = new List<Transfer>();
+            _wallets = new List<Cryptowallet>();
         }
 
         public string Get_phone()
@@ -79,6 +81,26 @@ namespace Fulbank.classes
         {
             return _accounts;
         }
+
+        public Dictionary<string, Account> getAccountsDico()
+        {
+            Dictionary<string, Account> dico = new Dictionary<string, Account>();
+            foreach(Account account in _accounts)
+            {
+                dico.Add(account.Get_AccountType().Get_Label(), account);
+            }
+            return dico;
+        }
+        public Dictionary<string, Cryptowallet> getWalletsDico()
+        {
+            Dictionary<string, Cryptowallet> dico = new Dictionary<string, Cryptowallet>();
+            foreach (Cryptowallet wallet in _wallets)
+            {
+                dico.Add(wallet.GetSymbol(), wallet);
+            }
+            return dico;
+        }
+
         public List<Beneficiary> GetBeneficiary()
         {
             return _beneficiaries;
@@ -111,6 +133,24 @@ namespace Fulbank.classes
         public List<Transfer> getTransfers()
         {
             return _transfers;
+        }
+
+
+        public void AddWallet(string symbol, float amount)
+        {
+            _wallets.Add(new Cryptowallet(symbol, amount));
+        }
+
+        public void UpdateWallet(string symbol, float amount)
+        {
+            string commandInsertWallet = "INSERT INTO `crypto_wallet`(`CW_UID`, `CW_C_SYMBOL`) VALUES ('"+ FormMain.user.Get_Id() +"', '" + symbol + "') ON DUPLICATE KEY UPDATE CW_AMOUNT = (CW_AMOUNT + '"+ amount +"')";
+            MySqlCommand cmddInsertWallet = new MySqlCommand(commandInsertWallet, FormMain.dbConnexion);
+            cmddInsertWallet.ExecuteNonQuery();
+        }
+
+        public List<Cryptowallet> GetWallets()
+        {
+            return _wallets;
         }
     }
 }

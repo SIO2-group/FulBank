@@ -29,42 +29,32 @@ namespace Fulbank.pages
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvTransferHistory = new System.Windows.Forms.DataGridView();
-            this.labelTransferHistory = new System.Windows.Forms.Label();
+            this.DgvTransferHistory = new System.Windows.Forms.DataGridView();
             this.dgvTransferHistoryFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTransferHistoryTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTransferHistoryAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTransferHistoryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTransferHistory)).BeginInit();
+            this.labelTransferHistory = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvTransferHistory)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvTransferHistory
+            // DgvTransferHistory
             // 
-            this.dgvTransferHistory.AllowUserToOrderColumns = true;
-            this.dgvTransferHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTransferHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvTransferHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransferHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvTransferHistory.AllowUserToOrderColumns = true;
+            this.DgvTransferHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvTransferHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.DgvTransferHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvTransferHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTransferHistoryFrom,
             this.dgvTransferHistoryTo,
             this.dgvTransferHistoryAmount,
             this.dgvTransferHistoryDate});
-            this.dgvTransferHistory.Location = new System.Drawing.Point(73, 90);
-            this.dgvTransferHistory.Name = "dgvTransferHistory";
-            this.dgvTransferHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.dgvTransferHistory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTransferHistory.Size = new System.Drawing.Size(640, 348);
-            this.dgvTransferHistory.TabIndex = 0;
-            // 
-            // labelTransferHistory
-            // 
-            this.labelTransferHistory.AutoSize = true;
-            this.labelTransferHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTransferHistory.Location = new System.Drawing.Point(273, 37);
-            this.labelTransferHistory.Name = "labelTransferHistory";
-            this.labelTransferHistory.Size = new System.Drawing.Size(255, 29);
-            this.labelTransferHistory.TabIndex = 1;
-            this.labelTransferHistory.Text = "Historique de virement";
+            this.DgvTransferHistory.Location = new System.Drawing.Point(73, 90);
+            this.DgvTransferHistory.Name = "DgvTransferHistory";
+            this.DgvTransferHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.DgvTransferHistory.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvTransferHistory.Size = new System.Drawing.Size(640, 348);
+            this.DgvTransferHistory.TabIndex = 0;
             // 
             // dgvTransferHistoryFrom
             // 
@@ -90,17 +80,29 @@ namespace Fulbank.pages
             this.dgvTransferHistoryDate.MinimumWidth = 6;
             this.dgvTransferHistoryDate.Name = "dgvTransferHistoryDate";
             // 
+            // labelTransferHistory
+            // 
+            this.labelTransferHistory.AutoSize = true;
+            this.labelTransferHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTransferHistory.Location = new System.Drawing.Point(273, 37);
+            this.labelTransferHistory.Name = "labelTransferHistory";
+            this.labelTransferHistory.Size = new System.Drawing.Size(255, 29);
+            this.labelTransferHistory.TabIndex = 1;
+            this.labelTransferHistory.Text = "Historique de virement";
+            // 
             // FormTransferHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelTransferHistory);
-            this.Controls.Add(this.dgvTransferHistory);
+            this.Controls.Add(this.DgvTransferHistory);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTransferHistory";
             this.Text = "FormTransferHistory";
             this.Load += new System.EventHandler(this.FormTransferHistory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTransferHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvTransferHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,7 +110,7 @@ namespace Fulbank.pages
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvTransferHistory;
+        private System.Windows.Forms.DataGridView DgvTransferHistory;
         private System.Windows.Forms.Label labelTransferHistory;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTransferHistoryFrom;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTransferHistoryTo;

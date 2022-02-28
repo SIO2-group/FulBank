@@ -14,9 +14,6 @@ namespace Fulbank.classes
         private AccountType _accountType;
         private List<Transfer> _transfer;
         private List<Operation> _operations;
-        
-
-
         private int _overdraftLimit;
 
         public Account(int id, double balance, int type, int overdraftLimit)
@@ -63,7 +60,7 @@ namespace Fulbank.classes
         public void Debit(double value)
         {
             FormMain.dbConnexion.Open();
-            string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE - " + value + " WHERE A_ID = " + this.Get_Id() + "";
+            string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE - "+ value.ToString().Replace(",",".") + " WHERE A_ID = " + this.Get_Id() + "";
             MySqlCommand cmdCredit = new MySqlCommand(commandTextCredit, FormMain.dbConnexion);
             cmdCredit.ExecuteNonQuery();
             FormMain.dbConnexion.Close();
@@ -73,9 +70,36 @@ namespace Fulbank.classes
         {
             _balance += value;
         }
+
         public void OperationDebit(double value)
         {
             _balance += value;
+        }
+
+
+        public void CryptoSell(string amount)
+        {
+            _balance = _balance + double.Parse(amount);
+            amount = amount.Replace(",", ".");
+
+            FormMain.dbConnexion.Open();
+            string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE + " + amount + " WHERE A_ID = " + this.Get_Id() + "";
+            MySqlCommand cmdCredit = new MySqlCommand(commandTextCredit, FormMain.dbConnexion);
+            cmdCredit.ExecuteNonQuery();
+            FormMain.dbConnexion.Close();
+        }
+
+        public void CryptoBuy(string amount)
+        {
+            _balance = _balance - double.Parse(amount);
+            amount = amount.Replace(",", ".");
+
+            FormMain.dbConnexion.Open();
+            string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE - " + amount + " WHERE A_ID = " + this.Get_Id() + "";
+            MySqlCommand cmdCredit = new MySqlCommand(commandTextCredit, FormMain.dbConnexion);
+            cmdCredit.ExecuteNonQuery();
+            FormMain.dbConnexion.Close();
+
         }
 
         public void Credit(double creditAmount)
@@ -87,7 +111,7 @@ namespace Fulbank.classes
             FormMain.dbConnexion.Close();
             MessageBox.Show("Crédit vers le bénéficiaire effectué");
         }
-      
+
         public bool isCreditable(double creditAmount)
         {
             bool result = false;
@@ -111,6 +135,6 @@ namespace Fulbank.classes
         {
             return _operations;
         }
-        
+
     }
 }

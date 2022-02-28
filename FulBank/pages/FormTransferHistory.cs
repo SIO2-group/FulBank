@@ -51,12 +51,13 @@ namespace Fulbank.pages
                         aToName = beneficiary.getBeneficiaryName();
                     }
                 }
-                dgvTransferHistory.Rows.Add(aFromName, aToName, transfer.getAmount() , transfer.getDate());
+                DgvTransferHistory.Rows.Add(aFromName, aToName, transfer.getAmount() , transfer.getDate());
 
                 
 
             }
             FormMain.dbConnexion.Close();
         }
+
     }
 }

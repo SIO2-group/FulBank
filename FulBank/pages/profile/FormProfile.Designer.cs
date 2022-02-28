@@ -60,9 +60,9 @@ namespace Fulbank.pages
             this.ProfilePanelAdress.SuspendLayout();
             this.ProfilePanelPhone.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // PanelUserProfile
-            // 
+            //
             this.PanelUserProfile.AutoScroll = true;
             this.PanelUserProfile.BackColor = System.Drawing.Color.White;
             this.PanelUserProfile.Controls.Add(this.btnReload);
@@ -81,9 +81,9 @@ namespace Fulbank.pages
             this.PanelUserProfile.Size = new System.Drawing.Size(800, 450);
             this.PanelUserProfile.TabIndex = 5;
             this.PanelUserProfile.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelUserProfile_Paint);
-            // 
+            //
             // ProfilePanelPassword
-            // 
+            //
             this.ProfilePanelPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePanelPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfilePanelPassword.Controls.Add(this.BtnChangePassWord);
@@ -91,26 +91,27 @@ namespace Fulbank.pages
             this.ProfilePanelPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.ProfilePanelPassword.Location = new System.Drawing.Point(38, 318);
             this.ProfilePanelPassword.Name = "ProfilePanelPassword";
-            this.ProfilePanelPassword.Size = new System.Drawing.Size(481, 33);
+            this.ProfilePanelPassword.Size = new System.Drawing.Size(524, 33);
             this.ProfilePanelPassword.TabIndex = 6;
-            // 
+            //
             // BtnChangePassWord
-            // 
+            //
             this.BtnChangePassWord.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnChangePassWord.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnChangePassWord.FlatAppearance.BorderSize = 0;
             this.BtnChangePassWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnChangePassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnChangePassWord.Location = new System.Drawing.Point(447, -2);
+            this.BtnChangePassWord.Location = new System.Drawing.Point(489, 0);
             this.BtnChangePassWord.Margin = new System.Windows.Forms.Padding(0);
             this.BtnChangePassWord.Name = "BtnChangePassWord";
-            this.BtnChangePassWord.Size = new System.Drawing.Size(33, 33);
+            this.BtnChangePassWord.Size = new System.Drawing.Size(33, 31);
             this.BtnChangePassWord.TabIndex = 8;
             this.BtnChangePassWord.Text = ">";
             this.BtnChangePassWord.UseVisualStyleBackColor = true;
             this.BtnChangePassWord.Click += new System.EventHandler(this.BtnChangePassWord_Click);
-            // 
+            //
             // ProfilePasswordTitle
-            // 
+            //
             this.ProfilePasswordTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePasswordTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfilePasswordTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -122,9 +123,9 @@ namespace Fulbank.pages
             this.ProfilePasswordTitle.Size = new System.Drawing.Size(217, 27);
             this.ProfilePasswordTitle.TabIndex = 3;
             this.ProfilePasswordTitle.Text = "Changer votre mot de passe :";
-            // 
+            //
             // textBox10
-            // 
+            //
             this.textBox10.BackColor = System.Drawing.SystemColors.Window;
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,9 +136,9 @@ namespace Fulbank.pages
             this.textBox10.Size = new System.Drawing.Size(181, 19);
             this.textBox10.TabIndex = 7;
             this.textBox10.Text = "Sécurité";
-            // 
+            //
             // ProfilePanelMail
-            // 
+            //
             this.ProfilePanelMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePanelMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfilePanelMail.Controls.Add(this.BtnChangeMail);
@@ -147,26 +148,27 @@ namespace Fulbank.pages
             this.ProfilePanelMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.ProfilePanelMail.Location = new System.Drawing.Point(38, 235);
             this.ProfilePanelMail.Name = "ProfilePanelMail";
-            this.ProfilePanelMail.Size = new System.Drawing.Size(481, 33);
+            this.ProfilePanelMail.Size = new System.Drawing.Size(523, 33);
             this.ProfilePanelMail.TabIndex = 5;
-            // 
+            //
             // BtnChangeMail
-            // 
+            //
             this.BtnChangeMail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnChangeMail.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnChangeMail.FlatAppearance.BorderSize = 0;
             this.BtnChangeMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnChangeMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnChangeMail.Location = new System.Drawing.Point(446, 0);
+            this.BtnChangeMail.Location = new System.Drawing.Point(488, 0);
             this.BtnChangeMail.Margin = new System.Windows.Forms.Padding(0);
             this.BtnChangeMail.Name = "BtnChangeMail";
-            this.BtnChangeMail.Size = new System.Drawing.Size(33, 33);
+            this.BtnChangeMail.Size = new System.Drawing.Size(33, 31);
             this.BtnChangeMail.TabIndex = 8;
             this.BtnChangeMail.Text = ">";
             this.BtnChangeMail.UseVisualStyleBackColor = true;
             this.BtnChangeMail.Click += new System.EventHandler(this.BtnChangeMail_Click);
-            // 
+            //
             // ProfileMail
-            // 
+            //
             this.ProfileMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfileMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfileMail.Enabled = false;
@@ -177,9 +179,9 @@ namespace Fulbank.pages
             this.ProfileMail.Name = "ProfileMail";
             this.ProfileMail.Size = new System.Drawing.Size(207, 21);
             this.ProfileMail.TabIndex = 4;
-            // 
+            //
             // ProfileMailTitle
-            // 
+            //
             this.ProfileMailTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfileMailTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfileMailTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -191,9 +193,9 @@ namespace Fulbank.pages
             this.ProfileMailTitle.Size = new System.Drawing.Size(121, 27);
             this.ProfileMailTitle.TabIndex = 3;
             this.ProfileMailTitle.Text = "Adresse mail :";
-            // 
+            //
             // ProfilePanelLandline
-            // 
+            //
             this.ProfilePanelLandline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePanelLandline.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfilePanelLandline.Controls.Add(this.BtnChangeLandLine);
@@ -202,26 +204,27 @@ namespace Fulbank.pages
             this.ProfilePanelLandline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.ProfilePanelLandline.Location = new System.Drawing.Point(38, 185);
             this.ProfilePanelLandline.Name = "ProfilePanelLandline";
-            this.ProfilePanelLandline.Size = new System.Drawing.Size(481, 33);
+            this.ProfilePanelLandline.Size = new System.Drawing.Size(524, 33);
             this.ProfilePanelLandline.TabIndex = 5;
-            // 
+            //
             // BtnChangeLandLine
-            // 
+            //
             this.BtnChangeLandLine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnChangeLandLine.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnChangeLandLine.FlatAppearance.BorderSize = 0;
             this.BtnChangeLandLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnChangeLandLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnChangeLandLine.Location = new System.Drawing.Point(446, 0);
+            this.BtnChangeLandLine.Location = new System.Drawing.Point(489, 0);
             this.BtnChangeLandLine.Margin = new System.Windows.Forms.Padding(0);
             this.BtnChangeLandLine.Name = "BtnChangeLandLine";
-            this.BtnChangeLandLine.Size = new System.Drawing.Size(33, 33);
+            this.BtnChangeLandLine.Size = new System.Drawing.Size(33, 31);
             this.BtnChangeLandLine.TabIndex = 7;
             this.BtnChangeLandLine.Text = ">";
             this.BtnChangeLandLine.UseVisualStyleBackColor = true;
             this.BtnChangeLandLine.Click += new System.EventHandler(this.BtnChangeLandLine_Click);
-            // 
+            //
             // ProfileLandlineNumber
-            // 
+            //
             this.ProfileLandlineNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfileLandlineNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfileLandlineNumber.Enabled = false;
@@ -232,9 +235,9 @@ namespace Fulbank.pages
             this.ProfileLandlineNumber.Name = "ProfileLandlineNumber";
             this.ProfileLandlineNumber.Size = new System.Drawing.Size(142, 22);
             this.ProfileLandlineNumber.TabIndex = 4;
-            // 
+            //
             // ProfileLandlineTitle
-            // 
+            //
             this.ProfileLandlineTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfileLandlineTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfileLandlineTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,9 +249,9 @@ namespace Fulbank.pages
             this.ProfileLandlineTitle.Size = new System.Drawing.Size(142, 27);
             this.ProfileLandlineTitle.TabIndex = 3;
             this.ProfileLandlineTitle.Text = "Téléphone fixe :";
-            // 
+            //
             // ProfilePanelAdress
-            // 
+            //
             this.ProfilePanelAdress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePanelAdress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfilePanelAdress.Controls.Add(this.BtnChangeAdress);
@@ -257,26 +260,27 @@ namespace Fulbank.pages
             this.ProfilePanelAdress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.ProfilePanelAdress.Location = new System.Drawing.Point(38, 136);
             this.ProfilePanelAdress.Name = "ProfilePanelAdress";
-            this.ProfilePanelAdress.Size = new System.Drawing.Size(481, 33);
+            this.ProfilePanelAdress.Size = new System.Drawing.Size(522, 33);
             this.ProfilePanelAdress.TabIndex = 5;
-            // 
+            //
             // BtnChangeAdress
-            // 
+            //
             this.BtnChangeAdress.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnChangeAdress.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnChangeAdress.FlatAppearance.BorderSize = 0;
             this.BtnChangeAdress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnChangeAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnChangeAdress.Location = new System.Drawing.Point(447, -1);
+            this.BtnChangeAdress.Location = new System.Drawing.Point(487, 0);
             this.BtnChangeAdress.Margin = new System.Windows.Forms.Padding(0);
             this.BtnChangeAdress.Name = "BtnChangeAdress";
-            this.BtnChangeAdress.Size = new System.Drawing.Size(33, 33);
+            this.BtnChangeAdress.Size = new System.Drawing.Size(33, 31);
             this.BtnChangeAdress.TabIndex = 6;
             this.BtnChangeAdress.Text = ">";
             this.BtnChangeAdress.UseVisualStyleBackColor = true;
             this.BtnChangeAdress.Click += new System.EventHandler(this.BtnChangeAdress_Click);
-            // 
+            //
             // ProfileAdress
-            // 
+            //
             this.ProfileAdress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfileAdress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfileAdress.Enabled = false;
@@ -287,9 +291,9 @@ namespace Fulbank.pages
             this.ProfileAdress.Name = "ProfileAdress";
             this.ProfileAdress.Size = new System.Drawing.Size(247, 21);
             this.ProfileAdress.TabIndex = 5;
-            // 
+            //
             // ProfileAdressTitle
-            // 
+            //
             this.ProfileAdressTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfileAdressTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfileAdressTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -301,9 +305,9 @@ namespace Fulbank.pages
             this.ProfileAdressTitle.Size = new System.Drawing.Size(142, 27);
             this.ProfileAdressTitle.TabIndex = 3;
             this.ProfileAdressTitle.Text = "Adresse :";
-            // 
+            //
             // ProfilePanelPhone
-            // 
+            //
             this.ProfilePanelPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePanelPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfilePanelPhone.Controls.Add(this.BtnChangePhone);
@@ -312,26 +316,27 @@ namespace Fulbank.pages
             this.ProfilePanelPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.ProfilePanelPhone.Location = new System.Drawing.Point(38, 87);
             this.ProfilePanelPhone.Name = "ProfilePanelPhone";
-            this.ProfilePanelPhone.Size = new System.Drawing.Size(481, 33);
+            this.ProfilePanelPhone.Size = new System.Drawing.Size(524, 33);
             this.ProfilePanelPhone.TabIndex = 2;
-            // 
+            //
             // BtnChangePhone
-            // 
+            //
             this.BtnChangePhone.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnChangePhone.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnChangePhone.FlatAppearance.BorderSize = 0;
             this.BtnChangePhone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnChangePhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnChangePhone.Location = new System.Drawing.Point(446, -1);
+            this.BtnChangePhone.Location = new System.Drawing.Point(489, 0);
             this.BtnChangePhone.Margin = new System.Windows.Forms.Padding(0);
             this.BtnChangePhone.Name = "BtnChangePhone";
-            this.BtnChangePhone.Size = new System.Drawing.Size(33, 33);
+            this.BtnChangePhone.Size = new System.Drawing.Size(33, 31);
             this.BtnChangePhone.TabIndex = 5;
             this.BtnChangePhone.Text = ">";
             this.BtnChangePhone.UseVisualStyleBackColor = true;
             this.BtnChangePhone.Click += new System.EventHandler(this.BtnChangePhone_Click);
-            // 
+            //
             // ProfilePhoneNumber
-            // 
+            //
             this.ProfilePhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfilePhoneNumber.Enabled = false;
@@ -344,9 +349,9 @@ namespace Fulbank.pages
             this.ProfilePhoneNumber.Size = new System.Drawing.Size(142, 21);
             this.ProfilePhoneNumber.TabIndex = 4;
             this.ProfilePhoneNumber.TextChanged += new System.EventHandler(this.ProfilePhoneNumber_TextChanged);
-            // 
+            //
             // ProfilePhoneTitle
-            // 
+            //
             this.ProfilePhoneTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
             this.ProfilePhoneTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfilePhoneTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -358,9 +363,9 @@ namespace Fulbank.pages
             this.ProfilePhoneTitle.Size = new System.Drawing.Size(142, 27);
             this.ProfilePhoneTitle.TabIndex = 3;
             this.ProfilePhoneTitle.Text = "Téléphone :";
-            // 
+            //
             // ProfileCategory
-            // 
+            //
             this.ProfileCategory.BackColor = System.Drawing.SystemColors.Window;
             this.ProfileCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfileCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -371,9 +376,9 @@ namespace Fulbank.pages
             this.ProfileCategory.Size = new System.Drawing.Size(171, 22);
             this.ProfileCategory.TabIndex = 1;
             this.ProfileCategory.Text = "Général";
-            // 
+            //
             // OwnerName
-            // 
+            //
             this.OwnerName.BackColor = System.Drawing.SystemColors.Window;
             this.OwnerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OwnerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -385,9 +390,9 @@ namespace Fulbank.pages
             this.OwnerName.TabIndex = 0;
             this.OwnerName.Text = "{{nom du propriétaire}}";
             this.OwnerName.TextChanged += new System.EventHandler(this.OwnerName_TextChanged);
-            // 
+            //
             // btnReload
-            // 
+            //
             this.btnReload.BackColor = System.Drawing.SystemColors.Window;
             this.btnReload.BackgroundImage = global::Fulbank.Properties.Resources.pngtree_reload_icon__line_style_vector_illustration_png_image_314770;
             this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -400,9 +405,9 @@ namespace Fulbank.pages
             this.btnReload.TabIndex = 18;
             this.btnReload.UseVisualStyleBackColor = false;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
+            //
             // FormProfile
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);

@@ -54,8 +54,8 @@
     <Reference Include="BCrypt.Net-Next, Version=4.0.2.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.2\lib\net472\BCrypt.Net-Next.dll</HintPath>
     </Reference>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -75,8 +75,8 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
@@ -138,8 +138,44 @@
     <Reference Include="MySqlConnector, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>..\packages\MySqlConnector.1.3.13\lib\net471\MySqlConnector.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PlaceholderTextBox, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PlaceholderTextBox.1.3.1\lib\PlaceholderTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=19.3460.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Base.19.3.0.59\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Portable, Version=19.3200.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Net.Core.19.3.0.59\lib\netstandard2.0\Syncfusion.Compression.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base, Version=19.3460.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocIO.AspNet.19.3.0.59\lib\net46\Syncfusion.DocIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocToPdfConverter.Base, Version=19.3460.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocToPDFConverter.AspNet.19.3.0.59\lib\net46\Syncfusion.DocToPdfConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=19.3460.0.59, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.19.3.0.59\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=19.3460.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.OfficeChart.Base.19.3.0.59\lib\net46\Syncfusion.OfficeChart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Portable, Version=19.3200.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.OfficeChart.Net.Core.19.3.0.59\lib\netstandard2.0\Syncfusion.OfficeChart.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChartToImageConverter.Wpf, Version=19.3460.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.OfficeChartToImageConverter.WPF.19.3.0.59\lib\net46\Syncfusion.OfficeChartToImageConverter.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=19.3460.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.AspNet.19.3.0.59\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.WPF, Version=19.3460.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfChart.WPF.19.3.0.59\lib\net46\Syncfusion.SfChart.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=19.3460.0.59, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.XlsIO.Wpf.19.3.0.59\lib\net46\Syncfusion.XlsIO.Base.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -159,6 +195,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
@@ -167,14 +204,27 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.4.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -193,12 +243,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Beneficiary.cs" />
+    <Compile Include="classes\Cryptocurrency.cs" />
+    <Compile Include="classes\Cryptowallet.cs" />
     <Compile Include="classes\IniFile.cs" />
     <Compile Include="classes\Person.cs" />
     <Compile Include="classes\Account.cs" />
     <Compile Include="classes\AccountType.cs" />
     <Compile Include="classes\Admin.cs" />
     <Compile Include="classes\Operation.cs" />
+    <Compile Include="classes\Rates.cs" />
+    <Compile Include="classes\receipts\OperationReceipt.cs" />
+    <Compile Include="classes\receipts\TransferReceipt.cs" />
     <Compile Include="classes\Terminal.cs" />
     <Compile Include="classes\Transfer.cs" />
     <Compile Include="classes\User.cs" />
@@ -220,6 +275,30 @@
     <Compile Include="FormConnexion.Designer.cs">
       <DependentUpon>FormConnexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\Crypto\FormCryptocurrency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\Crypto\FormCryptocurrency.Designer.cs">
+      <DependentUpon>FormCryptocurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Crypto\FormCryptoOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\Crypto\FormCryptoOperation.Designer.cs">
+      <DependentUpon>FormCryptoOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Crypto\FormTrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\Crypto\FormTrade.Designer.cs">
+      <DependentUpon>FormTrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Crypto\FormWallets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\Crypto\FormWallets.Designer.cs">
+      <DependentUpon>FormWallets.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\FormAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,22 +317,22 @@
     <Compile Include="pages\FormAdminProfile.Designer.cs">
       <DependentUpon>FormAdminProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormChangeAdress.cs">
+    <Compile Include="pages\profile\FormChangeAdress.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormChangeAdress.Designer.cs">
+    <Compile Include="pages\profile\FormChangeAdress.Designer.cs">
       <DependentUpon>FormChangeAdress.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormChangeMail.cs">
+    <Compile Include="pages\profile\FormChangeMail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormChangeMail.Designer.cs">
+    <Compile Include="pages\profile\FormChangeMail.Designer.cs">
       <DependentUpon>FormChangeMail.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormChangePassword.cs">
+    <Compile Include="pages\profile\FormChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormChangePassword.Designer.cs">
+    <Compile Include="pages\profile\FormChangePassword.Designer.cs">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\FormCreateAccount.cs">
@@ -262,16 +341,16 @@
     <Compile Include="pages\FormCreateAccount.Designer.cs">
       <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormCreateUser.cs">
+    <Compile Include="pages\admin\FormCreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormCreateUser.Designer.cs">
+    <Compile Include="pages\admin\FormCreateUser.Designer.cs">
       <DependentUpon>FormCreateUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormChangeLandLine.cs">
+    <Compile Include="pages\profile\FormChangeLandLine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormChangeLandLine.Designer.cs">
+    <Compile Include="pages\profile\FormChangeLandLine.Designer.cs">
       <DependentUpon>FormChangeLandLine.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\FormOperation.cs">
@@ -286,10 +365,10 @@
     <Compile Include="pages\FormOperationHistory.Designer.cs">
       <DependentUpon>FormOperationHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormChangePhone.cs">
+    <Compile Include="pages\profile\FormChangePhone.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormChangePhone.Designer.cs">
+    <Compile Include="pages\profile\FormChangePhone.Designer.cs">
       <DependentUpon>FormChangePhone.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\FormTransfer.cs">
@@ -298,10 +377,10 @@
     <Compile Include="pages\FormTransfer.Designer.cs">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormTerminalConf.cs">
+    <Compile Include="pages\admin\FormTerminalConf.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormTerminalConf.Designer.cs">
+    <Compile Include="pages\admin\FormTerminalConf.Designer.cs">
       <DependentUpon>FormTerminalConf.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\FormTransferHistory.cs">
@@ -310,10 +389,10 @@
     <Compile Include="pages\FormTransferHistory.Designer.cs">
       <DependentUpon>FormTransferHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormProfile.cs">
+    <Compile Include="pages\profile\FormProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormProfile.Designer.cs">
+    <Compile Include="pages\profile\FormProfile.Designer.cs">
       <DependentUpon>FormProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -327,6 +406,18 @@
     <EmbeddedResource Include="FormConnexion.resx">
       <DependentUpon>FormConnexion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="pages\Crypto\FormCryptocurrency.resx">
+      <DependentUpon>FormCryptocurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\Crypto\FormCryptoOperation.resx">
+      <DependentUpon>FormCryptoOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\Crypto\FormTrade.resx">
+      <DependentUpon>FormTrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\Crypto\FormWallets.resx">
+      <DependentUpon>FormWallets.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pages\FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -336,25 +427,25 @@
     <EmbeddedResource Include="pages\FormAdminProfile.resx">
       <DependentUpon>FormAdminProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormChangeAdress.resx">
+    <EmbeddedResource Include="pages\profile\FormChangeAdress.resx">
       <DependentUpon>FormChangeAdress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormChangeMail.resx">
+    <EmbeddedResource Include="pages\profile\FormChangeMail.resx">
       <DependentUpon>FormChangeMail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormChangePassword.resx">
+    <EmbeddedResource Include="pages\profile\FormChangePassword.resx">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormChangePhone.resx">
+    <EmbeddedResource Include="pages\profile\FormChangePhone.resx">
       <DependentUpon>FormChangePhone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormCreateAccount.resx">
       <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormCreateUser.resx">
+    <EmbeddedResource Include="pages\admin\FormCreateUser.resx">
       <DependentUpon>FormCreateUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormChangeLandLine.resx">
+    <EmbeddedResource Include="pages\profile\FormChangeLandLine.resx">
       <DependentUpon>FormChangeLandLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormOperation.resx">
@@ -366,13 +457,13 @@
     <EmbeddedResource Include="pages\FormTransfer.resx">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormTerminalConf.resx">
+    <EmbeddedResource Include="pages\admin\FormTerminalConf.resx">
       <DependentUpon>FormTerminalConf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormTransferHistory.resx">
       <DependentUpon>FormTransferHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormProfile.resx">
+    <EmbeddedResource Include="pages\profile\FormProfile.resx">
       <DependentUpon>FormProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -461,6 +552,12 @@
     <Content Include="fonts\OpenSans\Regular\OpenSans-Regular.svg" />
     <Content Include="fonts\OpenSans\SemiboldItalic\OpenSans-SemiboldItalic.svg" />
     <Content Include="fonts\OpenSans\Semibold\OpenSans-Semibold.svg" />
+    <None Include="Resources\FULBANK_ROTATED.png" />
+    <None Include="Resources\dsqdqshodiqshio1.png" />
+    <None Include="Resources\dsqdqshodiqshio.png" />
+    <None Include="Resources\fdsiofjisdojfiosdj.png" />
+    <None Include="Resources\Sandsfsfsdfsdf1.png" />
+    <None Include="Resources\Sandsfsfsdfsdf.png" />
     <None Include="Resources\logofulbank.png" />
     <None Include="Resources\fulbanklogo.png" />
     <None Include="Resources\FULBANK2.png" />
@@ -469,6 +566,26 @@
     <None Include="Resources\téléchargement.png" />
     <None Include="Resources\pngtree-reload-icon--line-style-vector-illustration-png-image_314770.png" />
   </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -476,6 +593,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets'))" />
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
 </Project>
