@@ -17,6 +17,8 @@ namespace Fulbank.classes
     {
         public string Date;
         public string UserId;
+        public string Name;
+        public string Firstname;
         public string PostalCode;
         public string City;
         public string Building;
@@ -24,10 +26,12 @@ namespace Fulbank.classes
         public string Amount;
 
 
-        public OperationReceipt(string date, string userId, string postalCode, string city, string building, string type, string amount)
+        public OperationReceipt(string date, string userId, string name, string firstname, string postalCode, string city, string building, string type, string amount)
         {
             Date = date;
             UserId = userId;
+            Name = name;
+            Firstname = firstname;
             PostalCode = postalCode;
             City = city;
             Building = building;
@@ -44,6 +48,8 @@ namespace Fulbank.classes
 
             document.Replace("<Date>", Date, true, true);
             document.Replace("<UserId>", UserId, true, true);
+            document.Replace("<Name>", Name, true, true);
+            document.Replace("<Firstname>", Firstname, true, true);
             document.Replace("<PostalCode>", PostalCode, true, true);
             document.Replace("<City>", City, true, true);
             document.Replace("<Building>", Building, true, true);

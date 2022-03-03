@@ -57,7 +57,7 @@ namespace Fulbank.pages
                     FormMain.dbConnexion.Close();
 
 
-                    OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy' 'HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.thisTerminal.getCP(), FormMain.thisTerminal.getCity(), FormMain.thisTerminal.getBuilding(), "DÉBIT", amount.ToString());
+                    OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy' 'HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getCP(), FormMain.thisTerminal.getCity(), FormMain.thisTerminal.getBuilding(), "DÉBIT", amount.ToString());
                     receipt.buildReceipt();
 
                     MessageBox.Show("Retrait de " + amount + " € effectué");
@@ -114,7 +114,7 @@ namespace Fulbank.pages
                 cmdtestInsert.ExecuteNonQuery();
                 FormMain.dbConnexion.Close();
 
-                OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy' 'HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.thisTerminal.getCP(), FormMain.thisTerminal.getCity(), FormMain.thisTerminal.getBuilding(), "DÉPOT", amount.ToString());
+                OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy' 'HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getCP(), FormMain.thisTerminal.getCity(), FormMain.thisTerminal.getBuilding(), "DÉPOT", amount.ToString());
                 receipt.buildReceipt();
 
                 MessageBox.Show("Dépôt de " + amount + " € effectué");
