@@ -30,31 +30,31 @@ namespace Fulbank.pages
         private void InitializeComponent()
         {
             this.panelAccounts = new System.Windows.Forms.Panel();
+            this.btnReload = new System.Windows.Forms.Button();
             this.panelAccount1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.UserAccountName = new System.Windows.Forms.TextBox();
             this.AccountOwner = new System.Windows.Forms.TextBox();
             this.AccountNumber = new System.Windows.Forms.TextBox();
             this.AccountBalance = new System.Windows.Forms.TextBox();
             this.panelAccount4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.UserAccountName4 = new System.Windows.Forms.TextBox();
             this.AccountOwner4 = new System.Windows.Forms.TextBox();
             this.AccountNumber4 = new System.Windows.Forms.TextBox();
             this.AccountBalance4 = new System.Windows.Forms.TextBox();
             this.panelAccount2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.UserAccountName2 = new System.Windows.Forms.TextBox();
             this.AccountOwner2 = new System.Windows.Forms.TextBox();
             this.AccountNumber2 = new System.Windows.Forms.TextBox();
             this.AccountBalance2 = new System.Windows.Forms.TextBox();
             this.panelAccount3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.UserAccountName3 = new System.Windows.Forms.TextBox();
             this.AccountOwner3 = new System.Windows.Forms.TextBox();
             this.AccountNumber3 = new System.Windows.Forms.TextBox();
             this.AccountBalance3 = new System.Windows.Forms.TextBox();
-            this.btnReload = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panelAccounts.SuspendLayout();
             this.panelAccount1.SuspendLayout();
             this.panelAccount4.SuspendLayout();
@@ -78,6 +78,25 @@ namespace Fulbank.pages
             this.panelAccounts.TabIndex = 18;
             this.panelAccounts.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAccounts_Paint);
             // 
+            // btnReload
+            // 
+            this.btnReload.BackColor = System.Drawing.SystemColors.Window;
+            this.btnReload.BackgroundImage = global::Fulbank.Properties.Resources.pngtree_reload_icon__line_style_vector_illustration_png_image_314770;
+            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReload.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnReload.FlatAppearance.BorderSize = 0;
+            this.btnReload.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Window;
+            this.btnReload.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Window;
+            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReload.ForeColor = System.Drawing.Color.Transparent;
+            this.btnReload.Location = new System.Drawing.Point(706, 22);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(40, 40);
+            this.btnReload.TabIndex = 17;
+            this.btnReload.UseVisualStyleBackColor = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
             // panelAccount1
             // 
             this.panelAccount1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
@@ -91,6 +110,18 @@ namespace Fulbank.pages
             this.panelAccount1.Size = new System.Drawing.Size(614, 85);
             this.panelAccount1.TabIndex = 14;
             this.panelAccount1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAccount1_Paint);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label1.Location = new System.Drawing.Point(548, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 69);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "€";
             // 
             // UserAccountName
             // 
@@ -119,6 +150,7 @@ namespace Fulbank.pages
             this.AccountOwner.TabIndex = 13;
             this.AccountOwner.TabStop = false;
             this.AccountOwner.Text = "kylian";
+            this.AccountOwner.TextChanged += new System.EventHandler(this.AccountOwner_TextChanged);
             // 
             // AccountNumber
             // 
@@ -164,6 +196,18 @@ namespace Fulbank.pages
             this.panelAccount4.Size = new System.Drawing.Size(614, 94);
             this.panelAccount4.TabIndex = 16;
             this.panelAccount4.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label2.Location = new System.Drawing.Point(548, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 69);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "€";
             // 
             // UserAccountName4
             // 
@@ -235,6 +279,18 @@ namespace Fulbank.pages
             this.panelAccount2.Size = new System.Drawing.Size(614, 85);
             this.panelAccount2.TabIndex = 15;
             this.panelAccount2.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label4.Location = new System.Drawing.Point(548, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 69);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "€";
             // 
             // UserAccountName2
             // 
@@ -308,6 +364,18 @@ namespace Fulbank.pages
             this.panelAccount3.TabIndex = 15;
             this.panelAccount3.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label3.Location = new System.Drawing.Point(548, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 69);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "€";
+            // 
             // UserAccountName3
             // 
             this.UserAccountName3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
@@ -364,73 +432,6 @@ namespace Fulbank.pages
             this.AccountBalance3.TabStop = false;
             this.AccountBalance3.Text = "100000";
             this.AccountBalance3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnReload
-            // 
-            this.btnReload.BackColor = System.Drawing.SystemColors.Window;
-            this.btnReload.BackgroundImage = global::Fulbank.Properties.Resources.pngtree_reload_icon__line_style_vector_illustration_png_image_314770;
-            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReload.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReload.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
-            this.btnReload.FlatAppearance.BorderSize = 0;
-            this.btnReload.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Window;
-            this.btnReload.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Window;
-            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReload.ForeColor = System.Drawing.Color.Transparent;
-            this.btnReload.Location = new System.Drawing.Point(706, 22);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(40, 40);
-            this.btnReload.TabIndex = 17;
-            this.btnReload.UseVisualStyleBackColor = false;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.label1.Location = new System.Drawing.Point(548, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 69);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "€";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.label2.Location = new System.Drawing.Point(548, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 69);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "€";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.label3.Location = new System.Drawing.Point(548, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 69);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "€";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.label4.Location = new System.Drawing.Point(548, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 69);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "€";
             // 
             // FormAccount
             // 

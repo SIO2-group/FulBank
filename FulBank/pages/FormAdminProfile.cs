@@ -13,11 +13,22 @@ namespace Fulbank.pages
            
             this.Text = String.Empty;
             this.ControlBox = false;
+            
         }
 
         private void PanelAdminProfile_Paint(object sender, PaintEventArgs e)
         {
             
+        }
+
+        private void FormAdminProfile_Load(object sender, EventArgs e)
+        {
+            OwnerName.Text = FormAdmin.admin.Get_Name() + " " + FormAdmin.admin.Get_Firstname();
+        }
+
+        private void BtnChangePassWord_Click(object sender, EventArgs e)
+        {
+            new FormChangePasswordAdmin().Show();
         }
     }
 }
