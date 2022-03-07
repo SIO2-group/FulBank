@@ -39,15 +39,16 @@ namespace Fulbank.pages.Crypto
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.ButtonSearchCrypto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TextSearchCrypto
             // 
-            this.TextSearchCrypto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextSearchCrypto.Location = new System.Drawing.Point(549, 16);
+            this.TextSearchCrypto.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextSearchCrypto.Location = new System.Drawing.Point(492, 15);
             this.TextSearchCrypto.Name = "TextSearchCrypto";
             this.TextSearchCrypto.PlaceholderText = "ex : Bitcoin";
-            this.TextSearchCrypto.Size = new System.Drawing.Size(181, 26);
+            this.TextSearchCrypto.Size = new System.Drawing.Size(144, 29);
             this.TextSearchCrypto.TabIndex = 0;
             // 
             // btnWallet
@@ -134,12 +135,24 @@ namespace Fulbank.pages.Crypto
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(182, 16);
+            this.button1.Location = new System.Drawing.Point(167, 15);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 28);
+            this.button1.Size = new System.Drawing.Size(103, 28);
             this.button1.TabIndex = 10;
             this.button1.Text = "Historique";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // ButtonSearchCrypto
+            // 
+            this.ButtonSearchCrypto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSearchCrypto.Location = new System.Drawing.Point(639, 15);
+            this.ButtonSearchCrypto.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonSearchCrypto.Name = "ButtonSearchCrypto";
+            this.ButtonSearchCrypto.Size = new System.Drawing.Size(93, 29);
+            this.ButtonSearchCrypto.TabIndex = 11;
+            this.ButtonSearchCrypto.Text = "rechercher";
+            this.ButtonSearchCrypto.UseVisualStyleBackColor = true;
+            this.ButtonSearchCrypto.Click += new System.EventHandler(this.ButtonSearchCrypto_Click);
             // 
             // FormCryptocurrency
             // 
@@ -148,6 +161,7 @@ namespace Fulbank.pages.Crypto
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.ButtonSearchCrypto);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -180,5 +194,6 @@ namespace Fulbank.pages.Crypto
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonSearchCrypto;
     }
 }

@@ -46,6 +46,7 @@ namespace FulBank
                 StreamReader reader = new StreamReader(response.GetResponseStream());
 
                 string rates_json = reader.ReadToEnd();
+
                 ConversionRates = JsonConvert.DeserializeObject<RootRates>(rates_json);
             }
             catch 
@@ -195,8 +196,6 @@ namespace FulBank
             dbConnexion.Close();
             return aUser;
             #endregion
- 
-            
         }
            
         private Terminal TerminalLoad()
@@ -253,6 +252,11 @@ namespace FulBank
         private void MenuCrypto_Click(object sender, EventArgs e)
         {
             ListFormMenu[6].BringToFront();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

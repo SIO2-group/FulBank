@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,10 +21,13 @@ namespace Fulbank.pages.Crypto
     {
         Root Cryptocurrencies = new Root();
         public static Dictionary<string, Cryptocurrency> cryptos;
+        public static Dictionary<string, Panel> crypto_panels;
         public FormCryptocurrency()
         {
+            crypto_panels = new Dictionary<string, Panel>();
             InitializeComponent();
             CryptoLoad();
+            DisplayAll(crypto_panels);
             this.Text = String.Empty;
             this.ControlBox = false;
         }
@@ -35,7 +39,7 @@ namespace Fulbank.pages.Crypto
 
         public void CryptoLoad()
         {
-            WebRequest request = HttpWebRequest.Create("https://api.coinlore.net/api/tickers/?start=0&limit=10");
+            WebRequest request = HttpWebRequest.Create("https://api.coinlore.net/api/tickers/?start=0"); // &limit=25
             WebResponse response = request.GetResponse();
 
             StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -54,6 +58,7 @@ namespace Fulbank.pages.Crypto
 
 
                 Panel PanelCrypto = new Panel();
+
                 TextBox Change7dPercent = new TextBox();
                 TextBox Change1hPercent = new TextBox();
                 TextBox Change24hPercent = new TextBox();
@@ -106,10 +111,12 @@ namespace Fulbank.pages.Crypto
                 PanelCrypto.Controls.Add(CryptoSymbol);
                 PanelCrypto.Controls.Add(CryptoValue);
                 PanelCrypto.Controls.Add(TradeBtn);
-                PanelCrypto.Location = new System.Drawing.Point(30, y);
+                PanelCrypto.Location = new System.Drawing.Point(30, 5);
                 PanelCrypto.Name = "PanelCrypto";
                 PanelCrypto.Size = new System.Drawing.Size(700, 44);
                 PanelCrypto.TabIndex = 2;
+
+                crypto_panels.Add(("panel_" + crypto.name + "_" + crypto.symbol).ToLower(), PanelCrypto);
                 // 
                 // CryptoName
                 // 
@@ -188,7 +195,7 @@ namespace Fulbank.pages.Crypto
                 Change1hPercent.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 Change1hPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 Change1hPercent.ForeColor = color1h;
-                Change1hPercent.Location = new System.Drawing.Point(460, 8);
+                Change1hPercent.Location = new System.Drawing.Point(450, 8);
                 Change1hPercent.Name = "Change1hPercent";
                 Change1hPercent.Size = new System.Drawing.Size(90, 25);
                 Change1hPercent.TabIndex = 5;
@@ -205,9 +212,9 @@ namespace Fulbank.pages.Crypto
                 Change7dPercent.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 Change7dPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 Change7dPercent.ForeColor = color7d;
-                Change7dPercent.Location = new System.Drawing.Point(550, 8);
+                Change7dPercent.Location = new System.Drawing.Point(530, 8);
                 Change7dPercent.Name = "Change7dPercent";
-                Change7dPercent.Size = new System.Drawing.Size(70, 25);
+                Change7dPercent.Size = new System.Drawing.Size(80, 25);
                 Change7dPercent.TabIndex = 7;
                 Change7dPercent.Text = sign7d + crypto.percent_change_7d.ToString() + "%";
                 Change7dPercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -230,7 +237,7 @@ namespace Fulbank.pages.Crypto
                 TradeBtn.Click += delegate (object sender, EventArgs e)
                 { TradeBtn_Click(sender, e, crypto); };
 
-                y += 60;
+                PanelCrypto.Hide();
             }
         }
 
@@ -247,6 +254,50 @@ namespace Fulbank.pages.Crypto
         private void PanelCryptos_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void ButtonSearchCrypto_Click(object sender, EventArgs e)
+        {
+            var results = from result in crypto_panels
+                          where Regex.IsMatch(result.Key, TextSearchCrypto.Text.ToLower())
+                          select result;
+            HideAll();
+            DisplaySearch(results);
+        }
+
+        private void DisplayAll(Dictionary<string, Panel> dico)
+        {
+            int y = 5;
+            foreach (var item in dico)
+            {
+                item.Value.Location = new System.Drawing.Point(30, y);
+                item.Value.Show();
+                y += 60;
+            }
+        }
+
+        private void DisplaySearch(IEnumerable<KeyValuePair<string, Panel>> dico)
+        {
+            int y = 5;
+            foreach (var item in dico)
+            {
+                item.Value.Location = new System.Drawing.Point(30, y);
+                item.Value.Show();
+                y += 60;
+            }
+        }
+
+        private void HideAll()
+        {
+            foreach (var item in crypto_panels)
+            {
+                item.Value.Hide();
+            }
+        }
+
+        private void DollarBtn_Click(object sender, EventArgs e)
+        {
+            HideAll();
         }
     }
 }

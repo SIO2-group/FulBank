@@ -9,8 +9,6 @@ namespace Fulbank.pages
     public partial class FormOperation : Form
     {
 
-        //MySqlConnection FormMain.dbConnexion = FormMain.getConnexion();
-
         public FormOperation()
         {
             InitializeComponent();
@@ -47,10 +45,10 @@ namespace Fulbank.pages
                     MySqlDataReader drDebit = cmdtestDebit.ExecuteReader();
                     FormMain.dbConnexion.Close();
                     cheque.OperationDebit(amount);
-                    MessageBox.Show("Retrait de " + amount + " € effectué");
 
                     string terminalId = FormMain.thisTerminal.getId();
                     FormMain.dbConnexion.Open();
+                    MessageBox.Show(terminalId);
                     string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",1, '"+terminalId+"','" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
                     MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
                     cmdtestInsert.ExecuteNonQuery();
@@ -105,7 +103,7 @@ namespace Fulbank.pages
                 MySqlCommand cmdtestDeposit = new MySqlCommand(commandTexttestDeposit, FormMain.dbConnexion);
                 MySqlDataReader drDeposit = cmdtestDeposit.ExecuteReader();
                 cheque.OperationDeposit(amount);
-                MessageBox.Show("Dépôt de " + amount + " € effectué");
+
                 FormMain.dbConnexion.Close();
                 string terminalId = FormMain.thisTerminal.getId();
                 FormMain.dbConnexion.Open();

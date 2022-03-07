@@ -50,7 +50,6 @@ namespace Fulbank.classes
             }
             return dictionary;
         }
-
     }
 
 

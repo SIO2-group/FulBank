@@ -73,7 +73,7 @@ namespace Fulbank.classes
 
         public void OperationDebit(double value)
         {
-            _balance += value;
+            _balance -= value;
         }
 
 
