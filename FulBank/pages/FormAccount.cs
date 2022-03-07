@@ -81,5 +81,10 @@ namespace Fulbank.pages
         {
             AccountsLoad();
         }
+
+        private void AccountOwner_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

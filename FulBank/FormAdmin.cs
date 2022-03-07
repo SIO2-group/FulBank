@@ -11,22 +11,23 @@ namespace Fulbank
 {
     public partial class FormAdmin : Form
     {
-        private string _userId;
-        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
-        static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
+        private string _adminId;
+        public static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
+        public static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
 
-
+        public static Admin admin;
         List<Form> listFormAdmin = new List<Form>();
 
-        public FormAdmin(string userId)
+        public FormAdmin(string adminId)
         {
             InitializeComponent();
-            _userId = userId;
+            _adminId = adminId;
         }
 
         private void FormAdmin_Load(object sender, EventArgs e)
         {
-            listFormAdmin.Add(new FormCreateUser(_userId) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
+            LoadAdminData();
+            listFormAdmin.Add(new FormCreateUser(_adminId) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelAdmin.Controls.Add(listFormAdmin[0]);
             listFormAdmin.Add(new FormAdminProfile() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelAdmin.Controls.Add(listFormAdmin[1]);
@@ -42,7 +43,13 @@ namespace Fulbank
 
         private void LoadAdminData()
         {
-
+            dbConnexion.Open();
+            string commandTextGetUser = "SELECT P_ID, P_NAME, P_FIRSTNAME FROM person INNER JOIN admin ON person.P_ID = admin.A_ID WHERE P_ID = '" + _adminId + "' ";
+            MySqlCommand cmdGetUser = new MySqlCommand(commandTextGetUser, dbConnexion);
+            MySqlDataReader userInfo = cmdGetUser.ExecuteReader();
+            userInfo.Read();
+            admin = new Admin(int.Parse(userInfo["P_ID"].ToString()), userInfo["P_NAME"].ToString(), userInfo["P_FIRSTNAME"].ToString());
+            dbConnexion.Close();
         }
 
         private void MenuProfil_Click(object sender, EventArgs e)

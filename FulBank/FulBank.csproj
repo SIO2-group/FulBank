@@ -317,6 +317,12 @@
     <Compile Include="pages\FormAdminProfile.Designer.cs">
       <DependentUpon>FormAdminProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\FormChangePasswordAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\FormChangePasswordAdmin.Designer.cs">
+      <DependentUpon>FormChangePasswordAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\profile\FormChangeAdress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -426,6 +432,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormAdminProfile.resx">
       <DependentUpon>FormAdminProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\FormChangePasswordAdmin.resx">
+      <DependentUpon>FormChangePasswordAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\profile\FormChangeAdress.resx">
       <DependentUpon>FormChangeAdress.cs</DependentUpon>

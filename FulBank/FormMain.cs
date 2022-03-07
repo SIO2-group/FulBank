@@ -1,16 +1,14 @@
 ﻿using Fulbank.pages;
 using Fulbank.classes;
-using MySql.Data.MySqlClient;
+using FulBank.classes;
+using Fulbank.pages.Crypto;
 using System;
+using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Data;
-using FulBank.classes;
-using System.Globalization;
-using Fulbank.pages.Crypto;
-using Newtonsoft.Json;
-using System.IO;
 using System.Net;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace FulBank
 {

@@ -1,8 +1,8 @@
 ﻿namespace Fulbank.classes
 {
-    class Admin : Person
+    public class Admin : Person
     {
-        public Admin(int id, string name, string password) : base(id, name, password)
+        public Admin(int id, string name, string firstname) : base(id, name, firstname)
         {
         }
         
