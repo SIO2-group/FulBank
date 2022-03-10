@@ -48,14 +48,17 @@ namespace Fulbank.pages
 
                     string terminalId = FormMain.thisTerminal.getId();
                     FormMain.dbConnexion.Open();
-                    MessageBox.Show(terminalId);
                     string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",1, '"+terminalId+"','" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
                     MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
                     cmdtestInsert.ExecuteNonQuery();
+                  
+
+                    string lastid = "SELECT MAX(OP_ID) FROM operation";
+                    MySqlCommand cmdlastid = new MySqlCommand(lastid, FormMain.dbConnexion);
+                    string last_operation_id = cmdlastid.ExecuteScalar().ToString();
                     FormMain.dbConnexion.Close();
 
-
-                    OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy' 'HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getCP(), FormMain.thisTerminal.getCity(), FormMain.thisTerminal.getBuilding(), "DÉBIT", amount.ToString());
+                    OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), last_operation_id, FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), "DÉBIT", amount.ToString()); ;
                     receipt.buildReceipt();
 
                     MessageBox.Show("Retrait de " + amount + " € effectué");
@@ -110,9 +113,13 @@ namespace Fulbank.pages
                 string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",0,'" + terminalId + "' ,'" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
                 MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
                 cmdtestInsert.ExecuteNonQuery();
+
+                string lastid = "SELECT MAX(OP_ID) FROM operation";
+                MySqlCommand cmdlastid = new MySqlCommand(lastid, FormMain.dbConnexion);
+                string last_operation_id = cmdlastid.ExecuteScalar().ToString();
                 FormMain.dbConnexion.Close();
 
-                OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy' 'HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getCP(), FormMain.thisTerminal.getCity(), FormMain.thisTerminal.getBuilding(), "DÉPOT", amount.ToString());
+                OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), last_operation_id, FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), "DÉPOT", amount.ToString());
                 receipt.buildReceipt();
 
                 MessageBox.Show("Dépôt de " + amount + " € effectué");

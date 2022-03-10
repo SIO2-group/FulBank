@@ -34,6 +34,7 @@ namespace Fulbank.classes
 
         internal void sendToAccount()
         {
+            FormMain.dbConnexion.Open();
             string terminalId = FormMain.thisTerminal.getId();
 
             string commandTextTransferSend = "INSERT INTO transaction(T_ID_ACCOUNT_TO, T_ID_ACCOUNT_FROM, T_AMOUNT, T_DATE, T_TL_ID) VALUES('" + _accountTo.Get_Id() + "', '" + _accountFrom.Get_Id() + "','" + _amount + "', '" + _date.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "', '" + terminalId + "' )";
@@ -47,6 +48,7 @@ namespace Fulbank.classes
 
         internal void sendToBeneficiary()
         {
+            FormMain.dbConnexion.Open();
             string terminalId = FormMain.thisTerminal.getId();
 
             string commandTextTransferSend = "INSERT INTO transaction(T_ID_ACCOUNT_TO, T_ID_ACCOUNT_FROM, T_AMOUNT, T_DATE, T_TL_ID) VALUES('" + _beneficiary.getBeneficiaryId() + "', '" + _accountFrom.Get_Id() + "','" + _amount + "', '" + _date.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "', '" + terminalId + "' )";
