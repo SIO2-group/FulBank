@@ -116,6 +116,7 @@ namespace Fulbank.pages
                                     anAccountFrom.Debit(double.Parse(TransferValue.Text));
                                     anAccountTo.Credit(double.Parse(TransferValue.Text));
                                     Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), DateTime.Now, anAccountFrom, anAccountTo);
+                                    MessageBox.Show(aTransfer.ToString());
                                     aTransfer.sendToAccount();
                                 }
                             }

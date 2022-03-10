@@ -27,10 +27,16 @@ namespace Fulbank.pages.Crypto
         }
 
         private void FormTrade_Load(object sender, EventArgs e)
-        {                    
+        {
+            FormMain.user.getAccountsDico().TryGetValue("COMPTE CHEQUE", out Account comptecheque);
+            cheque = comptecheque;
+
             TxtUnitPrice.Text = crypto.price_eur.Replace(".", ",");
-            FormMain.user.getWalletsDico().TryGetValue(crypto.symbol, out Cryptowallet awallet);
+
+            if(FormMain.user.getWalletsDico().TryGetValue(crypto.symbol, out Cryptowallet awallet)){ 
             TxtOwnedCurrency.Text = awallet.GetAmount().ToString();
+
+            }
             FormMain.user.getAccountsDico().TryGetValue("COMPTE CHEQUE", out Account acheque);
             txtAccountBalance.Text = acheque.Get_Balance().ToString();
         }
@@ -69,7 +75,6 @@ namespace Fulbank.pages.Crypto
                 }
                 else
                 {
-                    FormMain.user.getAccountsDico().TryGetValue("COMPTE CHEQUE", out Account cheque);
                     cheque.CryptoSell(TxtTotalPrice.Text);
                     wallet.sellCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")));
                 }
@@ -86,11 +91,12 @@ namespace Fulbank.pages.Crypto
                 }
                 else if (float.Parse(TxtTotalPrice.Text) > cheque.Get_Balance())
                 {
+                    MessageBox.Show("Vous avez " + cheque.Get_Balance() + "euros et ça coute " + TxtTotalPrice.Text);
                     MessageBox.Show("Vous ne possédez pas assez d'argent");
                 }
                 else
                 {
-                    if (FormMain.user.getAccountsDico().TryGetValue(crypto.symbol, out Account acc))
+                    if (FormMain.user.getWalletsDico().TryGetValue(crypto.symbol, out Cryptowallet acc))
                     {
                         cheque.CryptoBuy(TxtTotalPrice.Text);
                         wallet.BuyCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")));

@@ -10,6 +10,8 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.DocToPDFConverter;
 using Syncfusion.OfficeChartToImageConverter;
 using Syncfusion.Pdf;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Fulbank.classes
 {
@@ -56,13 +58,19 @@ namespace Fulbank.classes
             document.Replace("<Type>", Type, true, true);
             document.Replace("<Amount>", Amount, true, true);
 
+            MessageBox.Show(Building);
+
 
          // docStream = File.Create("receipt/generated/op_" + DateTime.Now.ToString("yyyy''MM''dd'_'HH''mm''ss") + ".pdf");
             document.ChartToImageConverter = new ChartToImageConverter();
             DocToPDFConverter converter = new DocToPDFConverter();
             PdfDocument pdfdocument = converter.ConvertToPDF(document);
-            pdfdocument.Save("receipt/generated/op_" + DateTime.Now.ToString("yyyy''MM''dd'_'HH''mm''ss") + ".pdf");
+            string name = Path.GetDirectoryName(Application.ExecutablePath) + "/receipt/generated/op_" + DateTime.Now.ToString("yyyy''MM''dd'_'HH''mm''ss") + ".pdf";
+            pdfdocument.Save(name);
             docStream.Dispose();
+            pdfdocument.Close(true);
+
+            System.Diagnostics.Process.Start(name);
         }
 
     }

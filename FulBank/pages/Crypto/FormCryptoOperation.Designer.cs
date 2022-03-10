@@ -74,6 +74,7 @@ namespace Fulbank.pages.Crypto
             // 
             // TxtUnitPrice
             // 
+            this.TxtUnitPrice.Enabled = false;
             this.TxtUnitPrice.Location = new System.Drawing.Point(27, 95);
             this.TxtUnitPrice.MaxLength = 20;
             this.TxtUnitPrice.Name = "TxtUnitPrice";
@@ -83,6 +84,7 @@ namespace Fulbank.pages.Crypto
             // 
             // TxtOwnedCurrency
             // 
+            this.TxtOwnedCurrency.Enabled = false;
             this.TxtOwnedCurrency.Location = new System.Drawing.Point(217, 95);
             this.TxtOwnedCurrency.MaxLength = 10;
             this.TxtOwnedCurrency.Name = "TxtOwnedCurrency";
@@ -102,6 +104,7 @@ namespace Fulbank.pages.Crypto
             // 
             // TxtTotalPrice
             // 
+            this.TxtTotalPrice.Enabled = false;
             this.TxtTotalPrice.Location = new System.Drawing.Point(217, 146);
             this.TxtTotalPrice.MaxLength = 20;
             this.TxtTotalPrice.Name = "TxtTotalPrice";
@@ -172,13 +175,14 @@ namespace Fulbank.pages.Crypto
             // 
             // txtAccountBalance
             // 
+            this.txtAccountBalance.Enabled = false;
             this.txtAccountBalance.Location = new System.Drawing.Point(109, 199);
             this.txtAccountBalance.MaxLength = 10;
             this.txtAccountBalance.Name = "txtAccountBalance";
             this.txtAccountBalance.Size = new System.Drawing.Size(130, 20);
             this.txtAccountBalance.TabIndex = 11;
             // 
-            // FormTrade
+            // FormCryptoOperation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,7 +201,7 @@ namespace Fulbank.pages.Crypto
             this.Controls.Add(this.TxtUnitPrice);
             this.Controls.Add(this.BtnBuy);
             this.Controls.Add(this.BtnSell);
-            this.Name = "FormTrade";
+            this.Name = "FormCryptoOperation";
             this.Text = "FormTrade";
             this.Load += new System.EventHandler(this.FormTrade_Load);
             this.ResumeLayout(false);

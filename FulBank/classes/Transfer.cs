@@ -34,24 +34,46 @@ namespace Fulbank.classes
 
         internal void sendToAccount()
         {
+            FormMain.dbConnexion.Open();
+
             string terminalId = FormMain.thisTerminal.getId();
 
             string commandTextTransferSend = "INSERT INTO transaction(T_ID_ACCOUNT_TO, T_ID_ACCOUNT_FROM, T_AMOUNT, T_DATE, T_TL_ID) VALUES('" + _accountTo.Get_Id() + "', '" + _accountFrom.Get_Id() + "','" + _amount + "', '" + _date.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "', '" + terminalId + "' )";
             MySqlCommand cmdGetUserAccounts = new MySqlCommand(commandTextTransferSend, FormMain.dbConnexion);
             cmdGetUserAccounts.ExecuteNonQuery();
+            _accountFrom.OperationDebit(_amount);
 
-            Console.Write(commandTextTransferSend);
+            string commandText = "UPDATE `account` SET `A_BALANCE` = `A_BALANCE` - " + _amount + " WHERE `A_ID` = " + _accountFrom.Get_Id();
+            MySqlCommand cmd = new MySqlCommand(commandText, FormMain.dbConnexion);
+            cmd.ExecuteNonQuery();
+            _accountFrom.OperationDeposit(_amount);
+
+            string commandText2 = "UPDATE `account` SET `A_BALANCE` = `A_BALANCE` + " + _amount + " WHERE `A_ID` = " + _accountTo.Get_Id();
+            MySqlCommand cmd2 = new MySqlCommand(commandText2, FormMain.dbConnexion);
+            cmd2.ExecuteNonQuery();
 
             FormMain.dbConnexion.Close();
         }
 
         internal void sendToBeneficiary()
         {
+            FormMain.dbConnexion.Open();
+
             string terminalId = FormMain.thisTerminal.getId();
 
             string commandTextTransferSend = "INSERT INTO transaction(T_ID_ACCOUNT_TO, T_ID_ACCOUNT_FROM, T_AMOUNT, T_DATE, T_TL_ID) VALUES('" + _beneficiary.getBeneficiaryId() + "', '" + _accountFrom.Get_Id() + "','" + _amount + "', '" + _date.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "', '" + terminalId + "' )";
             MySqlCommand cmdGetUserAccounts = new MySqlCommand(commandTextTransferSend, FormMain.dbConnexion);
             cmdGetUserAccounts.ExecuteNonQuery();
+
+            string commandText = "UPDATE `account` SET `A_BALANCE` = `A_BALANCE` - " + _amount + " WHERE `A_ID` = " + _accountFrom.Get_Id();
+            MySqlCommand cmd = new MySqlCommand(commandText, FormMain.dbConnexion);
+            cmd.ExecuteNonQuery();
+            _accountFrom.OperationDebit(_amount);
+
+            string commandText2 = "UPDATE `account` SET `A_BALANCE` = `A_BALANCE` + " + _amount + " WHERE `A_ID` = " + _beneficiary.getBeneficiaryId();
+            MySqlCommand cmd2 = new MySqlCommand(commandText2, FormMain.dbConnexion);
+            cmd2.ExecuteNonQuery();
+            _accountFrom.OperationDeposit(_amount);
 
             Console.Write(commandTextTransferSend);
 
