@@ -26,7 +26,7 @@ namespace Fulbank.pages
             this.ControlBox = false;
             string hostName = Dns.GetHostName(); // Retrive the Name of HOST  
             Console.WriteLine(hostName);
-            string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
+            string myIP = Dns.GetHostEntry(hostName).AddressList[0].ToString();
             textBoxIp.Text = myIP;
         }
 

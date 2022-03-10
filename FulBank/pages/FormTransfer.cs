@@ -119,6 +119,7 @@ namespace Fulbank.pages
                                     anAccountFrom.Debit(double.Parse(TransferValue.Text));
                                     anAccountTo.Credit(double.Parse(TransferValue.Text));
                                     Transfer aTransfer = new Transfer(double.Parse(TransferValue.Text.ToString()), DateTime.Now, anAccountFrom, anAccountTo);
+                                    MessageBox.Show(aTransfer.ToString());
                                     aTransfer.sendToAccount();
 
                                     TransferReceipt receipt = new TransferReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), anAccountFrom.Get_Id().ToString(), anAccountTo.Get_Id().ToString(), TransferValue.Text.ToString());
