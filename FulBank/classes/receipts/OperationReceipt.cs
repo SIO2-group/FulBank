@@ -18,25 +18,25 @@ namespace Fulbank.classes
     class OperationReceipt
     {
         public string Date;
+        public string Heure;
+        public string ID_OP;
         public string UserId;
         public string Name;
         public string Firstname;
-        public string PostalCode;
-        public string City;
-        public string Building;
+        public string Terminal;
         public string Type;
         public string Amount;
 
 
-        public OperationReceipt(string date, string userId, string name, string firstname, string postalCode, string city, string building, string type, string amount)
+        public OperationReceipt(string date, string heure, string id_op, string userId, string name, string firstname, string terminal, string type, string amount)
         {
             Date = date;
+            Heure = heure;
+            ID_OP = id_op;
             UserId = userId;
             Name = name;
             Firstname = firstname;
-            PostalCode = postalCode;
-            City = city;
-            Building = building;
+            Terminal = terminal;
             Type = type;
             Amount = amount;
         }
@@ -49,12 +49,12 @@ namespace Fulbank.classes
             docStream.Dispose();
 
             document.Replace("<Date>", Date, true, true);
+            document.Replace("<Heure>", Heure, true, true);
+            document.Replace("<ID_OP>", ID_OP, true, true);
             document.Replace("<UserId>", UserId, true, true);
             document.Replace("<Name>", Name, true, true);
             document.Replace("<Firstname>", Firstname, true, true);
-            document.Replace("<PostalCode>", PostalCode, true, true);
-            document.Replace("<City>", City, true, true);
-            document.Replace("<Building>", Building, true, true);
+            document.Replace("<Terminal>", Terminal, true, true);
             document.Replace("<Type>", Type, true, true);
             document.Replace("<Amount>", Amount, true, true);
 
