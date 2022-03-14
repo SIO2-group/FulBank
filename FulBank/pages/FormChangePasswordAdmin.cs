@@ -46,9 +46,11 @@ namespace Fulbank.pages
                             FormAdmin.dbConnexion.Open();
                             MySqlCommand cmdSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + FormAdmin.admin.Get_Id() + "'", FormAdmin.dbConnexion);
                             string userSalt = cmdSalt.ExecuteScalar().ToString();
-                            string commandTextTestUser = "SELECT count(*) FROM admin, person WHERE A_ID = P_ID AND P_ID='" + FormAdmin.admin.Get_Id() + "' AND P_PASSWORD='" + BCrypt.Net.BCrypt.HashPassword(textOldPassword.Text, userSalt) + "'";
+                            string commandTextTestUser = "SELECT count(*) FROM admin, person WHERE A_ID = P_ID AND P_ID=?id_person AND P_PASSWORD=?password";
 
                             MySqlCommand cmdUser = new MySqlCommand(commandTextTestUser, FormAdmin.dbConnexion);
+                            cmdUser.Parameters.AddWithValue("id_person", FormAdmin.admin.Get_Id());
+                            cmdUser.Parameters.AddWithValue("password", BCrypt.Net.BCrypt.HashPassword(textOldPassword.Text, userSalt));
                             bool isUser = Convert.ToBoolean(int.Parse(cmdUser.ExecuteScalar().ToString()));
                             FormAdmin.dbConnexion.Close();
                             if (isUser == true)
@@ -63,8 +65,10 @@ namespace Fulbank.pages
                                         string salt = BCrypt.Net.BCrypt.GenerateSalt();
                                         string password = BCrypt.Net.BCrypt.HashPassword(textNewPassword.Text, salt);
 
-                                        string updatePersonQuery = "UPDATE person SET P_PASSWORD = '" + password + "', P_SALT = '" + salt + "'";
+                                        string updatePersonQuery = "UPDATE person SET P_PASSWORD = ?password, P_SALT = ?salt";
                                         MySqlCommand cmdUpdatePerson = new MySqlCommand(updatePersonQuery, FormAdmin.dbConnexion);
+                                        cmdUpdatePerson.Parameters.AddWithValue("password", password);
+                                        cmdUpdatePerson.Parameters.AddWithValue("salt", salt);
                                         cmdUpdatePerson.ExecuteNonQuery();
 
 

@@ -4,7 +4,7 @@ BANK ET CRYPTO
 <hr>
 
 ## Contexte
-FULBANK est une banque nouvelle et moderne qui souhaite s'ouvrir en incluant des services bancaire classique mais aussi de la crypto monnaie. 
+FULBANK est une banque nouvelle et moderne qui souhaite s'ouvrir en incluant des services bancaire classique mais aussi de la crypto monnaie.
 
 ## Besoin
 La banque veut créer pour ses bornes un logiciel permettant de consulter sescomptes de manière classique mais aussi de pouvoir consulter son portefeuille crypto, de pouvoir échanger de la crypto en Euro ou des Euro en crypto en fonction du cours du moment. Pour cela vous devrez trouver une api ou une DLL permettant de récupérer le cours du marché.

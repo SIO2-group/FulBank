@@ -87,8 +87,9 @@ namespace FulBank
         {
             #region user initialisation
             dbConnexion.Open();
-            string commandTextGetUser = "SELECT P_ID, P_NAME, P_FIRSTNAME, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS FROM person INNER JOIN user ON person.P_ID = user.U_ID WHERE P_ID = '" + _userId + "' ";
+            string commandTextGetUser = "SELECT P_ID, P_NAME, P_FIRSTNAME, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS FROM person INNER JOIN user ON person.P_ID = user.U_ID WHERE P_ID = ?id_user ";
             MySqlCommand cmdGetUser = new MySqlCommand(commandTextGetUser, dbConnexion);
+            cmdGetUser.Parameters.AddWithValue("id_user", _userId);
             MySqlDataReader userInfo = cmdGetUser.ExecuteReader();
             userInfo.Read();
             User aUser = new User(int.Parse(userInfo["P_ID"].ToString()), userInfo["P_NAME"].ToString(), userInfo["P_FIRSTNAME"].ToString(), userInfo["U_MAIL"].ToString(), userInfo["U_PHONE"].ToString(), userInfo["U_LANDLINE"].ToString(), userInfo["U_ADRESS"].ToString());
@@ -96,8 +97,9 @@ namespace FulBank
             #endregion
             #region user accounts load
             dbConnexion.Open();
-            string commandTextTestUser = "SELECT A_ID, A_ID_ACCOUNTTYPE, A_BALANCE, A_OVERDRAFT_LIMIT FROM account WHERE A_ID_USER = '" + _userId + "' ";
+            string commandTextTestUser = "SELECT A_ID, A_ID_ACCOUNTTYPE, A_BALANCE, A_OVERDRAFT_LIMIT FROM account WHERE A_ID_USER = ?id_user ";
             MySqlCommand cmdGetUserAccounts = new MySqlCommand(commandTextTestUser, dbConnexion);
+            cmdGetUserAccounts.Parameters.AddWithValue("id_user", _userId);
             MySqlDataReader userAccounts = cmdGetUserAccounts.ExecuteReader();
             
 
@@ -112,8 +114,10 @@ namespace FulBank
             #region user accounts operation load
             Account accounts = aUser.GetAccounts()[0];
                 dbConnexion.Open();
-                string commandTextoperation = "SELECT OP_ID, OP_AMOUNT, OP_ISDEBIT, DATE_FORMAT(OP_DATE,'%d-%m-%Y %H:%i:%s') as OP_DATE FROM account INNER JOIN operation ON account.A_ID = operation.OP_ID_ACCOUNT WHERE OP_ID_ACCOUNT = '" + accounts.Get_Id() + "' ORDER BY OP_DATE DESC";
+                string commandTextoperation = "SELECT OP_ID, OP_AMOUNT, OP_ISDEBIT, DATE_FORMAT(OP_DATE,'%d-%m-%Y %H:%i:%s') as OP_DATE FROM account INNER JOIN operation ON account.A_ID = operation.OP_ID_ACCOUNT WHERE OP_ID_ACCOUNT = ?id_account ORDER BY OP_DATE DESC";
                 MySqlCommand cmdGetoperation = new MySqlCommand(commandTextoperation, dbConnexion);
+                cmdGetoperation.Parameters.AddWithValue("id_account", accounts.Get_Id());
+
                 MySqlDataReader operation = cmdGetoperation.ExecuteReader();
                 while (operation.Read())
                 {
@@ -125,8 +129,9 @@ namespace FulBank
             #endregion
             #region user transation beneficiaries load
             dbConnexion.Open();
-            string commandTextSelectBeneficiary = "SELECT * FROM beneficiary WHERE B_USER_ID = " + _userId + "";
+            string commandTextSelectBeneficiary = "SELECT * FROM beneficiary WHERE B_USER_ID = ?id_user";
             MySqlCommand cmdSelectBeneficiary = new MySqlCommand(commandTextSelectBeneficiary, dbConnexion);
+            cmdSelectBeneficiary.Parameters.AddWithValue("id_user", _userId);
             MySqlDataReader userBeneficiaries = cmdSelectBeneficiary.ExecuteReader();
 
 
@@ -140,8 +145,9 @@ namespace FulBank
             #region user cryptowallets load
             dbConnexion.Open();
 
-            string commandTextSelectWallets = "SELECT * FROM cryptowallet WHERE CW_UID = " + _userId + "";
+            string commandTextSelectWallets = "SELECT * FROM cryptowallet WHERE CW_UID = ?id_user";
             MySqlCommand cmdSelectWallets = new MySqlCommand(commandTextSelectWallets, dbConnexion);
+            cmdSelectWallets.Parameters.AddWithValue("id_user", _userId);
             MySqlDataReader Wallets = cmdSelectWallets.ExecuteReader();
 
             while (Wallets.Read())
@@ -157,8 +163,9 @@ namespace FulBank
                                             FROM transaction
                                             WHERE T_ID_ACCOUNT_FROM IN(SELECT A_ID
                                                                         FROM account
-                                                                        WHERE A_ID_USER = '" + aUser.Get_Id() + "')";
+                                                                        WHERE A_ID_USER = ?id_user)";
             MySqlCommand cmdSelectTransfer = new MySqlCommand(commandTextSelectTransfer, FormMain.dbConnexion);
+            cmdSelectTransfer.Parameters.AddWithValue("id_user", aUser.Get_Id());
             MySqlDataReader transfers = cmdSelectTransfer.ExecuteReader();
             while (transfers.Read())
             {
@@ -249,6 +256,7 @@ namespace FulBank
 
         private void MenuCrypto_Click(object sender, EventArgs e)
         {
+            LabelSection.Text = "Cryptomonnaies";
             ListFormMenu[6].BringToFront();
         }
 

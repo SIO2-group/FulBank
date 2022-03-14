@@ -44,8 +44,9 @@ namespace Fulbank
         private void LoadAdminData()
         {
             dbConnexion.Open();
-            string commandTextGetUser = "SELECT P_ID, P_NAME, P_FIRSTNAME FROM person INNER JOIN admin ON person.P_ID = admin.A_ID WHERE P_ID = '" + _adminId + "' ";
+            string commandTextGetUser = "SELECT P_ID, P_NAME, P_FIRSTNAME FROM person INNER JOIN admin ON person.P_ID = admin.A_ID WHERE P_ID = ?id_person ";
             MySqlCommand cmdGetUser = new MySqlCommand(commandTextGetUser, dbConnexion);
+            cmdGetUser.Parameters.AddWithValue("id_person", _adminId);
             MySqlDataReader userInfo = cmdGetUser.ExecuteReader();
             userInfo.Read();
             admin = new Admin(int.Parse(userInfo["P_ID"].ToString()), userInfo["P_NAME"].ToString(), userInfo["P_FIRSTNAME"].ToString());

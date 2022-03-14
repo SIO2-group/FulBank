@@ -37,8 +37,10 @@ namespace Fulbank.pages
                 if (result)
                 {
                     FormMain.dbConnexion.Open();
-                    string commandGetAccount = "SELECT count(*) FROM account WHERE A_ID = '" + textBoxBeneficiaryId.Text + "' AND A_ID NOT IN(SELECT A_ID FROM account WHERE A_ID_USER ='" + FormMain.user.Get_Id() + "' )";
+                    string commandGetAccount = "SELECT count(*) FROM account WHERE A_ID = ?id_account AND A_ID NOT IN(SELECT A_ID FROM account WHERE A_ID_USER =?id_user )";
                     MySqlCommand cmdGetAccount = new MySqlCommand(commandGetAccount, FormMain.dbConnexion);
+                    cmdGetAccount.Parameters.AddWithValue("id_account", textBoxBeneficiaryId.Text);
+                    cmdGetAccount.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
                     int accountExist = int.Parse(cmdGetAccount.ExecuteScalar().ToString());
                     FormMain.dbConnexion.Close();
                     if (accountExist == 1)

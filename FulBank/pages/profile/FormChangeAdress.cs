@@ -37,8 +37,10 @@ namespace Fulbank.pages
             if (!String.IsNullOrWhiteSpace(textNewAdress.Text))
             {
                 FormMain.dbConnexion.Open();
-                string commandTextAdress = "UPDATE user SET U_ADRESS = '" + textNewAdress.Text + "' WHERE U_ID = '" + FormMain.user.Get_Id() + "'";
+                string commandTextAdress = "UPDATE user SET U_ADRESS = ?adress WHERE U_ID = ?id_user";
                 MySqlCommand cmdAdress = new MySqlCommand(commandTextAdress, FormMain.dbConnexion);
+                cmdAdress.Parameters.AddWithValue("adress", textNewAdress.Text);
+                cmdAdress.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
                 cmdAdress.ExecuteNonQuery();
                 FormMain.dbConnexion.Close();
                 FormMain.user.Set_address(textNewAdress.Text);

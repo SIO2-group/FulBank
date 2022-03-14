@@ -1,4 +1,5 @@
 ﻿using Fulbank.classes;
+using Fulbank.classes.receipts;
 using FulBank;
 using MySql.Data.MySqlClient;
 using System;
@@ -77,6 +78,10 @@ namespace Fulbank.pages.Crypto
                 {
                     cheque.CryptoSell(TxtTotalPrice.Text);
                     wallet.sellCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")));
+
+                    CryptoReceipt receipt = new CryptoReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), "VENTE", crypto.name, crypto.price_eur, TxtUnitsToTrade.Text, TxtTotalPrice.Text);
+                    receipt.buildReceipt();
+
                 }
             }
         }
@@ -100,6 +105,10 @@ namespace Fulbank.pages.Crypto
                     {
                         cheque.CryptoBuy(TxtTotalPrice.Text);
                         wallet.BuyCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")));
+
+                        CryptoReceipt receipt = new CryptoReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), "ACHAT", crypto.name, crypto.price_eur, TxtUnitsToTrade.Text, TxtTotalPrice.Text);
+                        receipt.buildReceipt();
+
                         MessageBox.Show("Vous venez d'acheter " + TxtUnitsToTrade.Text + " " + wallet.GetSymbol() + " pour " + TxtTotalPrice.Text + " €");
                     }
                     else
@@ -107,14 +116,21 @@ namespace Fulbank.pages.Crypto
                         Cryptowallet newWallet = new Cryptowallet(crypto.symbol, 0);
                         FormMain.user.GetWallets().Add(newWallet);
                         FormMain.dbConnexion.Open();
-                        string commandText = @"INSERT INTO cryptowallet (CW_UID, CW_C_SYMBOL) VALUES('" + FormMain.user.Get_Id() + "','" + crypto.symbol + "')";
+                        string commandText = @"INSERT INTO cryptowallet (CW_UID, CW_C_SYMBOL) VALUES(?id_user,?symbol)";
                         MySqlCommand cmdCredit = new MySqlCommand(commandText, FormMain.dbConnexion);
+                        cmdCredit.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
+                        cmdCredit.Parameters.AddWithValue("symbol", crypto.symbol);
                         cmdCredit.ExecuteNonQuery();
                         FormMain.dbConnexion.Close();
+
+                        CryptoReceipt receipt = new CryptoReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), "ACHAT", crypto.name, crypto.price_eur, TxtUnitsToTrade.Text, TxtTotalPrice.Text);
+                        receipt.buildReceipt();
+
                         cheque.CryptoBuy(TxtTotalPrice.Text);
                         newWallet.BuyCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")));
                         MessageBox.Show("Vous venez d'acheter " + TxtUnitsToTrade.Text + " " + crypto.symbol + " pour " + TxtTotalPrice.Text + " €");
                     }
+
                 }
             }
             

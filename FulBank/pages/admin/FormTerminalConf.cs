@@ -39,19 +39,32 @@ namespace Fulbank.pages
             {
                 if(MyIni.KeyExists("Id"))
                 {
-                    string commandTextInsertTerminal = "UPDATE terminal SET TL_BUILDING = '" + textBoxBuilding.Text + "',TL_POSTALCODE = '" + textPostalCode.Text + "', TL_CITY = '" + textBoxCity.Text + "',  TL_IP = '" + textBoxIp.Text + "' WHERE TL_ID = '" + MyIni.Read("Id") + "'";
+                    string commandTextInsertTerminal = "UPDATE terminal SET TL_BUILDING = ?building,TL_POSTALCODE = ?cp, TL_CITY = ?city,  TL_IP = ?boxip WHERE TL_ID = ?tl_ip";
                     MySqlCommand cmdInsertTerminal = new MySqlCommand(commandTextInsertTerminal, FormMain.dbConnexion);
+                    cmdInsertTerminal.Parameters.AddWithValue("building", textBoxBuilding.Text);
+                    cmdInsertTerminal.Parameters.AddWithValue("cp", textPostalCode.Text);
+                    cmdInsertTerminal.Parameters.AddWithValue("city", textBoxCity.Text);
+                    cmdInsertTerminal.Parameters.AddWithValue("boxip", textBoxIp.Text);
+                    cmdInsertTerminal.Parameters.AddWithValue("tl_ip", MyIni.Read("Id"));
                     cmdInsertTerminal.ExecuteNonQuery();
                 }
                 else
                 {
-                    string commandTextInsertTerminal = "INSERT INTO terminal(TL_BUILDING, TL_CITY, TL_IP, TL_POSTALCODE) VALUES('" + textBoxBuilding.Text + "','" + textBoxCity.Text + "','" + textBoxIp.Text + "', '" + textPostalCode.Text + "')";
+                    string commandTextInsertTerminal = "INSERT INTO terminal(TL_BUILDING, TL_CITY, TL_IP, TL_POSTALCODE) VALUES(?building,?city,?boxip,?cp)";
                     MySqlCommand cmdInsertTerminal = new MySqlCommand(commandTextInsertTerminal, FormMain.dbConnexion);
+                    cmdInsertTerminal.Parameters.AddWithValue("building", textBoxBuilding.Text);
+                    cmdInsertTerminal.Parameters.AddWithValue("city", textBoxCity.Text);
+                    cmdInsertTerminal.Parameters.AddWithValue("boxip", textBoxIp.Text);
+                    cmdInsertTerminal.Parameters.AddWithValue("cp", textPostalCode.Text);
                     cmdInsertTerminal.ExecuteNonQuery();
                     FormMain.dbConnexion.Close();
                     FormMain.dbConnexion.Open();
-                    string commandTextGetTerminal = "SELECT TL_ID FROM terminal WHERE TL_BUILDING = '" + textBoxBuilding.Text + "' AND TL_CITY = '" + textBoxCity.Text + "' AND TL_IP ='" + textBoxIp.Text + "' AND TL_POSTALCODE ='" + textPostalCode.Text + "'";
+                    string commandTextGetTerminal = "SELECT TL_ID FROM terminal WHERE TL_BUILDING = ?building AND TL_CITY = ?city AND TL_IP =?boxip AND TL_POSTALCODE =?cp";
                     MySqlCommand cmdGetTerminal = new MySqlCommand(commandTextGetTerminal, FormMain.dbConnexion);
+                    cmdGetTerminal.Parameters.AddWithValue("building", textBoxBuilding.Text);
+                    cmdGetTerminal.Parameters.AddWithValue("city", textBoxCity.Text);
+                    cmdGetTerminal.Parameters.AddWithValue("boxip", textBoxIp.Text);
+                    cmdGetTerminal.Parameters.AddWithValue("cp", textPostalCode.Text);
                     string terminalId = cmdGetTerminal.ExecuteScalar().ToString();
                     MyIni.Write("Id", terminalId);
                     FormMain.dbConnexion.Close();

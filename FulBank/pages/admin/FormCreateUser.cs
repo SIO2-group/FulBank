@@ -65,12 +65,23 @@ namespace Fulbank.pages
                                                 string salt = BCrypt.Net.BCrypt.GenerateSalt();
                                                 string password = BCrypt.Net.BCrypt.HashPassword(UserCreatePassword.Text, salt);
 
-                                                string insertPersonQuery = "INSERT INTO person(P_NAME, P_FIRSTNAME, P_PASSWORD, P_SALT) VALUES('" + UserCreateName.Text + "','" + UserCreateFirstname.Text + "','" + password + "','" + salt + "')";
+                                                string insertPersonQuery = "INSERT INTO person(P_NAME, P_FIRSTNAME, P_PASSWORD, P_SALT) VALUES(?name,?firstname,?password,?salt)";
                                                 MySqlCommand cmdInsertPerson = new MySqlCommand(insertPersonQuery, dbConnexion);
+                                                cmdInsertPerson.Parameters.AddWithValue("name", UserCreateName.Text);
+                                                cmdInsertPerson.Parameters.AddWithValue("firstname", UserCreateFirstname.Text);
+                                                cmdInsertPerson.Parameters.AddWithValue("password", password);
+                                                cmdInsertPerson.Parameters.AddWithValue("salt", salt);
                                                 cmdInsertPerson.ExecuteNonQuery();
                                                 
-                                                string insertUserQuery = "INSERT INTO user(U_ID, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS) VALUES((SELECT P_ID FROM PERSON WHERE P_NAME ='" + UserCreateName.Text + "' AND P_FIRSTNAME='" + UserCreateFirstname.Text + "' AND P_PASSWORD='" + password + "'),'" + UserCreatePhone.Text + "','" + UserCreateLandline.Text + "','" + UserCreateMail.Text + "','" + UserCreateAdress.Text + "')";
+                                                string insertUserQuery = "INSERT INTO user(U_ID, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS) VALUES((SELECT P_ID FROM PERSON WHERE P_NAME =?name AND P_FIRSTNAME=?firstname AND P_PASSWORD=?password),?phone,?landline,?mail,?adress)";
                                                 MySqlCommand cmdInsertUser = new MySqlCommand(insertUserQuery, dbConnexion);
+                                                cmdInsertUser.Parameters.AddWithValue("name", UserCreateName.Text);
+                                                cmdInsertUser.Parameters.AddWithValue("firstname", UserCreateFirstname.Text);
+                                                cmdInsertUser.Parameters.AddWithValue("password", password);
+                                                cmdInsertUser.Parameters.AddWithValue("phone", UserCreatePhone.Text);
+                                                cmdInsertUser.Parameters.AddWithValue("landline", UserCreateLandline.Text);
+                                                cmdInsertUser.Parameters.AddWithValue("mail", UserCreateMail.Text);
+                                                cmdInsertUser.Parameters.AddWithValue("adress", UserCreateAdress.Text);
                                                 cmdInsertUser.ExecuteNonQuery();
                                                 dbConnexion.Close();
                                                 MessageBox.Show("Utilisateur entré");
