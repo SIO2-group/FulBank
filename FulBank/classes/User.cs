@@ -136,9 +136,9 @@ namespace Fulbank.classes
         }
 
 
-        public void AddWallet(string symbol, float amount)
+        public void AddWallet(int id, string symbol, float amount)
         {
-            _wallets.Add(new Cryptowallet(symbol, amount));
+            _wallets.Add(new Cryptowallet(id, symbol, amount));
         }
 
         public void UpdateWallet(string symbol, float amount)

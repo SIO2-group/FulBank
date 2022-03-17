@@ -142,14 +142,23 @@ namespace FulBank
 
             string commandTextSelectWallets = "SELECT * FROM cryptowallet WHERE CW_UID = " + _userId + "";
             MySqlCommand cmdSelectWallets = new MySqlCommand(commandTextSelectWallets, dbConnexion);
-            MySqlDataReader Wallets = cmdSelectWallets.ExecuteReader();
+            MySqlDataReader Wallets = cmdSelectWallets.ExecuteReader();                
+            
+            string commandTextSelectOp = @"SELECT *
+                                            FROM crypto_trade
+                                            WHERE WALLET_ID = ?id";
+            MySqlCommand cmdSelectOp = new MySqlCommand(commandTextSelectOp, FormMain.dbConnexion);
+            cmdSelectOp.Parameters.AddWithValue("id", _userId);
+            MySqlDataReader crypto_op = cmdSelectOp.ExecuteReader();
 
             while (Wallets.Read())
             {
-                aUser.AddWallet(Wallets["CW_C_SYMBOL"].ToString(), float.Parse(Wallets["CW_AMOUNT"].ToString()));
+                //while (crypto_op.Read())
+                    aUser.AddWallet(int.Parse(Wallets["CW_ID"].ToString()) , Wallets["CW_C_SYMBOL"].ToString(), float.Parse(Wallets["CW_AMOUNT"].ToString()));
             }
 
             dbConnexion.Close();
+
             #endregion
             #region add transfers
             dbConnexion.Open();
@@ -219,7 +228,8 @@ namespace FulBank
         private void PictureLogout_Click(object sender, EventArgs e)
         {
             Close();
-            Connexion.Close();
+            ListFormMenu.Clear();
+            Connexion.Show();
         }
 
         private void MenuVirement_Click(object sender, EventArgs e)

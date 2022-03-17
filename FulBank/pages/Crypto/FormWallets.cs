@@ -1,13 +1,6 @@
 ﻿using Fulbank.classes;
 using FulBank;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fulbank.pages.Crypto
@@ -23,8 +16,10 @@ namespace Fulbank.pages.Crypto
         {
             foreach(Cryptowallet wallet in FormMain.user.GetWallets())
             {
-                FormCryptocurrency.cryptos.TryGetValue(wallet.GetSymbol(), out Cryptocurrency crypto);
-                dgvWallets.Rows.Add(wallet.GetSymbol(), crypto.name, wallet.GetAmount(), crypto.price_eur, float.Parse(crypto.price_eur) * wallet.GetAmount());
+                if(FormCryptocurrency.cryptos.TryGetValue(wallet.GetSymbol(), out Cryptocurrency crypto)) {
+                    MessageBox.Show(wallet.getId().ToString());
+                    dgvWallets.Rows.Add(wallet.GetSymbol(), crypto.name, wallet.GetAmount(), crypto.price_eur, float.Parse(crypto.price_eur) * wallet.GetAmount());
+                }
             }
         }
 

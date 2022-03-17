@@ -64,8 +64,11 @@ namespace Fulbank.classes
             document.ChartToImageConverter = new ChartToImageConverter();
             DocToPDFConverter converter = new DocToPDFConverter();
             PdfDocument pdfdocument = converter.ConvertToPDF(document);
-            pdfdocument.Save("receipt/generated/tr_" + DateTime.Now.ToString("yyyy''MM''dd'_'HH''mm''ss") + ".pdf");
+            string name = "receipt/generated/tr_" + DateTime.Now.ToString("yyyy''MM''dd'_'HH''mm''ss") + ".pdf";
+            pdfdocument.Save(name);
             docStream.Dispose();
+
+            System.Diagnostics.Process.Start(name);
         }
 
     }

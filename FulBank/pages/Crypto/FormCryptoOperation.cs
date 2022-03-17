@@ -34,7 +34,8 @@ namespace Fulbank.pages.Crypto
             TxtUnitPrice.Text = crypto.price_eur.Replace(".", ",");
 
             if(FormMain.user.getWalletsDico().TryGetValue(crypto.symbol, out Cryptowallet awallet)){ 
-            TxtOwnedCurrency.Text = awallet.GetAmount().ToString();
+                TxtOwnedCurrency.Text = awallet.GetAmount().ToString();
+                wallet = awallet;
 
             }
             FormMain.user.getAccountsDico().TryGetValue("COMPTE CHEQUE", out Account acheque);
@@ -76,7 +77,7 @@ namespace Fulbank.pages.Crypto
                 else
                 {
                     cheque.CryptoSell(TxtTotalPrice.Text);
-                    wallet.sellCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")));
+                    wallet.sellCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")), crypto);
                 }
             }
         }
@@ -91,7 +92,7 @@ namespace Fulbank.pages.Crypto
                 }
                 else if (float.Parse(TxtTotalPrice.Text) > cheque.Get_Balance())
                 {
-                    MessageBox.Show("Vous avez " + cheque.Get_Balance() + "euros et ça coute " + TxtTotalPrice.Text);
+                    MessageBox.Show("Vous avez " + cheque.Get_Balance() + "euros et cela coute " + TxtTotalPrice.Text);
                     MessageBox.Show("Vous ne possédez pas assez d'argent");
                 }
                 else
@@ -99,20 +100,25 @@ namespace Fulbank.pages.Crypto
                     if (FormMain.user.getWalletsDico().TryGetValue(crypto.symbol, out Cryptowallet acc))
                     {
                         cheque.CryptoBuy(TxtTotalPrice.Text);
-                        wallet.BuyCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")));
+                        wallet.BuyCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")), crypto);
                         MessageBox.Show("Vous venez d'acheter " + TxtUnitsToTrade.Text + " " + wallet.GetSymbol() + " pour " + TxtTotalPrice.Text + " €");
                     }
                     else
                     {
-                        Cryptowallet newWallet = new Cryptowallet(crypto.symbol, 0);
-                        FormMain.user.GetWallets().Add(newWallet);
                         FormMain.dbConnexion.Open();
-                        string commandText = @"INSERT INTO cryptowallet (CW_UID, CW_C_SYMBOL) VALUES('" + FormMain.user.Get_Id() + "','" + crypto.symbol + "')";
+                        string commandText = @"INSERT INTO cryptowallet (CW_UID, CW_C_SYMBOL) 
+                                                    VALUES('" + FormMain.user.Get_Id() + "','" + crypto.symbol + "');" +
+                                                    "SELECT LAST_INSERT_ID(); ";
+                                                            
                         MySqlCommand cmdCredit = new MySqlCommand(commandText, FormMain.dbConnexion);
-                        cmdCredit.ExecuteNonQuery();
+                        int cw_id = int.Parse(cmdCredit.ExecuteScalar().ToString());
                         FormMain.dbConnexion.Close();
+
+                        Cryptowallet newWallet = new Cryptowallet(cw_id, crypto.symbol, 0);
+                        FormMain.user.GetWallets().Add(newWallet);
+
                         cheque.CryptoBuy(TxtTotalPrice.Text);
-                        newWallet.BuyCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")));
+                        newWallet.BuyCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")), crypto);
                         MessageBox.Show("Vous venez d'acheter " + TxtUnitsToTrade.Text + " " + crypto.symbol + " pour " + TxtTotalPrice.Text + " €");
                     }
                 }

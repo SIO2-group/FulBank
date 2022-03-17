@@ -293,6 +293,12 @@
     <Compile Include="pages\Crypto\FormTrade.Designer.cs">
       <DependentUpon>FormTrade.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\Crypto\FormTradeHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\Crypto\FormTradeHistory.Designer.cs">
+      <DependentUpon>FormTradeHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\Crypto\FormWallets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\Crypto\FormTrade.resx">
       <DependentUpon>FormTrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\Crypto\FormTradeHistory.resx">
+      <DependentUpon>FormTradeHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\Crypto\FormWallets.resx">
       <DependentUpon>FormWallets.cs</DependentUpon>

@@ -58,9 +58,6 @@ namespace Fulbank.classes
             document.Replace("<Type>", Type, true, true);
             document.Replace("<Amount>", Amount, true, true);
 
-            MessageBox.Show(Building);
-
-
          // docStream = File.Create("receipt/generated/op_" + DateTime.Now.ToString("yyyy''MM''dd'_'HH''mm''ss") + ".pdf");
             document.ChartToImageConverter = new ChartToImageConverter();
             DocToPDFConverter converter = new DocToPDFConverter();
