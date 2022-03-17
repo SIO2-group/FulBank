@@ -16,5 +16,10 @@ namespace Fulbank.pages.Crypto
         {
             InitializeComponent();
         }
+
+        private void FormTrade_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

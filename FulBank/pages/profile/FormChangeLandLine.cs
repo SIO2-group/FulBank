@@ -52,8 +52,10 @@ namespace Fulbank.pages
                 if (!String.IsNullOrWhiteSpace(textNewLandLine.Text))
                 {
                     FormMain.dbConnexion.Open();
-                    string commandTextLandLine = "UPDATE user SET U_LANDLINE = '" + textNewLandLine.Text + "' WHERE U_ID = '" + FormMain.user.Get_Id() + "'";
+                    string commandTextLandLine = "UPDATE user SET U_LANDLINE = ?landline WHERE U_ID = ?id_user";
                     MySqlCommand cmdLandLine = new MySqlCommand(commandTextLandLine, FormMain.dbConnexion);
+                    cmdLandLine.Parameters.AddWithValue("landline", textNewLandLine.Text);
+                    cmdLandLine.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
                     cmdLandLine.ExecuteNonQuery();
                     FormMain.dbConnexion.Close();
                     FormMain.user.Set_homePhone(textNewLandLine.Text);

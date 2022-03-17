@@ -252,6 +252,7 @@
     <Compile Include="classes\Admin.cs" />
     <Compile Include="classes\Operation.cs" />
     <Compile Include="classes\Rates.cs" />
+    <Compile Include="classes\receipts\CryptoReceipt.cs" />
     <Compile Include="classes\receipts\OperationReceipt.cs" />
     <Compile Include="classes\receipts\TransferReceipt.cs" />
     <Compile Include="classes\Terminal.cs" />

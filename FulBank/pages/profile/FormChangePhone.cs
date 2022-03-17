@@ -43,8 +43,10 @@ namespace Fulbank.pages
                 if (!String.IsNullOrWhiteSpace(textNewPhone.Text))
                 {
                     FormMain.dbConnexion.Open();
-                    string commandTextPhone = "UPDATE user SET U_PHONE = '" + textNewPhone.Text + "' WHERE U_ID = '" + FormMain.user.Get_Id() + "'";
+                    string commandTextPhone = "UPDATE user SET U_PHONE = ?phone WHERE U_ID = ?id_user";
                     MySqlCommand cmdPhone = new MySqlCommand(commandTextPhone, FormMain.dbConnexion);
+                    cmdPhone.Parameters.AddWithValue("phone", textNewPhone.Text);
+                    cmdPhone.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
                     cmdPhone.ExecuteNonQuery();
                     FormMain.dbConnexion.Close();
                     FormMain.user.Set_phone(textNewPhone.Text);

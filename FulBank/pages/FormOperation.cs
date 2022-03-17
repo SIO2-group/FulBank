@@ -40,16 +40,22 @@ namespace Fulbank.pages
                 {
                     FormMain.dbConnexion.Open();
 
-                    string commandTexttestDebit = "UPDATE account SET A_BALANCE = '" + result.ToString().Replace(",",".") + "' WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
+                    string commandTexttestDebit = "UPDATE account SET A_BALANCE = ?resultat WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER =?id_user";
                     MySqlCommand cmdtestDebit = new MySqlCommand(commandTexttestDebit, FormMain.dbConnexion);
+                    cmdtestDebit.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
+                    cmdtestDebit.Parameters.AddWithValue("resultat", result.ToString().Replace(",", "."));
                     MySqlDataReader drDebit = cmdtestDebit.ExecuteReader();
                     FormMain.dbConnexion.Close();
                     cheque.OperationDebit(amount);
 
                     string terminalId = FormMain.thisTerminal.getId();
                     FormMain.dbConnexion.Open();
-                    string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",1, '"+terminalId+"','" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
+                    string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(?amount,1,?terminalId,?id_cheque,?date)";
                     MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
+                    cmdtestInsert.Parameters.AddWithValue("amount", amount);
+                    cmdtestInsert.Parameters.AddWithValue("terminalId", terminalId);
+                    cmdtestInsert.Parameters.AddWithValue("id_cheque", cheque.Get_Id());
+                    cmdtestInsert.Parameters.AddWithValue("date", DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss"));
                     cmdtestInsert.ExecuteNonQuery();
                   
 
@@ -102,16 +108,22 @@ namespace Fulbank.pages
 
                 FormMain.dbConnexion.Open();
 
-                string commandTexttestDeposit = "UPDATE account SET A_BALANCE = '" + result.ToString().Replace(",",".") + "' WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER ='" + FormMain.user.Get_Id() + "'";
+                string commandTexttestDeposit = "UPDATE account SET A_BALANCE = ?resultat WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER =?id_user";
                 MySqlCommand cmdtestDeposit = new MySqlCommand(commandTexttestDeposit, FormMain.dbConnexion);
+                cmdtestDeposit.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
+                cmdtestDeposit.Parameters.AddWithValue("resultat", result.ToString().Replace(",", "."));
                 MySqlDataReader drDeposit = cmdtestDeposit.ExecuteReader();
                 cheque.OperationDeposit(amount);
 
                 FormMain.dbConnexion.Close();
                 string terminalId = FormMain.thisTerminal.getId();
                 FormMain.dbConnexion.Open();
-                string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(" + amount + ",0,'" + terminalId + "' ,'" + cheque.Get_Id() + "','" + DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss") + "' )";
+                string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(?amount,0,?terminalId,?id_cheque,?date)";
                 MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
+                cmdtestInsert.Parameters.AddWithValue("amount", amount);
+                cmdtestInsert.Parameters.AddWithValue("terminalId", terminalId);
+                cmdtestInsert.Parameters.AddWithValue("id_cheque", cheque.Get_Id());
+                cmdtestInsert.Parameters.AddWithValue("date", DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss"));
                 cmdtestInsert.ExecuteNonQuery();
 
                 string lastid = "SELECT MAX(OP_ID) FROM operation";

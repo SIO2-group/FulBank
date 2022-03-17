@@ -36,9 +36,11 @@ namespace Fulbank
 
                 MySqlCommand cmdAdminSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + TextUsername.Text + "'", dbConnexion);
                 string AdminSalt = cmdAdminSalt.ExecuteScalar().ToString();
-                string commandTextTestAdmin = "SELECT count(*) FROM admin, person WHERE A_ID = P_ID AND P_ID='" + TextUsername.Text + "' AND P_PASSWORD='" + BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, AdminSalt) + "'";
+                string commandTextTestAdmin = "SELECT count(*) FROM admin, person WHERE A_ID = P_ID AND P_ID=?id_person AND P_PASSWORD=?password";
 
                 MySqlCommand cmdAdmin = new MySqlCommand(commandTextTestAdmin, dbConnexion);
+                cmdAdmin.Parameters.AddWithValue("id_person", TextUsername.Text);
+                cmdAdmin.Parameters.AddWithValue("password", BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, AdminSalt));
                 bool isAdmin = Convert.ToBoolean(int.Parse(cmdAdmin.ExecuteScalar().ToString()));
                 if (isAdmin == true)
                 {
@@ -51,9 +53,11 @@ namespace Fulbank
                 {
                     MySqlCommand cmdSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + TextUsername.Text + "'", dbConnexion);
                     string userSalt = cmdSalt.ExecuteScalar().ToString();
-                    string commandTextTestUser = "SELECT count(*) FROM user, person WHERE U_ID = P_ID AND P_ID='" + TextUsername.Text + "' AND P_PASSWORD='" + BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, userSalt) + "'";
+                    string commandTextTestUser = "SELECT count(*) FROM user, person WHERE U_ID = P_ID AND P_ID=?id_person AND P_PASSWORD=?password";
 
                     MySqlCommand cmdUser = new MySqlCommand(commandTextTestUser, dbConnexion);
+                    cmdUser.Parameters.AddWithValue("id_person", TextUsername.Text);
+                    cmdUser.Parameters.AddWithValue("password", BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, userSalt));
                     bool isUser = Convert.ToBoolean(int.Parse(cmdUser.ExecuteScalar().ToString()));
                     if (isUser == true)
                     {

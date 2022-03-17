@@ -42,8 +42,10 @@ namespace Fulbank.pages
                 if (!String.IsNullOrWhiteSpace(textNewMail.Text))
                 {
                     FormMain.dbConnexion.Open();
-                    string commandTextMail = "UPDATE user SET U_MAIL = '" + textNewMail.Text + "' WHERE U_ID = '" + FormMain.user.Get_Id() + "'";
+                    string commandTextMail = "UPDATE user SET U_MAIL = ?mail WHERE U_ID = ?id_user";
                     MySqlCommand cmdMail = new MySqlCommand(commandTextMail, FormMain.dbConnexion);
+                    cmdMail.Parameters.AddWithValue("mail", textNewMail.Text);
+                    cmdMail.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
                     cmdMail.ExecuteNonQuery();
                     FormMain.dbConnexion.Close();
                     FormMain.user.Set_email(textNewMail.Text);

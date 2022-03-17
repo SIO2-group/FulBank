@@ -45,7 +45,7 @@ namespace Fulbank.pages.Crypto
             this.labelAmount.AutoSize = true;
             this.labelAmount.Location = new System.Drawing.Point(52, 177);
             this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Size = new System.Drawing.Size(176, 15);
+            this.labelAmount.Size = new System.Drawing.Size(157, 13);
             this.labelAmount.TabIndex = 19;
             this.labelAmount.Text = "Argent de votre compte courant";
             // 
@@ -62,7 +62,7 @@ namespace Fulbank.pages.Crypto
             this.labelTo.AutoSize = true;
             this.labelTo.Location = new System.Drawing.Point(52, 125);
             this.labelTo.Name = "labelTo";
-            this.labelTo.Size = new System.Drawing.Size(54, 15);
+            this.labelTo.Size = new System.Drawing.Size(47, 13);
             this.labelTo.TabIndex = 17;
             this.labelTo.Text = "Prix total";
             // 
@@ -101,7 +101,7 @@ namespace Fulbank.pages.Crypto
             this.labelOwnedCurrency.AutoSize = true;
             this.labelOwnedCurrency.Location = new System.Drawing.Point(52, 74);
             this.labelOwnedCurrency.Name = "labelOwnedCurrency";
-            this.labelOwnedCurrency.Size = new System.Drawing.Size(112, 15);
+            this.labelOwnedCurrency.Size = new System.Drawing.Size(97, 13);
             this.labelOwnedCurrency.TabIndex = 16;
             this.labelOwnedCurrency.Text = "Unitées possédées";
             // 
@@ -118,7 +118,7 @@ namespace Fulbank.pages.Crypto
             this.labelCurrency.AutoSize = true;
             this.labelCurrency.Location = new System.Drawing.Point(55, 20);
             this.labelCurrency.Name = "labelCurrency";
-            this.labelCurrency.Size = new System.Drawing.Size(41, 15);
+            this.labelCurrency.Size = new System.Drawing.Size(35, 13);
             this.labelCurrency.TabIndex = 21;
             this.labelCurrency.Text = "label2";
             // 
@@ -138,6 +138,7 @@ namespace Fulbank.pages.Crypto
             this.Controls.Add(this.BtnTrade);
             this.Name = "FormTrade";
             this.Text = "FormTrade";
+            this.Load += new System.EventHandler(this.FormTrade_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

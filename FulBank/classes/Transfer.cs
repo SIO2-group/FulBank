@@ -77,7 +77,7 @@ namespace Fulbank.classes
 
             FormMain.dbConnexion.Close();
         }
-   
+
         public double getAmount()
         {
             return _amount;
