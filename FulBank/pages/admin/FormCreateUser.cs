@@ -73,7 +73,7 @@ namespace Fulbank.pages
                                                 cmdInsertPerson.Parameters.AddWithValue("salt", salt);
                                                 cmdInsertPerson.ExecuteNonQuery();
                                                 
-                                                string insertUserQuery = "INSERT INTO user(U_ID, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS) VALUES((SELECT P_ID FROM PERSON WHERE P_NAME =?name AND P_FIRSTNAME=?firstname AND P_PASSWORD=?password),?phone,?landline,?mail,?adress)";
+                                                string insertUserQuery = "INSERT INTO user(U_ID, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS) VALUES((SELECT P_ID FROM PERSON WHERE P_NAME =?name AND P_FIRSTNAME=?firstname AND P_PASSWORD=?password),?phone,?landline,?mail,?adress )";
                                                 MySqlCommand cmdInsertUser = new MySqlCommand(insertUserQuery, dbConnexion);
                                                 cmdInsertUser.Parameters.AddWithValue("name", UserCreateName.Text);
                                                 cmdInsertUser.Parameters.AddWithValue("firstname", UserCreateFirstname.Text);

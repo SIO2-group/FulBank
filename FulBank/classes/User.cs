@@ -7,6 +7,9 @@ using MySql.Data.MySqlClient;
 
 namespace Fulbank.classes
 {
+    ///<summary>Class user contains the user's data (name, first name, phone, email, landline and address)
+    ///the class stores the different existing accounts, beneficiaries, transfers and wallets related to the user
+    ///</summary>
     public class User : Person
     {
         private string _phone;
@@ -18,6 +21,8 @@ namespace Fulbank.classes
         private List<Transfer> _transfers;
         private List<Cryptowallet> _wallets;
 
+        ///<summary>Public user is the constructor of the User class
+        ///</summary>
         public User(int id, string name, string firstname, string email, string phone, string homePhone, string address) : base(id, name, firstname)
         {
             Set_phone(phone);
@@ -29,7 +34,7 @@ namespace Fulbank.classes
             _transfers = new List<Transfer>();
             _wallets = new List<Cryptowallet>();
         }
-
+       
         public string Get_phone()
         {
             return _phone;

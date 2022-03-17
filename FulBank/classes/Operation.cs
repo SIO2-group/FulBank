@@ -3,6 +3,8 @@
 namespace Fulbank.classes
     
 {
+    ///<summary>Class Operation contains the operation's data (id, amount, debit, date, terminalid)
+    ///</summary>
     public class Operation
     {
         private int _id;
@@ -11,6 +13,8 @@ namespace Fulbank.classes
         private DateTime _date;
         private Terminal _terminalUsed;
 
+        ///<summary>Public Operation is the constructor of the Operation class
+        ///</summary>
         public Operation( int id, double amount, bool debit, DateTime date )
         {
             _id = id;

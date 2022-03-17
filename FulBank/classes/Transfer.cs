@@ -5,6 +5,9 @@ using System;
 
 namespace Fulbank.classes
 {
+    ///<summary>Class Transfer contains the transfer's data (amount, date)
+    ///the class stores the different existing accountTo, accountFrom, beneficiaries related to the user
+    ///</summary>
     public class Transfer
     {
         private double _amount;
@@ -13,6 +16,8 @@ namespace Fulbank.classes
         private Beneficiary _beneficiary;
         private DateTime _date;
 
+        ///<summary>Public Transfer is the constructor of the Transfer class
+        ///</summary>
         public Transfer(double amount, DateTime date, Account accountFrom, Account accountTo)
         {
             _amount = amount;

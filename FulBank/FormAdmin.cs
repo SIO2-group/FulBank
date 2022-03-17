@@ -9,15 +9,24 @@ using FulBank;
 
 namespace Fulbank
 {
+    ///<summary>Class FormAdmin contains the data of the connected admin, the list of menus and the connection to the database
+    ///</summary>
     public partial class FormAdmin : Form
     {
         private string _adminId;
+        ///<summary>dsnConnexion contains the parameters of the connection to the database
+        ///</summary>
         public static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
+        ///<summary>dbConnexion contains the connection to the database
+        ///</summary>
         public static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
-
+        ///<summary>Admin contains the admin's data
+        ///</summary>
         public static Admin admin;
-        List<Form> listFormAdmin = new List<Form>();
 
+        List<Form> listFormAdmin = new List<Form>();
+        ///<summary>Public FormAdmin is the constructor of the FormAdmin class
+        ///</summary>
         public FormAdmin(string adminId)
         {
             InitializeComponent();
