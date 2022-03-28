@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 
 namespace Fulbank.classes
 {
+    ///<summary>Class Cryptowallet contains the Cryptowallet's data (symbol, amount)
+    ///</summary>
     public class Cryptowallet
     {
         private int _id;
         private string _symbol;
         private float _amount;
 
+        ///<summary>Public Cryptowallet is the constructor of the Cryptowallet class
+        ///</summary>
         public Cryptowallet(int id, string symbol, float amount)
         {
             _id = id;

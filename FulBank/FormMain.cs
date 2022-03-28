@@ -12,14 +12,23 @@ using Newtonsoft.Json;
 
 namespace FulBank
 {
-
+    ///<summary>Class FormMain contains the data of the connected user, the list of menus and the connection to the database
+    ///</summary>
     public partial class FormMain : System.Windows.Forms.Form
     {
         private string _userId;
+        ///<summary>dsnConnexion contains the parameters of the connection to the database
+        ///</summary>
         public static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
+        ///<summary>dbConnexion contains the connection to the database
+        ///</summary>
         public static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
+        ///<summary>ListFormMenu contains the list of menus
+        ///</summary>
         public static List<Form> ListFormMenu = new List<Form>();
         public static Form Connexion;
+        ///<summary>User contains the user's data
+        ///</summary>
         public static User user;
         public static Terminal thisTerminal;
         public static RootRates ConversionRates = new RootRates();
@@ -29,7 +38,8 @@ namespace FulBank
             return dbConnexion;
         }
 
-
+        ///<summary>Public FormMain is the constructor of the FormMain class
+        ///</summary>
         public FormMain(string userId, Form FormCo)
         {
             InitializeComponent();
@@ -114,7 +124,7 @@ namespace FulBank
             #region user accounts operation load
             Account accounts = aUser.GetAccounts()[0];
                 dbConnexion.Open();
-                string commandTextoperation = "SELECT OP_ID, OP_AMOUNT, OP_ISDEBIT, DATE_FORMAT(OP_DATE,'%d-%m-%Y %H:%i:%s') as OP_DATE FROM account INNER JOIN operation ON account.A_ID = operation.OP_ID_ACCOUNT WHERE OP_ID_ACCOUNT = ?id_account ORDER BY OP_DATE DESC";
+                string commandTextoperation = "SELECT OP_ID, OP_AMOUNT, OP_ISDEBIT, DATE_FORMAT(OP_DATE,'%d-%m-%Y %H:%i:%s') as OP_DATE FROM account INNER JOIN operation ON account.A_ID = operation.OP_ID_ACCOUNT WHERE OP_ID_ACCOUNT = ?id_account ORDER BY OP_ID DESC";
                 MySqlCommand cmdGetoperation = new MySqlCommand(commandTextoperation, dbConnexion);
                 cmdGetoperation.Parameters.AddWithValue("id_account", accounts.Get_Id());
 

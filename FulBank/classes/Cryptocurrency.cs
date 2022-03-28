@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 namespace Fulbank.classes
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Cryptocurrency>(myJsonResponse); 
+
+    ///<summary>Class Cryptocurrency contains the Crypto's data (id, symbol, name, rank, price)
+    ///</summary>
     public class Cryptocurrency
     {
         public string id { get; set; }

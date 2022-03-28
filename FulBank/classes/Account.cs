@@ -7,6 +7,9 @@ using MySql.Data.MySqlClient;
 
 namespace Fulbank.classes
 {
+    ///<summary>Class Account contains the account's data (id, balance, type and overdraftLimit)
+    ///the class stores the different existing account type, operation and transfers related to the account
+    ///</summary>
     public class Account
     {
         private int _id;
@@ -16,6 +19,8 @@ namespace Fulbank.classes
         private List<Operation> _operations;
         private int _overdraftLimit;
 
+        ///<summary>Public Account is the constructor of the Account class
+        ///</summary>
         public Account(int id, double balance, int type, int overdraftLimit)
         {
             string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd

@@ -5,12 +5,15 @@ using MySql.Data.MySqlClient;
 
 namespace Fulbank.classes
 {
-
+    ///<summary>Class Beneficiary contains the beneficiary's data (id, name)
+    ///</summary>
     public class Beneficiary
     {
         private int _accountId;
         private string _name;
 
+        ///<summary>Public Beneficiary is the constructor of the Beneficiary class
+        ///</summary>
         public Beneficiary(int accoutId, string name)
         {
             _accountId = accoutId;
