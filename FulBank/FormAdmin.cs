@@ -48,8 +48,10 @@ namespace Fulbank
             MySqlCommand cmdGetUser = new MySqlCommand(commandTextGetUser, dbConnexion);
             cmdGetUser.Parameters.AddWithValue("id_person", _adminId);
             MySqlDataReader userInfo = cmdGetUser.ExecuteReader();
-            userInfo.Read();
-            admin = new Admin(int.Parse(userInfo["P_ID"].ToString()), userInfo["P_NAME"].ToString(), userInfo["P_FIRSTNAME"].ToString());
+            while (userInfo.Read())
+            {
+                admin = new Admin(int.Parse(userInfo["P_ID"].ToString()), userInfo["P_NAME"].ToString(), userInfo["P_FIRSTNAME"].ToString());
+            }
             dbConnexion.Close();
         }
 

@@ -10,6 +10,7 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.OfficeChartToImageConverter;
 using Syncfusion.DocToPDFConverter;
 using Syncfusion.Pdf;
+using System.Windows.Forms;
 
 namespace Fulbank.classes
 {
@@ -64,7 +65,7 @@ namespace Fulbank.classes
             document.ChartToImageConverter = new ChartToImageConverter();
             DocToPDFConverter converter = new DocToPDFConverter();
             PdfDocument pdfdocument = converter.ConvertToPDF(document);
-            string name = "receipt/generated/tr_" + DateTime.Now.ToString("yyyy''MM''dd'_'HH''mm''ss") + ".pdf";
+            string name = Path.GetDirectoryName(Application.ExecutablePath) + "receipt/generated/tr_" + DateTime.Now.ToString("yyyy''MM''dd'_'HH''mm''ss") + ".pdf";
             pdfdocument.Save(name);
             docStream.Dispose();
 

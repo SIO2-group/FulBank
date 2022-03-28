@@ -125,7 +125,7 @@ namespace Fulbank.pages.Crypto
                         newWallet.BuyCrypto(float.Parse(TxtUnitsToTrade.Text.Replace(",", ".")), crypto);
                         MessageBox.Show("Vous venez d'acheter " + TxtUnitsToTrade.Text + " " + crypto.symbol + " pour " + TxtTotalPrice.Text + " €");
 
-                        CryptoReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), "ACHAT", crypto.name, crypto.price_eur, TxtUnitsToTrade.Text, TxtTotalPrice.Text);
+                        CryptoReceipt receipt = new CryptoReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), "ACHAT", crypto.name, crypto.price_eur, TxtUnitsToTrade.Text, TxtTotalPrice.Text);
                         receipt.buildReceipt();
                     }
 

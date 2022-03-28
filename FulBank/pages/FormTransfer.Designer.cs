@@ -32,10 +32,11 @@ namespace Fulbank.pages
             this.label1 = new System.Windows.Forms.Label();
             this.ComboAccountsFrom = new System.Windows.Forms.ComboBox();
             this.ComboAccountsTo = new System.Windows.Forms.ComboBox();
-            this.TransferValue = new PlaceholderTextBox.PlaceholderTextBox();
             this.ButtonTransferHistory = new System.Windows.Forms.Button();
             this.ButtonAddBeneficiary = new System.Windows.Forms.Button();
             this.buttonTransfer = new System.Windows.Forms.Button();
+            this.TransferValue = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.TransferValue)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -86,17 +87,6 @@ namespace Fulbank.pages
             this.ComboAccountsTo.TabIndex = 8;
             this.ComboAccountsTo.SelectedIndexChanged += new System.EventHandler(this.ComboAccountsTo_SelectedIndexChanged);
             // 
-            // TransferValue
-            // 
-            this.TransferValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TransferValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TransferValue.Location = new System.Drawing.Point(99, 119);
-            this.TransferValue.Name = "TransferValue";
-            this.TransferValue.PlaceholderText = "0.00";
-            this.TransferValue.Size = new System.Drawing.Size(331, 57);
-            this.TransferValue.TabIndex = 9;
-            this.TransferValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // ButtonTransferHistory
             // 
             this.ButtonTransferHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(236)))));
@@ -143,23 +133,42 @@ namespace Fulbank.pages
             this.buttonTransfer.UseVisualStyleBackColor = false;
             this.buttonTransfer.Click += new System.EventHandler(this.buttonTransfer_Click);
             // 
+            // TransferValue
+            // 
+            this.TransferValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TransferValue.DecimalPlaces = 2;
+            this.TransferValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransferValue.Location = new System.Drawing.Point(-526, 122);
+            this.TransferValue.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            131072});
+            this.TransferValue.Name = "TransferValue";
+            this.TransferValue.Size = new System.Drawing.Size(956, 53);
+            this.TransferValue.TabIndex = 13;
+            this.TransferValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TransferValue.ThousandsSeparator = true;
+            this.TransferValue.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
             // FormTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TransferValue);
             this.Controls.Add(this.ComboAccountsFrom);
             this.Controls.Add(this.buttonTransfer);
             this.Controls.Add(this.ButtonAddBeneficiary);
             this.Controls.Add(this.ButtonTransferHistory);
-            this.Controls.Add(this.TransferValue);
             this.Controls.Add(this.ComboAccountsTo);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTransfer";
             this.Text = "FormTransfer";
             this.Load += new System.EventHandler(this.FormTransfer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.TransferValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,9 +179,9 @@ namespace Fulbank.pages
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ComboAccountsFrom;
         private System.Windows.Forms.ComboBox ComboAccountsTo;
-        private PlaceholderTextBox.PlaceholderTextBox TransferValue;
         private System.Windows.Forms.Button ButtonTransferHistory;
         private System.Windows.Forms.Button ButtonAddBeneficiary;
         private System.Windows.Forms.Button buttonTransfer;
+        private System.Windows.Forms.NumericUpDown TransferValue;
     }
 }

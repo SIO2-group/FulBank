@@ -1,4 +1,5 @@
 ﻿using FulBank;
+using FulBank.classes;
 using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
@@ -17,7 +18,36 @@ namespace Fulbank
 
         private void FormConnexion_Load(object sender, EventArgs e)
         {
+            IniFile MyIni = new IniFile("Fulbank.ini");
 
+            if (MyIni.KeyExists("Id"))
+            {
+                if(int.TryParse(MyIni.Read("Id"), out int Id))
+                { 
+                    string address = "";
+                    if (MyIni.KeyExists("Address"))
+                    {
+                        address = MyIni.Read("Address");
+                    }
+
+                    dbConnexion.Open();
+                    string cmd = "INSERT INTO terminal (TL_ID, TL_ADDRESS) VALUES (?id, ?address) ON DUPLICATE KEY UPDATE TL_ADDRESS = ?address";
+                    MySqlCommand command = new MySqlCommand(cmd, dbConnexion);
+                    command.Parameters.AddWithValue("id", Id);
+                    command.Parameters.AddWithValue("address", address);
+                    command.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("Identifiant de la borne invalide");
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez configurer la borne");
+                this.Close();
+            }
         }
 
         private void TextUsername_TextChanged(object sender, EventArgs e)
@@ -29,56 +59,55 @@ namespace Fulbank
 
         private void ButtonValider_Click(object sender, EventArgs e)
         {
-            try
+
+            dbConnexion.Close();
+            dbConnexion.Open();
+
+            MySqlCommand cmdAdmin = new MySqlCommand(@"SELECT P_PASSWORD FROM admin
+                                                        INNER JOIN person ON admin.A_ID = person.P_ID
+                                                        WHERE admin.A_ID = ?username", dbConnexion);
+            cmdAdmin.Parameters.AddWithValue("username", TextUsername.Text);
+            object password = cmdAdmin.ExecuteScalar();
+            bool test = false;
+            if (password != null)
             {
-                dbConnexion.Close();
-                dbConnexion.Open();
+                test = BCrypt.Net.BCrypt.Verify(TextPassword.Text, password.ToString());
+            }
 
-                MySqlCommand cmdAdminSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + TextUsername.Text + "'", dbConnexion);
-                string AdminSalt = cmdAdminSalt.ExecuteScalar().ToString();
-                string commandTextTestAdmin = "SELECT count(*) FROM admin, person WHERE A_ID = P_ID AND P_ID=?id_person AND P_PASSWORD=?password";
-
-                MySqlCommand cmdAdmin = new MySqlCommand(commandTextTestAdmin, dbConnexion);
-                cmdAdmin.Parameters.AddWithValue("id_person", TextUsername.Text);
-                cmdAdmin.Parameters.AddWithValue("password", BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, AdminSalt));
-                bool isAdmin = Convert.ToBoolean(int.Parse(cmdAdmin.ExecuteScalar().ToString()));
-                if (isAdmin == true)
+            if (test)
+            {
+                Hide();
+                new FormAdmin(TextUsername.Text).Show();
+                TextUsername.Clear();
+                TextPassword.Clear();
+            }
+            else
+            {
+                MySqlCommand cmdUser = new MySqlCommand(@"SELECT P_PASSWORD FROM user
+                                                        INNER JOIN person ON user.U_ID = person.P_ID
+                                                        WHERE user.U_ID = ?username", dbConnexion);
+                cmdUser.Parameters.AddWithValue("username", TextUsername.Text);
+                object passwordUser = cmdUser.ExecuteScalar();
+                bool testUser = false;
+                if (passwordUser != null)
                 {
+                    testUser = BCrypt.Net.BCrypt.Verify(TextPassword.Text, passwordUser.ToString());
+                }
+
+                if (testUser)
+                {
+                    new FormMain(TextUsername.Text, this).Show();
                     Hide();
-                    new FormAdmin(TextUsername.Text).Show();
                     TextUsername.Clear();
                     TextPassword.Clear();
                 }
                 else
                 {
-                    MySqlCommand cmdSalt = new MySqlCommand("SELECT P_SALT FROM person WHERE P_ID ='" + TextUsername.Text + "'", dbConnexion);
-                    string userSalt = cmdSalt.ExecuteScalar().ToString();
-                    string commandTextTestUser = "SELECT count(*) FROM user, person WHERE U_ID = P_ID AND P_ID=?id_person AND P_PASSWORD=?password";
-
-                    MySqlCommand cmdUser = new MySqlCommand(commandTextTestUser, dbConnexion);
-                    cmdUser.Parameters.AddWithValue("id_person", TextUsername.Text);
-                    cmdUser.Parameters.AddWithValue("password", BCrypt.Net.BCrypt.HashPassword(TextPassword.Text, userSalt));
-                    bool isUser = Convert.ToBoolean(int.Parse(cmdUser.ExecuteScalar().ToString()));
-                    if (isUser == true)
-                    {
-                        
-                        new FormMain(TextUsername.Text, this).Show();
-                        Hide();
-                        TextUsername.Clear();
-                        TextPassword.Clear();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Identifiant ou Mot de passe incorrect");
-                    }
+                    MessageBox.Show("Identifiant ou Mot de passe incorrect");
                 }
-                dbConnexion.Close();
             }
-            catch
-            {
-                MessageBox.Show("Connexion à la base de donnée invalide");
-            }
+            dbConnexion.Close();
+        
 
 
         }

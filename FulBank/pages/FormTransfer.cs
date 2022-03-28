@@ -68,7 +68,7 @@ namespace Fulbank.pages
         {
             if(!String.IsNullOrEmpty(TransferValue.Text) && !String.IsNullOrEmpty(ComboAccountsFrom.SelectedItem.ToString()) && !String.IsNullOrEmpty(ComboAccountsTo.SelectedItem.ToString()))
             {
-                if(double.Parse(TransferValue.Text) > 0)
+                if(double.Parse(TransferValue.Text.Replace(".",",")) > 0)
                 {
                     Account anAccountFrom = new Account();
                     Account anAccountTo = new Account();
@@ -86,7 +86,7 @@ namespace Fulbank.pages
                                 anAccountTo = account;
                             }
                         }
-                        if ((anAccountFrom.Get_Balance() - int.Parse(TransferValue.Text)) >= anAccountFrom.Get_Limit())
+                        if ((anAccountFrom.Get_Balance() - double.Parse(TransferValue.Text)) >= anAccountFrom.Get_Limit())
                         {
                             if(anAccountTo.Get_Id() == -1)
                             {
@@ -163,6 +163,25 @@ namespace Fulbank.pages
         private void ButtonTransferHistory_Click(object sender, EventArgs e)
         {
             FormMain.ListFormMenu[5].BringToFront();
+        }
+
+        private void TransferValue_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void TransferValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                   (e.KeyChar != ','))
+                {
+                    e.Handled = true;
+                }
+
+                // only allow one decimal point
+                if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+                {
+                    e.Handled = true;
+                }
         }
     }
 }

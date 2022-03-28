@@ -22,16 +22,16 @@ namespace Fulbank.pages
 
         private void TerminalConf_Load(object sender, EventArgs e)
         {
-            this.Text = String.Empty;
+            /*this.Text = String.Empty;
             this.ControlBox = false;
             string hostName = Dns.GetHostName(); // Retrive the Name of HOST  
             Console.WriteLine(hostName);
             string myIP = Dns.GetHostEntry(hostName).AddressList[0].ToString();
-            textBoxIp.Text = myIP;
+            textBoxIp.Text = myIP;*/
         }
 
         private void buttonSetIni_Click(object sender, EventArgs e)
-        {
+        {/*
             IniFile MyIni = new IniFile("Fulbank.ini");
 
             FormMain.dbConnexion.Open();
@@ -39,23 +39,17 @@ namespace Fulbank.pages
             {
                 if(MyIni.KeyExists("Id"))
                 {
-                    string commandTextInsertTerminal = "UPDATE terminal SET TL_BUILDING = ?building,TL_POSTALCODE = ?cp, TL_CITY = ?city,  TL_IP = ?boxip WHERE TL_ID = ?tl_ip";
+                    string commandTextInsertTerminal = "UPDATE terminal SET TL_ADDRESS = ?address WHERE TL_ID = ?tl_id";
                     MySqlCommand cmdInsertTerminal = new MySqlCommand(commandTextInsertTerminal, FormMain.dbConnexion);
-                    cmdInsertTerminal.Parameters.AddWithValue("building", textBoxBuilding.Text);
-                    cmdInsertTerminal.Parameters.AddWithValue("cp", textPostalCode.Text);
-                    cmdInsertTerminal.Parameters.AddWithValue("city", textBoxCity.Text);
-                    cmdInsertTerminal.Parameters.AddWithValue("boxip", textBoxIp.Text);
-                    cmdInsertTerminal.Parameters.AddWithValue("tl_ip", MyIni.Read("Id"));
+                    cmdInsertTerminal.Parameters.AddWithValue("address", textBoxAddress.Text);
+                    cmdInsertTerminal.Parameters.AddWithValue("tl_id", MyIni.Read("Id"));
                     cmdInsertTerminal.ExecuteNonQuery();
                 }
                 else
                 {
-                    string commandTextInsertTerminal = "INSERT INTO terminal(TL_BUILDING, TL_CITY, TL_IP, TL_POSTALCODE) VALUES(?building,?city,?boxip,?cp)";
+                    string commandTextInsertTerminal = "INSERT INTO terminal(TL_NAME) VALUES(?name); SELECT LAST_INSERT_ID();";
                     MySqlCommand cmdInsertTerminal = new MySqlCommand(commandTextInsertTerminal, FormMain.dbConnexion);
-                    cmdInsertTerminal.Parameters.AddWithValue("building", textBoxBuilding.Text);
-                    cmdInsertTerminal.Parameters.AddWithValue("city", textBoxCity.Text);
-                    cmdInsertTerminal.Parameters.AddWithValue("boxip", textBoxIp.Text);
-                    cmdInsertTerminal.Parameters.AddWithValue("cp", textPostalCode.Text);
+                    cmdInsertTerminal.Parameters.AddWithValue("qddress", textBoxAddress.Text);
                     cmdInsertTerminal.ExecuteNonQuery();
                     FormMain.dbConnexion.Close();
                     FormMain.dbConnexion.Open();
@@ -109,13 +103,7 @@ namespace Fulbank.pages
                     MyIni.DeleteKey("Ipv4");
                     MyIni.Write("Ipv4", textBoxIp.Text);
                 }
-
-            }
-
-
-
-
-
+            }*/
         }
     }
 }
