@@ -52,6 +52,7 @@ namespace Fulbank.pages
                 if (!String.IsNullOrWhiteSpace(textNewLandLine.Text))
                 {
                     FormMain.dbConnexion.Open();
+                    //update landline
                     string commandTextLandLine = "UPDATE user SET U_LANDLINE = ?landline WHERE U_ID = ?id_user";
                     MySqlCommand cmdLandLine = new MySqlCommand(commandTextLandLine, FormMain.dbConnexion);
                     cmdLandLine.Parameters.AddWithValue("landline", textNewLandLine.Text);

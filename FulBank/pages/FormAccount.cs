@@ -36,7 +36,8 @@ namespace Fulbank.pages
                 panelAccounts.Controls.Remove(panel);
             }
             panelList.Clear();
-            foreach(Account account in FormMain.user.GetAccounts())
+            //liste de tout les comptes liés à l'utilisateur connecté
+            foreach (Account account in FormMain.user.GetAccounts())
             {
                 Panel panelAccount1 = new System.Windows.Forms.Panel();
                 Label label1 = new System.Windows.Forms.Label();

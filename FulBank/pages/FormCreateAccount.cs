@@ -36,6 +36,7 @@ namespace Fulbank.pages
         private void AccountCreateButton_Click(object sender, EventArgs e)
         {
             FormMain.dbConnexion.Open();
+           
             string commandGetUser = "SELECT count(*) FROM person WHERE P_NAME = ?name AND P_FIRSTNAME = ?firstanme";
             MySqlCommand cmdGetUser = new MySqlCommand(commandGetUser, FormMain.dbConnexion);
             cmdGetUser.Parameters.AddWithValue("name", AccountCreateName.Text);
@@ -45,6 +46,7 @@ namespace Fulbank.pages
             if (userExist == 1)
             {
                 FormMain.dbConnexion.Open();
+                //adding an account type
                 string insertAccountQuery = "INSERT INTO account_type(AT_NAME) VALUES(?type_name)";
                 MySqlCommand cmdInsertAccount = new MySqlCommand(insertAccountQuery, FormMain.dbConnexion);
                 cmdInsertAccount.Parameters.AddWithValue("type_name", AccountCreateNameAccount.Text);

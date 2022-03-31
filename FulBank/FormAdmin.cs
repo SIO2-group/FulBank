@@ -36,6 +36,7 @@ namespace Fulbank
         private void FormAdmin_Load(object sender, EventArgs e)
         {
             LoadAdminData();
+            //forms(pages) are added to the menu
             listFormAdmin.Add(new FormCreateUser(_adminId) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelAdmin.Controls.Add(listFormAdmin[0]);
             listFormAdmin.Add(new FormAdminProfile() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
@@ -53,6 +54,7 @@ namespace Fulbank
         private void LoadAdminData()
         {
             dbConnexion.Open();
+            //We get the data of the admin who is connected
             string commandTextGetUser = "SELECT P_ID, P_NAME, P_FIRSTNAME FROM person INNER JOIN admin ON person.P_ID = admin.A_ID WHERE P_ID = ?id_person ";
             MySqlCommand cmdGetUser = new MySqlCommand(commandTextGetUser, dbConnexion);
             cmdGetUser.Parameters.AddWithValue("id_person", _adminId);

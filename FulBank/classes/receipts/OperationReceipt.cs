@@ -44,10 +44,11 @@ namespace Fulbank.classes
         public void buildReceipt()
         {
             WordDocument document = new WordDocument();
+            //read template 
             Stream docStream = File.OpenRead("receipt/templates/operation_template.docx");
             document.Open(docStream, FormatType.Docx);
             docStream.Dispose();
-
+            //elements that will be on the document
             document.Replace("<Date>", Date, true, true);
             document.Replace("<Heure>", Heure, true, true);
             document.Replace("<ID_OP>", ID_OP, true, true);
@@ -62,11 +63,12 @@ namespace Fulbank.classes
             document.ChartToImageConverter = new ChartToImageConverter();
             DocToPDFConverter converter = new DocToPDFConverter();
             PdfDocument pdfdocument = converter.ConvertToPDF(document);
+            //pdf save 
             string name = Path.GetDirectoryName(Application.ExecutablePath) + "/receipt/generated/op_" + DateTime.Now.ToString("yyyy''MM''dd'_'HH''mm''ss") + ".pdf";
             pdfdocument.Save(name);
             docStream.Dispose();
             pdfdocument.Close(true);
-
+            //open pdf
             System.Diagnostics.Process.Start(name);
         }
 

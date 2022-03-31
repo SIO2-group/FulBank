@@ -42,6 +42,7 @@ namespace Fulbank.pages
 
         private void Profile_Load(object sender, EventArgs e)
         {
+            //The user's data is displayed 
             OwnerName.Text =FormMain.user.Get_Name() + "  " +FormMain.user.Get_Firstname();
             ProfilePhoneNumber.Text =FormMain.user.Get_phone();
             ProfileAdress.Text =FormMain.user.Get_address();

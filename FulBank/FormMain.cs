@@ -69,6 +69,7 @@ namespace FulBank
         {
             user = UserDataLoad();
             thisTerminal = TerminalLoad();
+            //forms(pages) are added to the menu
             ListFormMenu.Add(new FormAccount() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelMain.Controls.Add(ListFormMenu[0]);
             ListFormMenu.Add(new FormOperation() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });

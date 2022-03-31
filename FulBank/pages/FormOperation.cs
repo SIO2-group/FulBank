@@ -39,7 +39,7 @@ namespace Fulbank.pages
                 if (result > cheque.Get_Limit())
                 {
                     FormMain.dbConnexion.Open();
-
+                    //update account data after the operation
                     string commandTexttestDebit = "UPDATE account SET A_BALANCE = ?resultat WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER =?id_user";
                     MySqlCommand cmdtestDebit = new MySqlCommand(commandTexttestDebit, FormMain.dbConnexion);
                     cmdtestDebit.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
@@ -50,6 +50,7 @@ namespace Fulbank.pages
 
                     string terminalId = FormMain.thisTerminal.getId();
                     FormMain.dbConnexion.Open();
+                    //adding the operation
                     string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(?amount,1,?terminalId,?id_cheque,?date)";
                     MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
                     cmdtestInsert.Parameters.AddWithValue("amount", amount);
@@ -64,6 +65,7 @@ namespace Fulbank.pages
                     string last_operation_id = cmdlastid.ExecuteScalar().ToString();
                     FormMain.dbConnexion.Close();
 
+                    //creation of a ticket with the information of the performed operation
                     OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), last_operation_id, FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), "DÉBIT", amount.ToString()); ;
                     receipt.buildReceipt();
 
@@ -107,7 +109,7 @@ namespace Fulbank.pages
             {
 
                 FormMain.dbConnexion.Open();
-
+                // update account data after the operation
                 string commandTexttestDeposit = "UPDATE account SET A_BALANCE = ?resultat WHERE A_ID_ACCOUNTTYPE = 1 AND A_ID_USER =?id_user";
                 MySqlCommand cmdtestDeposit = new MySqlCommand(commandTexttestDeposit, FormMain.dbConnexion);
                 cmdtestDeposit.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
@@ -118,6 +120,7 @@ namespace Fulbank.pages
                 FormMain.dbConnexion.Close();
                 string terminalId = FormMain.thisTerminal.getId();
                 FormMain.dbConnexion.Open();
+                //adding the operation
                 string commandTextInsert = "INSERT INTO operation(`OP_AMOUNT`, `OP_ISDEBIT`, OP_ID_TERMINAL, OP_ID_ACCOUNT, `OP_DATE`) VALUES(?amount,0,?terminalId,?id_cheque,?date)";
                 MySqlCommand cmdtestInsert = new MySqlCommand(commandTextInsert, FormMain.dbConnexion);
                 cmdtestInsert.Parameters.AddWithValue("amount", amount);
@@ -131,6 +134,7 @@ namespace Fulbank.pages
                 string last_operation_id = cmdlastid.ExecuteScalar().ToString();
                 FormMain.dbConnexion.Close();
 
+                //creation of a ticket with the information of the performed operation
                 OperationReceipt receipt = new OperationReceipt(DateTime.Now.ToString("ddd' 'dd' 'MMM' 'yyyy"), DateTime.Now.ToString("HH':'mm':'ss"), last_operation_id, FormMain.user.Get_Id().ToString(), FormMain.user.Get_Name().ToString(), FormMain.user.Get_Firstname().ToString(), FormMain.thisTerminal.getId(), "DÉPOT", amount.ToString());
                 receipt.buildReceipt();
 

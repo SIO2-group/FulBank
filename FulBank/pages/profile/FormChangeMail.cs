@@ -42,6 +42,7 @@ namespace Fulbank.pages
                 if (!String.IsNullOrWhiteSpace(textNewMail.Text))
                 {
                     FormMain.dbConnexion.Open();
+                    //update mail
                     string commandTextMail = "UPDATE user SET U_MAIL = ?mail WHERE U_ID = ?id_user";
                     MySqlCommand cmdMail = new MySqlCommand(commandTextMail, FormMain.dbConnexion);
                     cmdMail.Parameters.AddWithValue("mail", textNewMail.Text);

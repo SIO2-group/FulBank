@@ -45,6 +45,7 @@ namespace Fulbank.pages
                     FormMain.dbConnexion.Close();
                     if (accountExist == 1)
                     {
+                        //add beneficiary
                         FormMain.user.Add_Beneficiary(int.Parse(textBoxBeneficiaryId.Text), textBoxBeneficiaryName.Text, FormMain.user.Get_Id());
                         FormMain.user.Insert_Beneficiary(int.Parse(textBoxBeneficiaryId.Text), textBoxBeneficiaryName.Text, FormMain.user.Get_Id());
                         MessageBox.Show("Bénéficiaire " + textBoxBeneficiaryName.Text + " ajouté avec succès");   

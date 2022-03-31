@@ -14,7 +14,8 @@ namespace Fulbank.pages.Crypto
 
         private void FormWallets_Load(object sender, EventArgs e)
         {
-            foreach(Cryptowallet wallet in FormMain.user.GetWallets())
+            //user's crypto list
+            foreach (Cryptowallet wallet in FormMain.user.GetWallets())
             {
                 if(FormCryptocurrency.cryptos.TryGetValue(wallet.GetSymbol(), out Cryptocurrency crypto)) {
                     MessageBox.Show(wallet.getId().ToString());

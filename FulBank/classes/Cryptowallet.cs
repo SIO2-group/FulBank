@@ -40,6 +40,7 @@ namespace Fulbank.classes
         public void sellCrypto(float amount, Cryptocurrency crypto)
         {
             FormMain.dbConnexion.Open();
+            //update of the cryptowallet data after the sale 
             string commandText = @"UPDATE cryptowallet SET CW_AMOUNT = CW_AMOUNT - '" + amount + "' WHERE CW_UID = '"+ FormMain.user.Get_Id() +"'";
             MySqlCommand cmdCredit = new MySqlCommand(commandText, FormMain.dbConnexion);
             cmdCredit.ExecuteNonQuery();
@@ -61,6 +62,7 @@ namespace Fulbank.classes
         public void BuyCrypto(float amount, Cryptocurrency crypto)
         {
             FormMain.dbConnexion.Open();
+            //update of the cryptowallet data after the purchase 
             string commandText = @"UPDATE cryptowallet SET CW_AMOUNT = CW_AMOUNT + '" + amount + "' WHERE CW_UID = '" + FormMain.user.Get_Id() + "'";
             MySqlCommand cmdCredit = new MySqlCommand(commandText, FormMain.dbConnexion);
             cmdCredit.ExecuteNonQuery();

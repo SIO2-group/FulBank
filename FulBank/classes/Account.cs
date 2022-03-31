@@ -65,6 +65,7 @@ namespace Fulbank.classes
         public void Debit(double value)
         {
             FormMain.dbConnexion.Open();
+            //update of the account data after the operation 
             string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE - "+ value.ToString().Replace(",",".") + " WHERE A_ID = " + this.Get_Id() + "";
             MySqlCommand cmdCredit = new MySqlCommand(commandTextCredit, FormMain.dbConnexion);
             cmdCredit.ExecuteNonQuery();
@@ -100,6 +101,7 @@ namespace Fulbank.classes
             amount = amount.Replace(",", ".");
 
             FormMain.dbConnexion.Open();
+            //update of the account data after the operation 
             string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE - " + amount + " WHERE A_ID = " + this.Get_Id() + "";
             MySqlCommand cmdCredit = new MySqlCommand(commandTextCredit, FormMain.dbConnexion);
             cmdCredit.ExecuteNonQuery();
@@ -110,6 +112,7 @@ namespace Fulbank.classes
         public void Credit(double creditAmount)
         {
             FormMain.dbConnexion.Open();
+            //update of the account data after the operation 
             string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE + " + creditAmount + " WHERE A_ID = " + this.Get_Id() +"";
             MySqlCommand cmdCredit = new MySqlCommand(commandTextCredit, FormMain.dbConnexion);
             cmdCredit.ExecuteNonQuery();

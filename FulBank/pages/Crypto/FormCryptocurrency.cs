@@ -47,7 +47,7 @@ namespace Fulbank.pages.Crypto
             string btc_json = reader.ReadToEnd();
             Cryptocurrencies = JsonConvert.DeserializeObject<Root>(btc_json);
             cryptos = Cryptocurrencies.getCrypto();
-
+            //path of the crypto api
             foreach (Cryptocurrency crypto in Cryptocurrencies.data)
             {
                 double price_usd = double.Parse(crypto.price_usd.Replace(".",","));

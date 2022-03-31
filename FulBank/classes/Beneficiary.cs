@@ -38,6 +38,7 @@ namespace Fulbank.classes
         public void Credit(double creditAmount)
         {
             FormMain.dbConnexion.Open();
+            //update of the account data after the operation 
             string commandTextCredit = @"UPDATE account SET A_BALANCE = A_BALANCE + " + creditAmount + " WHERE A_ID = " + this.getBeneficiaryId() + "";
             MySqlCommand cmdCredit = new MySqlCommand(commandTextCredit, FormMain.dbConnexion);
             cmdCredit.ExecuteNonQuery();

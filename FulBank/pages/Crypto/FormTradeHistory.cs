@@ -21,5 +21,10 @@ namespace Fulbank.pages.Crypto
         {
 
         }
+
+        private void FormTradeHistory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

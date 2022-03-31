@@ -63,6 +63,7 @@ namespace Fulbank
             dbConnexion.Close();
             dbConnexion.Open();
 
+            //Selects the admin who connects if he exists
             MySqlCommand cmdAdmin = new MySqlCommand(@"SELECT P_PASSWORD FROM admin
                                                         INNER JOIN person ON admin.A_ID = person.P_ID
                                                         WHERE admin.A_ID = ?username", dbConnexion);
@@ -83,6 +84,7 @@ namespace Fulbank
             }
             else
             {
+                //Selects the user who connects if it exists
                 MySqlCommand cmdUser = new MySqlCommand(@"SELECT P_PASSWORD FROM user
                                                         INNER JOIN person ON user.U_ID = person.P_ID
                                                         WHERE user.U_ID = ?username", dbConnexion);

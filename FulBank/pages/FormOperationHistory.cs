@@ -26,9 +26,10 @@ namespace Fulbank.pages
 
         private void FormOperationHistory_Load(object sender, EventArgs e)
         {
-            
+            //go through the accounts of the connected user
             foreach (Account account in FormMain.user.GetAccounts())
             {
+                //runs through the operations related to the account
                 foreach (Operation op in account.getOperation())
                 {
                     string result = "";
@@ -42,6 +43,7 @@ namespace Fulbank.pages
                         result = "Crédit";
                        
                     }
+                    //adding an operation
                     dgvOperation.Rows.Add(result,op.Get_amount(), op.Get_date());
                 
                 }

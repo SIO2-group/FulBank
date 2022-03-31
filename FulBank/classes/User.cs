@@ -120,6 +120,7 @@ namespace Fulbank.classes
         public void Insert_Beneficiary(int accountId, string name, int userId)
         {
             FormMain.dbConnexion.Open();
+            //add beneficiary
             string commandAddBeneficiary = "INSERT INTO beneficiary(B_USER_ID, B_ACCOUNT_ID, B_NAME) VALUES('" + userId + "','" + accountId + "','" + name + "' )";
             MySqlCommand cmdAddBeneficiary = new MySqlCommand(commandAddBeneficiary, FormMain.dbConnexion);
             cmdAddBeneficiary.ExecuteNonQuery();
@@ -148,6 +149,7 @@ namespace Fulbank.classes
 
         public void UpdateWallet(string symbol, float amount)
         {
+            //add crypto wallet
             string commandInsertWallet = "INSERT INTO `crypto_wallet`(`CW_UID`, `CW_C_SYMBOL`) VALUES ('"+ FormMain.user.Get_Id() +"', '" + symbol + "') ON DUPLICATE KEY UPDATE CW_AMOUNT = (CW_AMOUNT + '"+ amount +"')";
             MySqlCommand cmddInsertWallet = new MySqlCommand(commandInsertWallet, FormMain.dbConnexion);
             cmddInsertWallet.ExecuteNonQuery();

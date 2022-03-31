@@ -64,7 +64,7 @@ namespace Fulbank.pages
 
                                         string salt = BCrypt.Net.BCrypt.GenerateSalt();
                                         string password = BCrypt.Net.BCrypt.HashPassword(textNewPassword.Text, salt);
-
+                                        //mise à jour du mot de passe
                                         string updatePersonQuery = "UPDATE person SET P_PASSWORD = ?password, P_SALT = ?salt";
                                         MySqlCommand cmdUpdatePerson = new MySqlCommand(updatePersonQuery, FormAdmin.dbConnexion);
                                         cmdUpdatePerson.Parameters.AddWithValue("password", password);

@@ -107,6 +107,7 @@ namespace Fulbank.pages.Crypto
             this.Controls.Add(this.dgvWallets);
             this.Name = "FormTradeHistory";
             this.Text = "FormTradeHistory";
+            this.Load += new System.EventHandler(this.FormTradeHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWallets)).EndInit();
             this.ResumeLayout(false);
 

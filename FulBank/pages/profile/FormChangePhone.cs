@@ -43,6 +43,7 @@ namespace Fulbank.pages
                 if (!String.IsNullOrWhiteSpace(textNewPhone.Text))
                 {
                     FormMain.dbConnexion.Open();
+                    //update phone
                     string commandTextPhone = "UPDATE user SET U_PHONE = ?phone WHERE U_ID = ?id_user";
                     MySqlCommand cmdPhone = new MySqlCommand(commandTextPhone, FormMain.dbConnexion);
                     cmdPhone.Parameters.AddWithValue("phone", textNewPhone.Text);
