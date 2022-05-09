@@ -27,3 +27,11 @@ Pour la charte graphique on vous impose d'utiliser les couleurs suivantes:
 - Bleu foncé : `#224399`;
 - Bleu Clair: `#80c2ec`;
 - font-family: 'Open Sans', sans-serif;
+
+<hr>
+
+## Comment l'installer ?
+
+Télécharger le dossier 
+
+
