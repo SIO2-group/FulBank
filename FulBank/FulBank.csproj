@@ -307,28 +307,28 @@
     <Compile Include="pages\Crypto\FormWallets.Designer.cs">
       <DependentUpon>FormWallets.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormAccount.cs">
+    <Compile Include="pages\main\FormAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormAccount.Designer.cs">
+    <Compile Include="pages\main\FormAccount.Designer.cs">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormAddBeneficiary.cs">
+    <Compile Include="pages\main\FormAddBeneficiary.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormAddBeneficiary.Designer.cs">
+    <Compile Include="pages\main\FormAddBeneficiary.Designer.cs">
       <DependentUpon>FormAddBeneficiary.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormAdminProfile.cs">
+    <Compile Include="pages\main\FormAdminProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormAdminProfile.Designer.cs">
+    <Compile Include="pages\main\FormAdminProfile.Designer.cs">
       <DependentUpon>FormAdminProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormChangePasswordAdmin.cs">
+    <Compile Include="pages\main\FormChangePasswordAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormChangePasswordAdmin.Designer.cs">
+    <Compile Include="pages\main\FormChangePasswordAdmin.Designer.cs">
       <DependentUpon>FormChangePasswordAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\profile\FormChangeAdress.cs">
@@ -367,16 +367,16 @@
     <Compile Include="pages\profile\FormChangeLandLine.Designer.cs">
       <DependentUpon>FormChangeLandLine.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormOperation.cs">
+    <Compile Include="pages\main\FormOperation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormOperation.Designer.cs">
+    <Compile Include="pages\main\FormOperation.Designer.cs">
       <DependentUpon>FormOperation.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormOperationHistory.cs">
+    <Compile Include="pages\main\FormOperationHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormOperationHistory.Designer.cs">
+    <Compile Include="pages\main\FormOperationHistory.Designer.cs">
       <DependentUpon>FormOperationHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\profile\FormChangePhone.cs">
@@ -385,16 +385,16 @@
     <Compile Include="pages\profile\FormChangePhone.Designer.cs">
       <DependentUpon>FormChangePhone.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormTransfer.cs">
+    <Compile Include="pages\main\FormTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormTransfer.Designer.cs">
+    <Compile Include="pages\main\FormTransfer.Designer.cs">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\FormTransferHistory.cs">
+    <Compile Include="pages\main\FormTransferHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\FormTransferHistory.Designer.cs">
+    <Compile Include="pages\main\FormTransferHistory.Designer.cs">
       <DependentUpon>FormTransferHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\profile\FormProfile.cs">
@@ -429,16 +429,16 @@
     <EmbeddedResource Include="pages\Crypto\FormWallets.resx">
       <DependentUpon>FormWallets.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormAccount.resx">
+    <EmbeddedResource Include="pages\main\FormAccount.resx">
       <DependentUpon>FormAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormAddBeneficiary.resx">
+    <EmbeddedResource Include="pages\main\FormAddBeneficiary.resx">
       <DependentUpon>FormAddBeneficiary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormAdminProfile.resx">
+    <EmbeddedResource Include="pages\main\FormAdminProfile.resx">
       <DependentUpon>FormAdminProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormChangePasswordAdmin.resx">
+    <EmbeddedResource Include="pages\main\FormChangePasswordAdmin.resx">
       <DependentUpon>FormChangePasswordAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\profile\FormChangeAdress.resx">
@@ -462,16 +462,16 @@
     <EmbeddedResource Include="pages\profile\FormChangeLandLine.resx">
       <DependentUpon>FormChangeLandLine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormOperation.resx">
+    <EmbeddedResource Include="pages\main\FormOperation.resx">
       <DependentUpon>FormOperation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormOperationHistory.resx">
+    <EmbeddedResource Include="pages\main\FormOperationHistory.resx">
       <DependentUpon>FormOperationHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormTransfer.resx">
+    <EmbeddedResource Include="pages\main\FormTransfer.resx">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\FormTransferHistory.resx">
+    <EmbeddedResource Include="pages\main\FormTransferHistory.resx">
       <DependentUpon>FormTransferHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\profile\FormProfile.resx">
