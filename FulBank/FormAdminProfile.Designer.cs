@@ -1,6 +1,7 @@
-﻿namespace FulBank
+﻿
+namespace Fulbank.pages
 {
-    partial class Form1
+    partial class FormAdminProfile
     {
         /// <summary>
         /// Required designer variable.
@@ -17,7 +18,6 @@
             {
                 components.Dispose();
             }
-
             base.Dispose(disposing);
         }
 
@@ -29,10 +29,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormAdminProfile
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(653, 390);
+            this.Name = "FormAdminProfile";
+            this.Text = "FormAdminProfile";
+            this.Load += new System.EventHandler(this.FormAdminProfile_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FulBank
+namespace Fulbank.pages.Crypto
 {
-    public partial class Form1 : Form
+    public partial class FormTradeHistory : Form
     {
-        public Form1()
+        public FormTradeHistory()
         {
             InitializeComponent();
+        }
+
+        private void dgvWallets_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

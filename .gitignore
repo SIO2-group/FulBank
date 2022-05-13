@@ -10,3 +10,4 @@ obj/
 
 # Others
 /packages/
+*.user
