@@ -298,5 +298,10 @@ namespace Fulbank.pages.Crypto
         {
             HideAll();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

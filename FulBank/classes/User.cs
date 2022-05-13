@@ -34,7 +34,7 @@ namespace Fulbank.classes
             _transfers = new List<Transfer>();
             _wallets = new List<Cryptowallet>();
         }
-       
+
         public string Get_phone()
         {
             return _phone;

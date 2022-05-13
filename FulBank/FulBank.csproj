@@ -391,12 +391,6 @@
     <Compile Include="pages\FormTransfer.Designer.cs">
       <DependentUpon>FormTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\admin\FormTerminalConf.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="pages\admin\FormTerminalConf.Designer.cs">
-      <DependentUpon>FormTerminalConf.cs</DependentUpon>
-    </Compile>
     <Compile Include="pages\FormTransferHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,9 +470,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormTransfer.resx">
       <DependentUpon>FormTransfer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="pages\admin\FormTerminalConf.resx">
-      <DependentUpon>FormTerminalConf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\FormTransferHistory.resx">
       <DependentUpon>FormTransferHistory.cs</DependentUpon>

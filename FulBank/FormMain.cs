@@ -101,8 +101,11 @@ namespace FulBank
             MySqlCommand cmdGetUser = new MySqlCommand(commandTextGetUser, dbConnexion);
             cmdGetUser.Parameters.AddWithValue("id_user", _userId);
             MySqlDataReader userInfo = cmdGetUser.ExecuteReader();
-            userInfo.Read();
-            User aUser = new User(int.Parse(userInfo["P_ID"].ToString()), userInfo["P_NAME"].ToString(), userInfo["P_FIRSTNAME"].ToString(), userInfo["U_MAIL"].ToString(), userInfo["U_PHONE"].ToString(), userInfo["U_LANDLINE"].ToString(), userInfo["U_ADRESS"].ToString());
+            User aUser = new User(0, "","","","","","");
+            while (userInfo.Read())
+            {
+                aUser = new User(int.Parse(userInfo["P_ID"].ToString()), userInfo["P_NAME"].ToString(), userInfo["P_FIRSTNAME"].ToString(), userInfo["U_MAIL"].ToString(), userInfo["U_PHONE"].ToString(), userInfo["U_LANDLINE"].ToString(), userInfo["U_ADRESS"].ToString());
+            }
             dbConnexion.Close();
             #endregion
             #region user accounts load

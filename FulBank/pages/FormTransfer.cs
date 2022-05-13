@@ -97,7 +97,7 @@ namespace Fulbank.pages
                                         aBeneficiary = benef;
                                     }
                                 }
-                                if (aBeneficiary.isCreditable(int.Parse(TransferValue.Text)) == true)
+                                if (aBeneficiary.isCreditable(double.Parse(TransferValue.Text)) == true)
                                 {
                                     anAccountFrom.Debit(double.Parse(TransferValue.Text.ToString()));
                                     aBeneficiary.Credit(double.Parse(TransferValue.Text.ToString()));

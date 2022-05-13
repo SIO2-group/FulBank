@@ -7,7 +7,7 @@ namespace Fulbank.pages
 {
     public partial class FormCreateUser : Form
     {
-        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
+        static string dsnConnexion = "server=localhost;database=fulbank2;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
         static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
         // MySqlConnection dbConnexion = FormMain.getConnexion();
         private string _userId;
@@ -58,8 +58,7 @@ namespace Fulbank.pages
                                     {
                                         if (UserCreateConfirmPassword.Text == UserCreatePassword.Text)
                                         {
-                                            try
-                                            {
+
                                                 dbConnexion.Open();
 
                                                 string salt = BCrypt.Net.BCrypt.GenerateSalt();
@@ -85,11 +84,7 @@ namespace Fulbank.pages
                                                 dbConnexion.Close();
                                                 MessageBox.Show("Utilisateur entré");
 
-                                            }
-                                            catch
-                                            {
-
-                                            }
+                                            
                                         }
                                         else
                                         {
