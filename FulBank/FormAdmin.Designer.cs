@@ -30,6 +30,7 @@ namespace Fulbank
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.MenuAccount = new System.Windows.Forms.Button();
             this.MenuProfil = new System.Windows.Forms.Button();
             this.MenuTerminalConfig = new System.Windows.Forms.Button();
             this.MenuCreateAccount = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@ namespace Fulbank
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelAdmin = new System.Windows.Forms.Panel();
-            this.MenuAccount = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +55,22 @@ namespace Fulbank
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(213, 452);
             this.panelMenu.TabIndex = 1;
+            // 
+            // MenuAccount
+            // 
+            this.MenuAccount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MenuAccount.FlatAppearance.BorderSize = 0;
+            this.MenuAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MenuAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuAccount.ForeColor = System.Drawing.Color.White;
+            this.MenuAccount.Location = new System.Drawing.Point(0, 260);
+            this.MenuAccount.Name = "MenuAccount";
+            this.MenuAccount.Size = new System.Drawing.Size(213, 60);
+            this.MenuAccount.TabIndex = 8;
+            this.MenuAccount.Text = "Créer un compte bancaire";
+            this.MenuAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.MenuAccount.UseVisualStyleBackColor = true;
+            this.MenuAccount.Click += new System.EventHandler(this.MenuAccount_Click);
             // 
             // MenuProfil
             // 
@@ -152,22 +168,6 @@ namespace Fulbank
             this.panelAdmin.Size = new System.Drawing.Size(587, 372);
             this.panelAdmin.TabIndex = 3;
             this.panelAdmin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAdmin_Paint);
-            // 
-            // MenuAccount
-            // 
-            this.MenuAccount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MenuAccount.FlatAppearance.BorderSize = 0;
-            this.MenuAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MenuAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuAccount.ForeColor = System.Drawing.Color.White;
-            this.MenuAccount.Location = new System.Drawing.Point(0, 260);
-            this.MenuAccount.Name = "MenuAccount";
-            this.MenuAccount.Size = new System.Drawing.Size(213, 60);
-            this.MenuAccount.TabIndex = 8;
-            this.MenuAccount.Text = "Créer un compte bancaire";
-            this.MenuAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.MenuAccount.UseVisualStyleBackColor = true;
-            this.MenuAccount.Click += new System.EventHandler(this.MenuAccount_Click);
             // 
             // FormAdmin
             // 

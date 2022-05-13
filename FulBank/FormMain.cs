@@ -97,7 +97,7 @@ namespace FulBank
         {
             #region user initialisation
             dbConnexion.Open();
-            string commandTextGetUser = "SELECT P_ID, P_NAME, P_FIRSTNAME, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS FROM person INNER JOIN user ON person.P_ID = user.U_ID WHERE P_ID = ?id_user ";
+            string commandTextGetUser = "SELECT * FROM person INNER JOIN user ON person.P_ID = user.U_ID WHERE P_ID = ?id_user ";
             MySqlCommand cmdGetUser = new MySqlCommand(commandTextGetUser, dbConnexion);
             cmdGetUser.Parameters.AddWithValue("id_user", _userId);
             MySqlDataReader userInfo = cmdGetUser.ExecuteReader();

@@ -114,7 +114,7 @@ namespace Fulbank.pages
                             }
                             else
                             {
-                                if (anAccountTo.isCreditable(double.Parse(TransferValue.Text)))
+                                if (anAccountFrom.isCreditable(double.Parse(TransferValue.Text)))
                                 {
                                     anAccountFrom.Debit(double.Parse(TransferValue.Text));
                                     anAccountTo.Credit(double.Parse(TransferValue.Text));

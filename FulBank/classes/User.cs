@@ -55,7 +55,6 @@ namespace Fulbank.classes
             _email = value;
         }
 
-
         public string Get_homePhone()
         {
             return _landline;
