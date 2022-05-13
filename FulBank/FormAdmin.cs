@@ -14,12 +14,9 @@ namespace Fulbank
     public partial class FormAdmin : Form
     {
         private string _adminId;
-        ///<summary>dsnConnexion contains the parameters of the connection to the database
-        ///</summary>
-        public static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
         ///<summary>dbConnexion contains the connection to the database
         ///</summary>
-        public static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
+        public static MySqlConnection dbConnexion = FormMain.dbConnexion;
         ///<summary>Admin contains the admin's data
         ///</summary>
         public static Admin admin;

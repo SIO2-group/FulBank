@@ -13,8 +13,7 @@ namespace Fulbank
         {
             InitializeComponent();
         }
-        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //String de connection à la bdd
-        static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
+        static MySqlConnection dbConnexion = FormMain.dbConnexion;
 
         private void FormConnexion_Load(object sender, EventArgs e)
         {
@@ -77,6 +76,7 @@ namespace Fulbank
             if (test)
             {
                 Hide();
+                dbConnexion.Close();
                 new FormAdmin(TextUsername.Text).Show();
                 TextUsername.Clear();
                 TextPassword.Clear();
@@ -96,6 +96,7 @@ namespace Fulbank
 
                 if (testUser)
                 {
+                    dbConnexion.Close();
                     new FormMain(TextUsername.Text, this).Show();
                     Hide();
                     TextUsername.Clear();

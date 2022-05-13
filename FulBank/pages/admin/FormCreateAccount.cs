@@ -87,5 +87,10 @@ namespace Fulbank.pages
                 MessageBox.Show("Veuillez remplir tous les champs");
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
