@@ -231,9 +231,8 @@ namespace FulBank
         private Terminal TerminalLoad()
         {
             IniFile MyIni = new IniFile("Fulbank.ini");
-            Terminal thisTerminal = new Terminal(MyIni.Read("Id"), MyIni.Read("City"), MyIni.Read("Building"), MyIni.Read("Ipv4"), MyIni.Read("CP"));
+            Terminal thisTerminal = new Terminal(MyIni.Read("Id"), MyIni.Read("Address"));
             return thisTerminal;
-
         }
 
         private void MenuAccounts_Click(object sender, EventArgs e)

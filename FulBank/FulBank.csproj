@@ -319,16 +319,16 @@
     <Compile Include="pages\main\FormAddBeneficiary.Designer.cs">
       <DependentUpon>FormAddBeneficiary.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\main\FormAdminProfile.cs">
+    <Compile Include="pages\admin\FormAdminProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\main\FormAdminProfile.Designer.cs">
+    <Compile Include="pages\admin\FormAdminProfile.Designer.cs">
       <DependentUpon>FormAdminProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="pages\main\FormChangePasswordAdmin.cs">
+    <Compile Include="pages\admin\FormChangePasswordAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pages\main\FormChangePasswordAdmin.Designer.cs">
+    <Compile Include="pages\admin\FormChangePasswordAdmin.Designer.cs">
       <DependentUpon>FormChangePasswordAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\profile\FormChangeAdress.cs">
@@ -435,10 +435,10 @@
     <EmbeddedResource Include="pages\main\FormAddBeneficiary.resx">
       <DependentUpon>FormAddBeneficiary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\main\FormAdminProfile.resx">
+    <EmbeddedResource Include="pages\admin\FormAdminProfile.resx">
       <DependentUpon>FormAdminProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\main\FormChangePasswordAdmin.resx">
+    <EmbeddedResource Include="pages\admin\FormChangePasswordAdmin.resx">
       <DependentUpon>FormChangePasswordAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\profile\FormChangeAdress.resx">
