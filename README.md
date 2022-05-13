@@ -35,9 +35,9 @@ Pour la charte graphique on vous impose d'utiliser les couleurs suivantes:
 Télécharger le dossier, ouvrir la solution dans un IDE supportant C# et lancer le projet pour regénérer la solution avec tout les packages et l'exécutable.
 Dans le fichier Fulbank/bin/debug/fulbank.ini (à créer si il n'existe pas déja), écrire ceci : 
 
-[Fulbank]
-Id={id de la machine}
-Address={adresse de la machine (facultatif)}
+- [Fulbank]
+- Id={id de la machine}
+- Address={adresse de la machine (facultatif)}
 
 L'environnement de dev contient les versions 5.7.31 de Mysql et 2.4.46 d'Apache
 
