@@ -43,6 +43,8 @@ L'environnement de dev contient les versions `5.7.31 de Mysql` et `2.4.46 d'Apac
 
 Créer une base de données Mysql au nom de 'fulbank' et importer le fichier `fulbankenprod.sql` et rentrer ses coordonnées dans la ligne 22 du fichier `FulBank/FormMain.cs`
 
+Déplacez le dossier templates dans `Fulbank/Debug/bin`
+
 Si vous souhaitez utiliser plusieurs machines et que la base de données est déja installée, seulement changer la ligne de connexion.
 
 Il n'y aura qu'un utilisateur administrateur (à vous d'en créer dans la base de données si vous en voulez plusieurs en créant une entité personne et entrant son id dans la table admin). Et ses identifiants sont : `id = 1` et `mot de passe = 'M0tdeP@sse'`
