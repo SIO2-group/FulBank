@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 namespace Fulbank.classes
 {
     ///<summary>Class Account contains the account's data (id, balance, type and overdraftLimit)
-    ///the class stores the different existing account type, operation and transfers related to the account
+    ///The class stores the different account type, operation list and transfers list related to the account
     ///</summary>
     public class Account
     {
@@ -72,7 +72,7 @@ namespace Fulbank.classes
             FormMain.dbConnexion.Close();
         }
 
-        public void OperationDeposit(double value)
+        public void OperationCredit(double value)
         {
             _balance += value;
         }
@@ -123,7 +123,7 @@ namespace Fulbank.classes
         public bool isCreditable(double creditAmount)
         {
             bool result = false;
-                if ((this.Get_Balance() + creditAmount) < this.Get_AccountType().Get_Limit())
+                if ((this.Get_Balance() - creditAmount) < this.Get_AccountType().Get_Limit())
                 {
                     result = true;
                 }

@@ -30,6 +30,7 @@ namespace Fulbank.pages
         private void InitializeComponent()
         {
             this.PanelAdminCreate = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.NullMail = new System.Windows.Forms.Label();
             this.NullLandline = new System.Windows.Forms.Label();
             this.NullPhone = new System.Windows.Forms.Label();
@@ -66,6 +67,7 @@ namespace Fulbank.pages
             // PanelAdminCreate
             // 
             this.PanelAdminCreate.BackColor = System.Drawing.SystemColors.Window;
+            this.PanelAdminCreate.Controls.Add(this.label2);
             this.PanelAdminCreate.Controls.Add(this.NullMail);
             this.PanelAdminCreate.Controls.Add(this.NullLandline);
             this.PanelAdminCreate.Controls.Add(this.NullPhone);
@@ -103,12 +105,23 @@ namespace Fulbank.pages
             this.PanelAdminCreate.TabIndex = 2;
             this.PanelAdminCreate.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelAdminCreate_Paint);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(388, 311);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(269, 39);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Le mot de passe doit contenir au minimum 1 majuscule, \r\n1 minuscule, 1 chiffre et" +
+    " 1 caractère spécial \r\net doit faire au moin 6 caractères";
+            // 
             // NullMail
             // 
             this.NullMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.NullMail.AutoSize = true;
             this.NullMail.ForeColor = System.Drawing.Color.Red;
-            this.NullMail.Location = new System.Drawing.Point(392, 199);
+            this.NullMail.Location = new System.Drawing.Point(389, 199);
             this.NullMail.Name = "NullMail";
             this.NullMail.Size = new System.Drawing.Size(103, 15);
             this.NullMail.TabIndex = 33;
@@ -462,5 +475,6 @@ namespace Fulbank.pages
         private System.Windows.Forms.TextBox UserCreatePhone;
         private System.Windows.Forms.TextBox UserCreateFirstname;
         private System.Windows.Forms.TextBox UserCreateName;
+        private System.Windows.Forms.Label label2;
     }
 }

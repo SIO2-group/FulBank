@@ -14,12 +14,9 @@ namespace Fulbank
     public partial class FormAdmin : Form
     {
         private string _adminId;
-        ///<summary>dsnConnexion contains the parameters of the connection to the database
-        ///</summary>
-        public static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
         ///<summary>dbConnexion contains the connection to the database
         ///</summary>
-        public static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
+        public static MySqlConnection dbConnexion = FormMain.dbConnexion;
         ///<summary>Admin contains the admin's data
         ///</summary>
         public static Admin admin;
@@ -41,14 +38,11 @@ namespace Fulbank
             panelAdmin.Controls.Add(listFormAdmin[0]);
             listFormAdmin.Add(new FormAdminProfile() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
             panelAdmin.Controls.Add(listFormAdmin[1]);
-            listFormAdmin.Add(new FormTerminalConf() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
-            panelAdmin.Controls.Add(listFormAdmin[2]);
             listFormAdmin.Add(new FormCreateAccount() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true });
-            panelAdmin.Controls.Add(listFormAdmin[3]);
+            panelAdmin.Controls.Add(listFormAdmin[2]);
             listFormAdmin[0].Show();
             listFormAdmin[1].Show();
             listFormAdmin[2].Show();
-            listFormAdmin[3].Show();
         }
 
         private void LoadAdminData()
@@ -100,15 +94,9 @@ namespace Fulbank
 
         }
 
-        private void MenuTerminalConfig_Click(object sender, EventArgs e)
-        {
-            listFormAdmin[2].BringToFront();
-
-        }
-
         private void MenuAccount_Click(object sender, EventArgs e)
         {
-            listFormAdmin[3].BringToFront();
+            listFormAdmin[2].BringToFront();
         }
     }
 }

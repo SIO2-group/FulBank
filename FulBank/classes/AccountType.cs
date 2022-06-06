@@ -1,7 +1,7 @@
 ﻿namespace Fulbank.classes
 {
-    ///<summary>Class AccountType contains the accounttype's data (id, label, interest and cell)
-    ///the class stores the different existing account type, operation and transfers related to the account
+    ///<summary>Class AccountType contains the account type's data (id, label, interest and cell)
+    ///The class stores the different existing account type
     ///</summary>
     public class AccountType
     {

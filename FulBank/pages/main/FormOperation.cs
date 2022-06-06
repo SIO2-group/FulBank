@@ -115,7 +115,7 @@ namespace Fulbank.pages
                 cmdtestDeposit.Parameters.AddWithValue("id_user", FormMain.user.Get_Id());
                 cmdtestDeposit.Parameters.AddWithValue("resultat", result.ToString().Replace(",", "."));
                 MySqlDataReader drDeposit = cmdtestDeposit.ExecuteReader();
-                cheque.OperationDeposit(amount);
+                cheque.OperationCredit(amount);
 
                 FormMain.dbConnexion.Close();
                 string terminalId = FormMain.thisTerminal.getId();

@@ -51,7 +51,7 @@ namespace Fulbank.classes
             string commandText = "UPDATE `account` SET `A_BALANCE` = `A_BALANCE` - " + _amount + " WHERE `A_ID` = " + _accountFrom.Get_Id();
             MySqlCommand cmd = new MySqlCommand(commandText, FormMain.dbConnexion);
             cmd.ExecuteNonQuery();
-            _accountTo.OperationDeposit(_amount);
+            _accountTo.OperationCredit(_amount);
 
             //update of the accountTo data after the transaction
             string commandText2 = "UPDATE `account` SET `A_BALANCE` = `A_BALANCE` + " + _amount + " WHERE `A_ID` = " + _accountTo.Get_Id();

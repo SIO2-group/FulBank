@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using FulBank;
+using MySql.Data.MySqlClient;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -7,8 +8,7 @@ namespace Fulbank.pages
 {
     public partial class FormCreateUser : Form
     {
-        static string dsnConnexion = "server=localhost;database=fulbank;uid=root;password='';SSL MODE='None'"; //préparation pour la connection à la bdd
-        static MySqlConnection dbConnexion = new MySqlConnection(dsnConnexion);
+        static MySqlConnection dbConnexion = FormMain.dbConnexion;
         // MySqlConnection dbConnexion = FormMain.getConnexion();
         private string _userId;
         public FormCreateUser(string aUserId)
@@ -71,8 +71,7 @@ namespace Fulbank.pages
                                                 cmdInsertPerson.Parameters.AddWithValue("firstname", UserCreateFirstname.Text);
                                                 cmdInsertPerson.Parameters.AddWithValue("password", password);
                                                 cmdInsertPerson.ExecuteNonQuery();
-                                                //add user
-                                                string insertUserQuery = "INSERT INTO user(U_ID, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS) VALUES((SELECT P_ID FROM PERSON WHERE P_NAME =?name AND P_FIRSTNAME=?firstname AND P_PASSWORD=?password),?phone,?landline,?mail,?adress )";
+                                                string insertUserQuery = "INSERT INTO user(U_ID, U_PHONE, U_LANDLINE, U_MAIL, U_ADRESS) VALUES((SELECT P_ID FROM PERSON WHERE P_NAME =?name AND P_FIRSTNAME=?firstname AND P_PASSWORD=?password),?phone,?landline,?mail,?adress); SELECT LAST_INSERT_ID()";
                                                 MySqlCommand cmdInsertUser = new MySqlCommand(insertUserQuery, dbConnexion);
                                                 cmdInsertUser.Parameters.AddWithValue("name", UserCreateName.Text);
                                                 cmdInsertUser.Parameters.AddWithValue("firstname", UserCreateFirstname.Text);
@@ -81,15 +80,15 @@ namespace Fulbank.pages
                                                 cmdInsertUser.Parameters.AddWithValue("landline", UserCreateLandline.Text);
                                                 cmdInsertUser.Parameters.AddWithValue("mail", UserCreateMail.Text);
                                                 cmdInsertUser.Parameters.AddWithValue("adress", UserCreateAdress.Text);
-                                                cmdInsertUser.ExecuteNonQuery();
+                                                string id = cmdInsertUser.ExecuteScalar().ToString();
                                                 dbConnexion.Close();
-                                                MessageBox.Show("Utilisateur entré");
-
+                                                MessageBox.Show("Utilisateur entré avec l'identifiant :" + id);
                                             }
                                             catch
                                             {
-
+                                                MessageBox.Show("Erreur à l'insertion de l'utilisateur");
                                             }
+
                                         }
                                         else
                                         {

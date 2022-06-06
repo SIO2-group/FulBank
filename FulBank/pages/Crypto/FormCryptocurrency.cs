@@ -39,13 +39,13 @@ namespace Fulbank.pages.Crypto
 
         public void CryptoLoad()
         {
-            WebRequest request = HttpWebRequest.Create("https://api.coinlore.net/api/tickers/?start=0"); // &limit=25
+            WebRequest request = HttpWebRequest.Create("https://api.coinlore.net/api/tickers/?limit=500"); // &limit=25
             WebResponse response = request.GetResponse();
 
             StreamReader reader = new StreamReader(response.GetResponseStream());
 
             string btc_json = reader.ReadToEnd();
-            Cryptocurrencies = JsonConvert.DeserializeObject<Root>(btc_json);
+            Cryptocurrencies = JsonConvert.DeserializeObject<Root>(btc_json.Replace("null", "0.00"));
             cryptos = Cryptocurrencies.getCrypto();
             //path of the crypto api
             foreach (Cryptocurrency crypto in Cryptocurrencies.data)
@@ -297,6 +297,11 @@ namespace Fulbank.pages.Crypto
         private void DollarBtn_Click(object sender, EventArgs e)
         {
             HideAll();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
